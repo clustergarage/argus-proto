@@ -9,7 +9,7 @@ package api;
 //}
 
 enum FimWatcherConditionType {
-  UNKNOWN = 0;
+  UNKOWN = 0;
   SUBJECT_FAILURE = 1;
 }
 
