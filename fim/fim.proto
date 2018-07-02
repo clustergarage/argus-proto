@@ -1,12 +1,12 @@
 syntax = "proto3";
 
-package api;
+package fim;
 
 //import "k8s.io/apimachinery/pkg/apis/meta/v1/generated.proto";
 
-//service FimWatcher {
-//  rpc NewWatcher(WatcherConfig) returns (WatchHandle) {}
-//}
+service Fimd {
+  rpc NewWatcher(FimWatcher) returns (FimWatcherStatus) {}
+}
 
 enum FimWatcherConditionType {
   UNKOWN = 0;
