@@ -3,7 +3,7 @@ syntax = "proto3";
 package fim;
 
 service Fimd {
-  rpc NewWatch(FimdConfig) returns (FimdHandler) {}
+  rpc NewWatch(FimdConfig) returns (FimdHandle) {}
 }
 
 message FimdConfig {
@@ -16,6 +16,6 @@ message FimWatcherSubject {
   repeated string events = 2;
 }
 
-message FimdHandler {
+message FimdHandle {
   int32 id = 1;
 }
