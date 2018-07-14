@@ -3,7 +3,8 @@ syntax = "proto3";
 package fim;
 
 service Fimd {
-  rpc NewWatch(FimdConfig) returns (FimdHandle) {}
+  rpc CreateWatch(FimdConfig) returns (FimdHandle) {}
+  rpc DestroyWatch(FimdConfig) returns (FimdHandle) {}
 }
 
 message FimdConfig {

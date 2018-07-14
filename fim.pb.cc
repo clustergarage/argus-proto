@@ -163,11 +163,13 @@ void AddDescriptorsImpl() {
       "nerId\030\001 \001(\t\022(\n\010subjects\030\002 \003(\0132\026.fim.FimW"
       "atcherSubject\"2\n\021FimWatcherSubject\022\r\n\005pa"
       "ths\030\001 \003(\t\022\016\n\006events\030\002 \003(\t\"\030\n\nFimdHandle\022"
-      "\n\n\002id\030\001 \001(\00526\n\004Fimd\022.\n\010NewWatch\022\017.fim.Fi"
-      "mdConfig\032\017.fim.FimdHandle\"\000b\006proto3"
+      "\n\n\002id\030\001 \001(\0052m\n\004Fimd\0221\n\013CreateWatch\022\017.fim"
+      ".FimdConfig\032\017.fim.FimdHandle\"\000\0222\n\014Destro"
+      "yWatch\022\017.fim.FimdConfig\032\017.fim.FimdHandle"
+      "\"\000b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 235);
+      descriptor, 290);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fim.proto", &protobuf_RegisterTypes);
 }

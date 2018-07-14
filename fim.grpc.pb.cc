@@ -16,7 +16,8 @@
 namespace fim {
 
 static const char* Fimd_method_names[] = {
-  "/fim.Fimd/NewWatch",
+  "/fim.Fimd/CreateWatch",
+  "/fim.Fimd/DestroyWatch",
 };
 
 std::unique_ptr< Fimd::Stub> Fimd::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -26,19 +27,32 @@ std::unique_ptr< Fimd::Stub> Fimd::NewStub(const std::shared_ptr< ::grpc::Channe
 }
 
 Fimd::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_NewWatch_(Fimd_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  : channel_(channel), rpcmethod_CreateWatch_(Fimd_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_DestroyWatch_(Fimd_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status Fimd::Stub::NewWatch(::grpc::ClientContext* context, const ::fim::FimdConfig& request, ::fim::FimdHandle* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_NewWatch_, context, request, response);
+::grpc::Status Fimd::Stub::CreateWatch(::grpc::ClientContext* context, const ::fim::FimdConfig& request, ::fim::FimdHandle* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_CreateWatch_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::fim::FimdHandle>* Fimd::Stub::AsyncNewWatchRaw(::grpc::ClientContext* context, const ::fim::FimdConfig& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::fim::FimdHandle>::Create(channel_.get(), cq, rpcmethod_NewWatch_, context, request, true);
+::grpc::ClientAsyncResponseReader< ::fim::FimdHandle>* Fimd::Stub::AsyncCreateWatchRaw(::grpc::ClientContext* context, const ::fim::FimdConfig& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::fim::FimdHandle>::Create(channel_.get(), cq, rpcmethod_CreateWatch_, context, request, true);
 }
 
-::grpc::ClientAsyncResponseReader< ::fim::FimdHandle>* Fimd::Stub::PrepareAsyncNewWatchRaw(::grpc::ClientContext* context, const ::fim::FimdConfig& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::fim::FimdHandle>::Create(channel_.get(), cq, rpcmethod_NewWatch_, context, request, false);
+::grpc::ClientAsyncResponseReader< ::fim::FimdHandle>* Fimd::Stub::PrepareAsyncCreateWatchRaw(::grpc::ClientContext* context, const ::fim::FimdConfig& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::fim::FimdHandle>::Create(channel_.get(), cq, rpcmethod_CreateWatch_, context, request, false);
+}
+
+::grpc::Status Fimd::Stub::DestroyWatch(::grpc::ClientContext* context, const ::fim::FimdConfig& request, ::fim::FimdHandle* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_DestroyWatch_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::fim::FimdHandle>* Fimd::Stub::AsyncDestroyWatchRaw(::grpc::ClientContext* context, const ::fim::FimdConfig& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::fim::FimdHandle>::Create(channel_.get(), cq, rpcmethod_DestroyWatch_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::fim::FimdHandle>* Fimd::Stub::PrepareAsyncDestroyWatchRaw(::grpc::ClientContext* context, const ::fim::FimdConfig& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::fim::FimdHandle>::Create(channel_.get(), cq, rpcmethod_DestroyWatch_, context, request, false);
 }
 
 Fimd::Service::Service() {
@@ -46,13 +60,25 @@ Fimd::Service::Service() {
       Fimd_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Fimd::Service, ::fim::FimdConfig, ::fim::FimdHandle>(
-          std::mem_fn(&Fimd::Service::NewWatch), this)));
+          std::mem_fn(&Fimd::Service::CreateWatch), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Fimd_method_names[1],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Fimd::Service, ::fim::FimdConfig, ::fim::FimdHandle>(
+          std::mem_fn(&Fimd::Service::DestroyWatch), this)));
 }
 
 Fimd::Service::~Service() {
 }
 
-::grpc::Status Fimd::Service::NewWatch(::grpc::ServerContext* context, const ::fim::FimdConfig* request, ::fim::FimdHandle* response) {
+::grpc::Status Fimd::Service::CreateWatch(::grpc::ServerContext* context, const ::fim::FimdConfig* request, ::fim::FimdHandle* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Fimd::Service::DestroyWatch(::grpc::ServerContext* context, const ::fim::FimdConfig* request, ::fim::FimdHandle* response) {
   (void) context;
   (void) request;
   (void) response;

@@ -7,7 +7,8 @@
 protoc -I. fim.proto --go_out=plugins=grpc:.
 
 # build c++ definitions
-make fim.grpc.pb.cc fim.pb.cc
+protoc -I. fim.proto --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin`
+protoc -I. fim.proto --cpp_out=.
 ```
 
 ### Generates
