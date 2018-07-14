@@ -4,11 +4,11 @@
 
 ```
 # build golang definitions
-protoc -I. fim.proto --go_out=plugins=grpc:.
+protoc -I. fim.proto --go_out=plugins=grpc:golang
 
 # build c++ definitions
-protoc -I. fim.proto --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin`
-protoc -I. fim.proto --cpp_out=.
+protoc -I. fim.proto --grpc_out=c++ --plugin=protoc-gen-grpc=`which grpc_cpp_plugin`
+protoc -I. fim.proto --cpp_out=c++
 ```
 
 ### Generates
