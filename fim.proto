@@ -9,16 +9,16 @@ service Fimd {
 
 message FimdConfig {
   string containerId = 1;
-  repeated FimWatcherSubject subjects = 2;
+  repeated FimWatcherSubject subject = 2;
 }
 
 message FimWatcherSubject {
-  repeated string paths = 1;
-  repeated string events = 2;
+  repeated string path = 1;
+  repeated string event = 2;
 }
 
 message FimdHandle {
   string hostUid = 1;
-  repeated int32 pids = 2;
-  repeated int32 processEventfds = 3;
+  repeated int32 pid = 2;
+  repeated int32 processEventfd = 3;
 }

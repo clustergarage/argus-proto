@@ -110,22 +110,22 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdConfig, containerid_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdConfig, subjects_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdConfig, subject_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimWatcherSubject, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimWatcherSubject, paths_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimWatcherSubject, events_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimWatcherSubject, path_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimWatcherSubject, event_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdHandle, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdHandle, hostuid_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdHandle, pids_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdHandle, processeventfds_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdHandle, pid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdHandle, processeventfd_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::fim::FimdConfig)},
@@ -161,18 +161,18 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\tfim.proto\022\003fim\"K\n\nFimdConfig\022\023\n\013contai"
-      "nerId\030\001 \001(\t\022(\n\010subjects\030\002 \003(\0132\026.fim.FimW"
-      "atcherSubject\"2\n\021FimWatcherSubject\022\r\n\005pa"
-      "ths\030\001 \003(\t\022\016\n\006events\030\002 \003(\t\"D\n\nFimdHandle\022"
-      "\017\n\007hostUid\030\001 \001(\t\022\014\n\004pids\030\002 \003(\005\022\027\n\017proces"
-      "sEventfds\030\003 \003(\0052m\n\004Fimd\0221\n\013CreateWatch\022\017"
-      ".fim.FimdConfig\032\017.fim.FimdHandle\"\000\0222\n\014De"
-      "stroyWatch\022\017.fim.FimdConfig\032\017.fim.FimdHa"
-      "ndle\"\000b\006proto3"
+      "\n\tfim.proto\022\003fim\"J\n\nFimdConfig\022\023\n\013contai"
+      "nerId\030\001 \001(\t\022\'\n\007subject\030\002 \003(\0132\026.fim.FimWa"
+      "tcherSubject\"0\n\021FimWatcherSubject\022\014\n\004pat"
+      "h\030\001 \003(\t\022\r\n\005event\030\002 \003(\t\"B\n\nFimdHandle\022\017\n\007"
+      "hostUid\030\001 \001(\t\022\013\n\003pid\030\002 \003(\005\022\026\n\016processEve"
+      "ntfd\030\003 \003(\0052m\n\004Fimd\0221\n\013CreateWatch\022\017.fim."
+      "FimdConfig\032\017.fim.FimdHandle\"\000\0222\n\014Destroy"
+      "Watch\022\017.fim.FimdConfig\032\017.fim.FimdHandle\""
+      "\000b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 334);
+      descriptor, 329);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fim.proto", &protobuf_RegisterTypes);
 }
@@ -196,7 +196,7 @@ void FimdConfig::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int FimdConfig::kContainerIdFieldNumber;
-const int FimdConfig::kSubjectsFieldNumber;
+const int FimdConfig::kSubjectFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 FimdConfig::FimdConfig()
@@ -210,7 +210,7 @@ FimdConfig::FimdConfig()
 FimdConfig::FimdConfig(const FimdConfig& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
-      subjects_(from.subjects_),
+      subject_(from.subject_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   containerid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -263,7 +263,7 @@ void FimdConfig::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  subjects_.Clear();
+  subject_.Clear();
   containerid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _internal_metadata_.Clear();
 }
@@ -294,11 +294,11 @@ bool FimdConfig::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .fim.FimWatcherSubject subjects = 2;
+      // repeated .fim.FimWatcherSubject subject = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(input, add_subjects()));
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(input, add_subject()));
         } else {
           goto handle_unusual;
         }
@@ -341,11 +341,11 @@ void FimdConfig::SerializeWithCachedSizes(
       1, this->containerid(), output);
   }
 
-  // repeated .fim.FimWatcherSubject subjects = 2;
+  // repeated .fim.FimWatcherSubject subject = 2;
   for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->subjects_size()); i < n; i++) {
+      n = static_cast<unsigned int>(this->subject_size()); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->subjects(static_cast<int>(i)), output);
+      2, this->subject(static_cast<int>(i)), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -373,12 +373,12 @@ void FimdConfig::SerializeWithCachedSizes(
         1, this->containerid(), target);
   }
 
-  // repeated .fim.FimWatcherSubject subjects = 2;
+  // repeated .fim.FimWatcherSubject subject = 2;
   for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->subjects_size()); i < n; i++) {
+      n = static_cast<unsigned int>(this->subject_size()); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        2, this->subjects(static_cast<int>(i)), deterministic, target);
+        2, this->subject(static_cast<int>(i)), deterministic, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -398,14 +398,14 @@ size_t FimdConfig::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // repeated .fim.FimWatcherSubject subjects = 2;
+  // repeated .fim.FimWatcherSubject subject = 2;
   {
-    unsigned int count = static_cast<unsigned int>(this->subjects_size());
+    unsigned int count = static_cast<unsigned int>(this->subject_size());
     total_size += 1UL * count;
     for (unsigned int i = 0; i < count; i++) {
       total_size +=
         ::google::protobuf::internal::WireFormatLite::MessageSize(
-          this->subjects(static_cast<int>(i)));
+          this->subject(static_cast<int>(i)));
     }
   }
 
@@ -445,7 +445,7 @@ void FimdConfig::MergeFrom(const FimdConfig& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  subjects_.MergeFrom(from.subjects_);
+  subject_.MergeFrom(from.subject_);
   if (from.containerid().size() > 0) {
 
     containerid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.containerid_);
@@ -476,7 +476,7 @@ void FimdConfig::Swap(FimdConfig* other) {
 }
 void FimdConfig::InternalSwap(FimdConfig* other) {
   using std::swap;
-  subjects_.InternalSwap(&other->subjects_);
+  subject_.InternalSwap(&other->subject_);
   containerid_.Swap(&other->containerid_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
@@ -493,8 +493,8 @@ void FimdConfig::InternalSwap(FimdConfig* other) {
 void FimWatcherSubject::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int FimWatcherSubject::kPathsFieldNumber;
-const int FimWatcherSubject::kEventsFieldNumber;
+const int FimWatcherSubject::kPathFieldNumber;
+const int FimWatcherSubject::kEventFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 FimWatcherSubject::FimWatcherSubject()
@@ -508,8 +508,8 @@ FimWatcherSubject::FimWatcherSubject()
 FimWatcherSubject::FimWatcherSubject(const FimWatcherSubject& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
-      paths_(from.paths_),
-      events_(from.events_),
+      path_(from.path_),
+      event_(from.event_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:fim.FimWatcherSubject)
@@ -556,8 +556,8 @@ void FimWatcherSubject::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  paths_.Clear();
-  events_.Clear();
+  path_.Clear();
+  event_.Clear();
   _internal_metadata_.Clear();
 }
 
@@ -571,34 +571,34 @@ bool FimWatcherSubject::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated string paths = 1;
+      // repeated string path = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->add_paths()));
+                input, this->add_path()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->paths(this->paths_size() - 1).data(),
-            static_cast<int>(this->paths(this->paths_size() - 1).length()),
+            this->path(this->path_size() - 1).data(),
+            static_cast<int>(this->path(this->path_size() - 1).length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "fim.FimWatcherSubject.paths"));
+            "fim.FimWatcherSubject.path"));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // repeated string events = 2;
+      // repeated string event = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->add_events()));
+                input, this->add_event()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->events(this->events_size() - 1).data(),
-            static_cast<int>(this->events(this->events_size() - 1).length()),
+            this->event(this->event_size() - 1).data(),
+            static_cast<int>(this->event(this->event_size() - 1).length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "fim.FimWatcherSubject.events"));
+            "fim.FimWatcherSubject.event"));
         } else {
           goto handle_unusual;
         }
@@ -631,24 +631,24 @@ void FimWatcherSubject::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated string paths = 1;
-  for (int i = 0, n = this->paths_size(); i < n; i++) {
+  // repeated string path = 1;
+  for (int i = 0, n = this->path_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->paths(i).data(), static_cast<int>(this->paths(i).length()),
+      this->path(i).data(), static_cast<int>(this->path(i).length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "fim.FimWatcherSubject.paths");
+      "fim.FimWatcherSubject.path");
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      1, this->paths(i), output);
+      1, this->path(i), output);
   }
 
-  // repeated string events = 2;
-  for (int i = 0, n = this->events_size(); i < n; i++) {
+  // repeated string event = 2;
+  for (int i = 0, n = this->event_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->events(i).data(), static_cast<int>(this->events(i).length()),
+      this->event(i).data(), static_cast<int>(this->event(i).length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "fim.FimWatcherSubject.events");
+      "fim.FimWatcherSubject.event");
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      2, this->events(i), output);
+      2, this->event(i), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -665,24 +665,24 @@ void FimWatcherSubject::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated string paths = 1;
-  for (int i = 0, n = this->paths_size(); i < n; i++) {
+  // repeated string path = 1;
+  for (int i = 0, n = this->path_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->paths(i).data(), static_cast<int>(this->paths(i).length()),
+      this->path(i).data(), static_cast<int>(this->path(i).length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "fim.FimWatcherSubject.paths");
+      "fim.FimWatcherSubject.path");
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteStringToArray(1, this->paths(i), target);
+      WriteStringToArray(1, this->path(i), target);
   }
 
-  // repeated string events = 2;
-  for (int i = 0, n = this->events_size(); i < n; i++) {
+  // repeated string event = 2;
+  for (int i = 0, n = this->event_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->events(i).data(), static_cast<int>(this->events(i).length()),
+      this->event(i).data(), static_cast<int>(this->event(i).length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "fim.FimWatcherSubject.events");
+      "fim.FimWatcherSubject.event");
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteStringToArray(2, this->events(i), target);
+      WriteStringToArray(2, this->event(i), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -702,20 +702,20 @@ size_t FimWatcherSubject::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // repeated string paths = 1;
+  // repeated string path = 1;
   total_size += 1 *
-      ::google::protobuf::internal::FromIntSize(this->paths_size());
-  for (int i = 0, n = this->paths_size(); i < n; i++) {
+      ::google::protobuf::internal::FromIntSize(this->path_size());
+  for (int i = 0, n = this->path_size(); i < n; i++) {
     total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
-      this->paths(i));
+      this->path(i));
   }
 
-  // repeated string events = 2;
+  // repeated string event = 2;
   total_size += 1 *
-      ::google::protobuf::internal::FromIntSize(this->events_size());
-  for (int i = 0, n = this->events_size(); i < n; i++) {
+      ::google::protobuf::internal::FromIntSize(this->event_size());
+  for (int i = 0, n = this->event_size(); i < n; i++) {
     total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
-      this->events(i));
+      this->event(i));
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -747,8 +747,8 @@ void FimWatcherSubject::MergeFrom(const FimWatcherSubject& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  paths_.MergeFrom(from.paths_);
-  events_.MergeFrom(from.events_);
+  path_.MergeFrom(from.path_);
+  event_.MergeFrom(from.event_);
 }
 
 void FimWatcherSubject::CopyFrom(const ::google::protobuf::Message& from) {
@@ -775,8 +775,8 @@ void FimWatcherSubject::Swap(FimWatcherSubject* other) {
 }
 void FimWatcherSubject::InternalSwap(FimWatcherSubject* other) {
   using std::swap;
-  paths_.InternalSwap(&other->paths_);
-  events_.InternalSwap(&other->events_);
+  path_.InternalSwap(&other->path_);
+  event_.InternalSwap(&other->event_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
@@ -793,8 +793,8 @@ void FimdHandle::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int FimdHandle::kHostUidFieldNumber;
-const int FimdHandle::kPidsFieldNumber;
-const int FimdHandle::kProcessEventfdsFieldNumber;
+const int FimdHandle::kPidFieldNumber;
+const int FimdHandle::kProcessEventfdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 FimdHandle::FimdHandle()
@@ -808,8 +808,8 @@ FimdHandle::FimdHandle()
 FimdHandle::FimdHandle(const FimdHandle& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
-      pids_(from.pids_),
-      processeventfds_(from.processeventfds_),
+      pid_(from.pid_),
+      processeventfd_(from.processeventfd_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   hostuid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -862,8 +862,8 @@ void FimdHandle::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  pids_.Clear();
-  processeventfds_.Clear();
+  pid_.Clear();
+  processeventfd_.Clear();
   hostuid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _internal_metadata_.Clear();
 }
@@ -894,38 +894,38 @@ bool FimdHandle::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated int32 pids = 2;
+      // repeated int32 pid = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, this->mutable_pids())));
+                 input, this->mutable_pid())));
         } else if (
             static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 18u, input, this->mutable_pids())));
+                 1, 18u, input, this->mutable_pid())));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // repeated int32 processEventfds = 3;
+      // repeated int32 processEventfd = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, this->mutable_processeventfds())));
+                 input, this->mutable_processeventfd())));
         } else if (
             static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 26u, input, this->mutable_processeventfds())));
+                 1, 26u, input, this->mutable_processeventfd())));
         } else {
           goto handle_unusual;
         }
@@ -968,26 +968,26 @@ void FimdHandle::SerializeWithCachedSizes(
       1, this->hostuid(), output);
   }
 
-  // repeated int32 pids = 2;
-  if (this->pids_size() > 0) {
+  // repeated int32 pid = 2;
+  if (this->pid_size() > 0) {
     ::google::protobuf::internal::WireFormatLite::WriteTag(2, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
     output->WriteVarint32(static_cast< ::google::protobuf::uint32>(
-        _pids_cached_byte_size_));
+        _pid_cached_byte_size_));
   }
-  for (int i = 0, n = this->pids_size(); i < n; i++) {
+  for (int i = 0, n = this->pid_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
-      this->pids(i), output);
+      this->pid(i), output);
   }
 
-  // repeated int32 processEventfds = 3;
-  if (this->processeventfds_size() > 0) {
+  // repeated int32 processEventfd = 3;
+  if (this->processeventfd_size() > 0) {
     ::google::protobuf::internal::WireFormatLite::WriteTag(3, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
     output->WriteVarint32(static_cast< ::google::protobuf::uint32>(
-        _processeventfds_cached_byte_size_));
+        _processeventfd_cached_byte_size_));
   }
-  for (int i = 0, n = this->processeventfds_size(); i < n; i++) {
+  for (int i = 0, n = this->processeventfd_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
-      this->processeventfds(i), output);
+      this->processeventfd(i), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1015,30 +1015,30 @@ void FimdHandle::SerializeWithCachedSizes(
         1, this->hostuid(), target);
   }
 
-  // repeated int32 pids = 2;
-  if (this->pids_size() > 0) {
+  // repeated int32 pid = 2;
+  if (this->pid_size() > 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
       2,
       ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
       target);
     target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
         static_cast< ::google::protobuf::int32>(
-            _pids_cached_byte_size_), target);
+            _pid_cached_byte_size_), target);
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32NoTagToArray(this->pids_, target);
+      WriteInt32NoTagToArray(this->pid_, target);
   }
 
-  // repeated int32 processEventfds = 3;
-  if (this->processeventfds_size() > 0) {
+  // repeated int32 processEventfd = 3;
+  if (this->processeventfd_size() > 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
       3,
       ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
       target);
     target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
         static_cast< ::google::protobuf::int32>(
-            _processeventfds_cached_byte_size_), target);
+            _processeventfd_cached_byte_size_), target);
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32NoTagToArray(this->processeventfds_, target);
+      WriteInt32NoTagToArray(this->processeventfd_, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1058,10 +1058,10 @@ size_t FimdHandle::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // repeated int32 pids = 2;
+  // repeated int32 pid = 2;
   {
     size_t data_size = ::google::protobuf::internal::WireFormatLite::
-      Int32Size(this->pids_);
+      Int32Size(this->pid_);
     if (data_size > 0) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1069,15 +1069,15 @@ size_t FimdHandle::ByteSizeLong() const {
     }
     int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
     GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-    _pids_cached_byte_size_ = cached_size;
+    _pid_cached_byte_size_ = cached_size;
     GOOGLE_SAFE_CONCURRENT_WRITES_END();
     total_size += data_size;
   }
 
-  // repeated int32 processEventfds = 3;
+  // repeated int32 processEventfd = 3;
   {
     size_t data_size = ::google::protobuf::internal::WireFormatLite::
-      Int32Size(this->processeventfds_);
+      Int32Size(this->processeventfd_);
     if (data_size > 0) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1085,7 +1085,7 @@ size_t FimdHandle::ByteSizeLong() const {
     }
     int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
     GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-    _processeventfds_cached_byte_size_ = cached_size;
+    _processeventfd_cached_byte_size_ = cached_size;
     GOOGLE_SAFE_CONCURRENT_WRITES_END();
     total_size += data_size;
   }
@@ -1126,8 +1126,8 @@ void FimdHandle::MergeFrom(const FimdHandle& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  pids_.MergeFrom(from.pids_);
-  processeventfds_.MergeFrom(from.processeventfds_);
+  pid_.MergeFrom(from.pid_);
+  processeventfd_.MergeFrom(from.processeventfd_);
   if (from.hostuid().size() > 0) {
 
     hostuid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.hostuid_);
@@ -1158,8 +1158,8 @@ void FimdHandle::Swap(FimdHandle* other) {
 }
 void FimdHandle::InternalSwap(FimdHandle* other) {
   using std::swap;
-  pids_.InternalSwap(&other->pids_);
-  processeventfds_.InternalSwap(&other->processeventfds_);
+  pid_.InternalSwap(&other->pid_);
+  processeventfd_.InternalSwap(&other->processeventfd_);
   hostuid_.Swap(&other->hostuid_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);

@@ -151,17 +151,17 @@ class FimdConfig : public ::google::protobuf::Message /* @@protoc_insertion_poin
 
   // accessors -------------------------------------------------------
 
-  // repeated .fim.FimWatcherSubject subjects = 2;
-  int subjects_size() const;
-  void clear_subjects();
-  static const int kSubjectsFieldNumber = 2;
-  const ::fim::FimWatcherSubject& subjects(int index) const;
-  ::fim::FimWatcherSubject* mutable_subjects(int index);
-  ::fim::FimWatcherSubject* add_subjects();
+  // repeated .fim.FimWatcherSubject subject = 2;
+  int subject_size() const;
+  void clear_subject();
+  static const int kSubjectFieldNumber = 2;
+  const ::fim::FimWatcherSubject& subject(int index) const;
+  ::fim::FimWatcherSubject* mutable_subject(int index);
+  ::fim::FimWatcherSubject* add_subject();
   ::google::protobuf::RepeatedPtrField< ::fim::FimWatcherSubject >*
-      mutable_subjects();
+      mutable_subject();
   const ::google::protobuf::RepeatedPtrField< ::fim::FimWatcherSubject >&
-      subjects() const;
+      subject() const;
 
   // string containerId = 1;
   void clear_containerid();
@@ -181,7 +181,7 @@ class FimdConfig : public ::google::protobuf::Message /* @@protoc_insertion_poin
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::fim::FimWatcherSubject > subjects_;
+  ::google::protobuf::RepeatedPtrField< ::fim::FimWatcherSubject > subject_;
   ::google::protobuf::internal::ArenaStringPtr containerid_;
   mutable int _cached_size_;
   friend struct ::protobuf_fim_2eproto::TableStruct;
@@ -271,56 +271,56 @@ class FimWatcherSubject : public ::google::protobuf::Message /* @@protoc_inserti
 
   // accessors -------------------------------------------------------
 
-  // repeated string paths = 1;
-  int paths_size() const;
-  void clear_paths();
-  static const int kPathsFieldNumber = 1;
-  const ::std::string& paths(int index) const;
-  ::std::string* mutable_paths(int index);
-  void set_paths(int index, const ::std::string& value);
+  // repeated string path = 1;
+  int path_size() const;
+  void clear_path();
+  static const int kPathFieldNumber = 1;
+  const ::std::string& path(int index) const;
+  ::std::string* mutable_path(int index);
+  void set_path(int index, const ::std::string& value);
   #if LANG_CXX11
-  void set_paths(int index, ::std::string&& value);
+  void set_path(int index, ::std::string&& value);
   #endif
-  void set_paths(int index, const char* value);
-  void set_paths(int index, const char* value, size_t size);
-  ::std::string* add_paths();
-  void add_paths(const ::std::string& value);
+  void set_path(int index, const char* value);
+  void set_path(int index, const char* value, size_t size);
+  ::std::string* add_path();
+  void add_path(const ::std::string& value);
   #if LANG_CXX11
-  void add_paths(::std::string&& value);
+  void add_path(::std::string&& value);
   #endif
-  void add_paths(const char* value);
-  void add_paths(const char* value, size_t size);
-  const ::google::protobuf::RepeatedPtrField< ::std::string>& paths() const;
-  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_paths();
+  void add_path(const char* value);
+  void add_path(const char* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField< ::std::string>& path() const;
+  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_path();
 
-  // repeated string events = 2;
-  int events_size() const;
-  void clear_events();
-  static const int kEventsFieldNumber = 2;
-  const ::std::string& events(int index) const;
-  ::std::string* mutable_events(int index);
-  void set_events(int index, const ::std::string& value);
+  // repeated string event = 2;
+  int event_size() const;
+  void clear_event();
+  static const int kEventFieldNumber = 2;
+  const ::std::string& event(int index) const;
+  ::std::string* mutable_event(int index);
+  void set_event(int index, const ::std::string& value);
   #if LANG_CXX11
-  void set_events(int index, ::std::string&& value);
+  void set_event(int index, ::std::string&& value);
   #endif
-  void set_events(int index, const char* value);
-  void set_events(int index, const char* value, size_t size);
-  ::std::string* add_events();
-  void add_events(const ::std::string& value);
+  void set_event(int index, const char* value);
+  void set_event(int index, const char* value, size_t size);
+  ::std::string* add_event();
+  void add_event(const ::std::string& value);
   #if LANG_CXX11
-  void add_events(::std::string&& value);
+  void add_event(::std::string&& value);
   #endif
-  void add_events(const char* value);
-  void add_events(const char* value, size_t size);
-  const ::google::protobuf::RepeatedPtrField< ::std::string>& events() const;
-  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_events();
+  void add_event(const char* value);
+  void add_event(const char* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField< ::std::string>& event() const;
+  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_event();
 
   // @@protoc_insertion_point(class_scope:fim.FimWatcherSubject)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> paths_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> events_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> path_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> event_;
   mutable int _cached_size_;
   friend struct ::protobuf_fim_2eproto::TableStruct;
   friend void ::protobuf_fim_2eproto::InitDefaultsFimWatcherSubjectImpl();
@@ -409,29 +409,29 @@ class FimdHandle : public ::google::protobuf::Message /* @@protoc_insertion_poin
 
   // accessors -------------------------------------------------------
 
-  // repeated int32 pids = 2;
-  int pids_size() const;
-  void clear_pids();
-  static const int kPidsFieldNumber = 2;
-  ::google::protobuf::int32 pids(int index) const;
-  void set_pids(int index, ::google::protobuf::int32 value);
-  void add_pids(::google::protobuf::int32 value);
+  // repeated int32 pid = 2;
+  int pid_size() const;
+  void clear_pid();
+  static const int kPidFieldNumber = 2;
+  ::google::protobuf::int32 pid(int index) const;
+  void set_pid(int index, ::google::protobuf::int32 value);
+  void add_pid(::google::protobuf::int32 value);
   const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      pids() const;
+      pid() const;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_pids();
+      mutable_pid();
 
-  // repeated int32 processEventfds = 3;
-  int processeventfds_size() const;
-  void clear_processeventfds();
-  static const int kProcessEventfdsFieldNumber = 3;
-  ::google::protobuf::int32 processeventfds(int index) const;
-  void set_processeventfds(int index, ::google::protobuf::int32 value);
-  void add_processeventfds(::google::protobuf::int32 value);
+  // repeated int32 processEventfd = 3;
+  int processeventfd_size() const;
+  void clear_processeventfd();
+  static const int kProcessEventfdFieldNumber = 3;
+  ::google::protobuf::int32 processeventfd(int index) const;
+  void set_processeventfd(int index, ::google::protobuf::int32 value);
+  void add_processeventfd(::google::protobuf::int32 value);
   const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      processeventfds() const;
+      processeventfd() const;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_processeventfds();
+      mutable_processeventfd();
 
   // string hostUid = 1;
   void clear_hostuid();
@@ -451,10 +451,10 @@ class FimdHandle : public ::google::protobuf::Message /* @@protoc_insertion_poin
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > pids_;
-  mutable int _pids_cached_byte_size_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > processeventfds_;
-  mutable int _processeventfds_cached_byte_size_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > pid_;
+  mutable int _pid_cached_byte_size_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > processeventfd_;
+  mutable int _processeventfd_cached_byte_size_;
   ::google::protobuf::internal::ArenaStringPtr hostuid_;
   mutable int _cached_size_;
   friend struct ::protobuf_fim_2eproto::TableStruct;
@@ -524,176 +524,176 @@ inline void FimdConfig::set_allocated_containerid(::std::string* containerid) {
   // @@protoc_insertion_point(field_set_allocated:fim.FimdConfig.containerId)
 }
 
-// repeated .fim.FimWatcherSubject subjects = 2;
-inline int FimdConfig::subjects_size() const {
-  return subjects_.size();
+// repeated .fim.FimWatcherSubject subject = 2;
+inline int FimdConfig::subject_size() const {
+  return subject_.size();
 }
-inline void FimdConfig::clear_subjects() {
-  subjects_.Clear();
+inline void FimdConfig::clear_subject() {
+  subject_.Clear();
 }
-inline const ::fim::FimWatcherSubject& FimdConfig::subjects(int index) const {
-  // @@protoc_insertion_point(field_get:fim.FimdConfig.subjects)
-  return subjects_.Get(index);
+inline const ::fim::FimWatcherSubject& FimdConfig::subject(int index) const {
+  // @@protoc_insertion_point(field_get:fim.FimdConfig.subject)
+  return subject_.Get(index);
 }
-inline ::fim::FimWatcherSubject* FimdConfig::mutable_subjects(int index) {
-  // @@protoc_insertion_point(field_mutable:fim.FimdConfig.subjects)
-  return subjects_.Mutable(index);
+inline ::fim::FimWatcherSubject* FimdConfig::mutable_subject(int index) {
+  // @@protoc_insertion_point(field_mutable:fim.FimdConfig.subject)
+  return subject_.Mutable(index);
 }
-inline ::fim::FimWatcherSubject* FimdConfig::add_subjects() {
-  // @@protoc_insertion_point(field_add:fim.FimdConfig.subjects)
-  return subjects_.Add();
+inline ::fim::FimWatcherSubject* FimdConfig::add_subject() {
+  // @@protoc_insertion_point(field_add:fim.FimdConfig.subject)
+  return subject_.Add();
 }
 inline ::google::protobuf::RepeatedPtrField< ::fim::FimWatcherSubject >*
-FimdConfig::mutable_subjects() {
-  // @@protoc_insertion_point(field_mutable_list:fim.FimdConfig.subjects)
-  return &subjects_;
+FimdConfig::mutable_subject() {
+  // @@protoc_insertion_point(field_mutable_list:fim.FimdConfig.subject)
+  return &subject_;
 }
 inline const ::google::protobuf::RepeatedPtrField< ::fim::FimWatcherSubject >&
-FimdConfig::subjects() const {
-  // @@protoc_insertion_point(field_list:fim.FimdConfig.subjects)
-  return subjects_;
+FimdConfig::subject() const {
+  // @@protoc_insertion_point(field_list:fim.FimdConfig.subject)
+  return subject_;
 }
 
 // -------------------------------------------------------------------
 
 // FimWatcherSubject
 
-// repeated string paths = 1;
-inline int FimWatcherSubject::paths_size() const {
-  return paths_.size();
+// repeated string path = 1;
+inline int FimWatcherSubject::path_size() const {
+  return path_.size();
 }
-inline void FimWatcherSubject::clear_paths() {
-  paths_.Clear();
+inline void FimWatcherSubject::clear_path() {
+  path_.Clear();
 }
-inline const ::std::string& FimWatcherSubject::paths(int index) const {
-  // @@protoc_insertion_point(field_get:fim.FimWatcherSubject.paths)
-  return paths_.Get(index);
+inline const ::std::string& FimWatcherSubject::path(int index) const {
+  // @@protoc_insertion_point(field_get:fim.FimWatcherSubject.path)
+  return path_.Get(index);
 }
-inline ::std::string* FimWatcherSubject::mutable_paths(int index) {
-  // @@protoc_insertion_point(field_mutable:fim.FimWatcherSubject.paths)
-  return paths_.Mutable(index);
+inline ::std::string* FimWatcherSubject::mutable_path(int index) {
+  // @@protoc_insertion_point(field_mutable:fim.FimWatcherSubject.path)
+  return path_.Mutable(index);
 }
-inline void FimWatcherSubject::set_paths(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:fim.FimWatcherSubject.paths)
-  paths_.Mutable(index)->assign(value);
+inline void FimWatcherSubject::set_path(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:fim.FimWatcherSubject.path)
+  path_.Mutable(index)->assign(value);
 }
 #if LANG_CXX11
-inline void FimWatcherSubject::set_paths(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:fim.FimWatcherSubject.paths)
-  paths_.Mutable(index)->assign(std::move(value));
+inline void FimWatcherSubject::set_path(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:fim.FimWatcherSubject.path)
+  path_.Mutable(index)->assign(std::move(value));
 }
 #endif
-inline void FimWatcherSubject::set_paths(int index, const char* value) {
+inline void FimWatcherSubject::set_path(int index, const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  paths_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:fim.FimWatcherSubject.paths)
+  path_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:fim.FimWatcherSubject.path)
 }
-inline void FimWatcherSubject::set_paths(int index, const char* value, size_t size) {
-  paths_.Mutable(index)->assign(
+inline void FimWatcherSubject::set_path(int index, const char* value, size_t size) {
+  path_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:fim.FimWatcherSubject.paths)
+  // @@protoc_insertion_point(field_set_pointer:fim.FimWatcherSubject.path)
 }
-inline ::std::string* FimWatcherSubject::add_paths() {
-  // @@protoc_insertion_point(field_add_mutable:fim.FimWatcherSubject.paths)
-  return paths_.Add();
+inline ::std::string* FimWatcherSubject::add_path() {
+  // @@protoc_insertion_point(field_add_mutable:fim.FimWatcherSubject.path)
+  return path_.Add();
 }
-inline void FimWatcherSubject::add_paths(const ::std::string& value) {
-  paths_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:fim.FimWatcherSubject.paths)
+inline void FimWatcherSubject::add_path(const ::std::string& value) {
+  path_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:fim.FimWatcherSubject.path)
 }
 #if LANG_CXX11
-inline void FimWatcherSubject::add_paths(::std::string&& value) {
-  paths_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:fim.FimWatcherSubject.paths)
+inline void FimWatcherSubject::add_path(::std::string&& value) {
+  path_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:fim.FimWatcherSubject.path)
 }
 #endif
-inline void FimWatcherSubject::add_paths(const char* value) {
+inline void FimWatcherSubject::add_path(const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  paths_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:fim.FimWatcherSubject.paths)
+  path_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:fim.FimWatcherSubject.path)
 }
-inline void FimWatcherSubject::add_paths(const char* value, size_t size) {
-  paths_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:fim.FimWatcherSubject.paths)
+inline void FimWatcherSubject::add_path(const char* value, size_t size) {
+  path_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:fim.FimWatcherSubject.path)
 }
 inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-FimWatcherSubject::paths() const {
-  // @@protoc_insertion_point(field_list:fim.FimWatcherSubject.paths)
-  return paths_;
+FimWatcherSubject::path() const {
+  // @@protoc_insertion_point(field_list:fim.FimWatcherSubject.path)
+  return path_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-FimWatcherSubject::mutable_paths() {
-  // @@protoc_insertion_point(field_mutable_list:fim.FimWatcherSubject.paths)
-  return &paths_;
+FimWatcherSubject::mutable_path() {
+  // @@protoc_insertion_point(field_mutable_list:fim.FimWatcherSubject.path)
+  return &path_;
 }
 
-// repeated string events = 2;
-inline int FimWatcherSubject::events_size() const {
-  return events_.size();
+// repeated string event = 2;
+inline int FimWatcherSubject::event_size() const {
+  return event_.size();
 }
-inline void FimWatcherSubject::clear_events() {
-  events_.Clear();
+inline void FimWatcherSubject::clear_event() {
+  event_.Clear();
 }
-inline const ::std::string& FimWatcherSubject::events(int index) const {
-  // @@protoc_insertion_point(field_get:fim.FimWatcherSubject.events)
-  return events_.Get(index);
+inline const ::std::string& FimWatcherSubject::event(int index) const {
+  // @@protoc_insertion_point(field_get:fim.FimWatcherSubject.event)
+  return event_.Get(index);
 }
-inline ::std::string* FimWatcherSubject::mutable_events(int index) {
-  // @@protoc_insertion_point(field_mutable:fim.FimWatcherSubject.events)
-  return events_.Mutable(index);
+inline ::std::string* FimWatcherSubject::mutable_event(int index) {
+  // @@protoc_insertion_point(field_mutable:fim.FimWatcherSubject.event)
+  return event_.Mutable(index);
 }
-inline void FimWatcherSubject::set_events(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:fim.FimWatcherSubject.events)
-  events_.Mutable(index)->assign(value);
+inline void FimWatcherSubject::set_event(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:fim.FimWatcherSubject.event)
+  event_.Mutable(index)->assign(value);
 }
 #if LANG_CXX11
-inline void FimWatcherSubject::set_events(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:fim.FimWatcherSubject.events)
-  events_.Mutable(index)->assign(std::move(value));
+inline void FimWatcherSubject::set_event(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:fim.FimWatcherSubject.event)
+  event_.Mutable(index)->assign(std::move(value));
 }
 #endif
-inline void FimWatcherSubject::set_events(int index, const char* value) {
+inline void FimWatcherSubject::set_event(int index, const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  events_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:fim.FimWatcherSubject.events)
+  event_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:fim.FimWatcherSubject.event)
 }
-inline void FimWatcherSubject::set_events(int index, const char* value, size_t size) {
-  events_.Mutable(index)->assign(
+inline void FimWatcherSubject::set_event(int index, const char* value, size_t size) {
+  event_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:fim.FimWatcherSubject.events)
+  // @@protoc_insertion_point(field_set_pointer:fim.FimWatcherSubject.event)
 }
-inline ::std::string* FimWatcherSubject::add_events() {
-  // @@protoc_insertion_point(field_add_mutable:fim.FimWatcherSubject.events)
-  return events_.Add();
+inline ::std::string* FimWatcherSubject::add_event() {
+  // @@protoc_insertion_point(field_add_mutable:fim.FimWatcherSubject.event)
+  return event_.Add();
 }
-inline void FimWatcherSubject::add_events(const ::std::string& value) {
-  events_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:fim.FimWatcherSubject.events)
+inline void FimWatcherSubject::add_event(const ::std::string& value) {
+  event_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:fim.FimWatcherSubject.event)
 }
 #if LANG_CXX11
-inline void FimWatcherSubject::add_events(::std::string&& value) {
-  events_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:fim.FimWatcherSubject.events)
+inline void FimWatcherSubject::add_event(::std::string&& value) {
+  event_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:fim.FimWatcherSubject.event)
 }
 #endif
-inline void FimWatcherSubject::add_events(const char* value) {
+inline void FimWatcherSubject::add_event(const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  events_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:fim.FimWatcherSubject.events)
+  event_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:fim.FimWatcherSubject.event)
 }
-inline void FimWatcherSubject::add_events(const char* value, size_t size) {
-  events_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:fim.FimWatcherSubject.events)
+inline void FimWatcherSubject::add_event(const char* value, size_t size) {
+  event_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:fim.FimWatcherSubject.event)
 }
 inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-FimWatcherSubject::events() const {
-  // @@protoc_insertion_point(field_list:fim.FimWatcherSubject.events)
-  return events_;
+FimWatcherSubject::event() const {
+  // @@protoc_insertion_point(field_list:fim.FimWatcherSubject.event)
+  return event_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-FimWatcherSubject::mutable_events() {
-  // @@protoc_insertion_point(field_mutable_list:fim.FimWatcherSubject.events)
-  return &events_;
+FimWatcherSubject::mutable_event() {
+  // @@protoc_insertion_point(field_mutable_list:fim.FimWatcherSubject.event)
+  return &event_;
 }
 
 // -------------------------------------------------------------------
@@ -753,64 +753,64 @@ inline void FimdHandle::set_allocated_hostuid(::std::string* hostuid) {
   // @@protoc_insertion_point(field_set_allocated:fim.FimdHandle.hostUid)
 }
 
-// repeated int32 pids = 2;
-inline int FimdHandle::pids_size() const {
-  return pids_.size();
+// repeated int32 pid = 2;
+inline int FimdHandle::pid_size() const {
+  return pid_.size();
 }
-inline void FimdHandle::clear_pids() {
-  pids_.Clear();
+inline void FimdHandle::clear_pid() {
+  pid_.Clear();
 }
-inline ::google::protobuf::int32 FimdHandle::pids(int index) const {
-  // @@protoc_insertion_point(field_get:fim.FimdHandle.pids)
-  return pids_.Get(index);
+inline ::google::protobuf::int32 FimdHandle::pid(int index) const {
+  // @@protoc_insertion_point(field_get:fim.FimdHandle.pid)
+  return pid_.Get(index);
 }
-inline void FimdHandle::set_pids(int index, ::google::protobuf::int32 value) {
-  pids_.Set(index, value);
-  // @@protoc_insertion_point(field_set:fim.FimdHandle.pids)
+inline void FimdHandle::set_pid(int index, ::google::protobuf::int32 value) {
+  pid_.Set(index, value);
+  // @@protoc_insertion_point(field_set:fim.FimdHandle.pid)
 }
-inline void FimdHandle::add_pids(::google::protobuf::int32 value) {
-  pids_.Add(value);
-  // @@protoc_insertion_point(field_add:fim.FimdHandle.pids)
+inline void FimdHandle::add_pid(::google::protobuf::int32 value) {
+  pid_.Add(value);
+  // @@protoc_insertion_point(field_add:fim.FimdHandle.pid)
 }
 inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-FimdHandle::pids() const {
-  // @@protoc_insertion_point(field_list:fim.FimdHandle.pids)
-  return pids_;
+FimdHandle::pid() const {
+  // @@protoc_insertion_point(field_list:fim.FimdHandle.pid)
+  return pid_;
 }
 inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-FimdHandle::mutable_pids() {
-  // @@protoc_insertion_point(field_mutable_list:fim.FimdHandle.pids)
-  return &pids_;
+FimdHandle::mutable_pid() {
+  // @@protoc_insertion_point(field_mutable_list:fim.FimdHandle.pid)
+  return &pid_;
 }
 
-// repeated int32 processEventfds = 3;
-inline int FimdHandle::processeventfds_size() const {
-  return processeventfds_.size();
+// repeated int32 processEventfd = 3;
+inline int FimdHandle::processeventfd_size() const {
+  return processeventfd_.size();
 }
-inline void FimdHandle::clear_processeventfds() {
-  processeventfds_.Clear();
+inline void FimdHandle::clear_processeventfd() {
+  processeventfd_.Clear();
 }
-inline ::google::protobuf::int32 FimdHandle::processeventfds(int index) const {
-  // @@protoc_insertion_point(field_get:fim.FimdHandle.processEventfds)
-  return processeventfds_.Get(index);
+inline ::google::protobuf::int32 FimdHandle::processeventfd(int index) const {
+  // @@protoc_insertion_point(field_get:fim.FimdHandle.processEventfd)
+  return processeventfd_.Get(index);
 }
-inline void FimdHandle::set_processeventfds(int index, ::google::protobuf::int32 value) {
-  processeventfds_.Set(index, value);
-  // @@protoc_insertion_point(field_set:fim.FimdHandle.processEventfds)
+inline void FimdHandle::set_processeventfd(int index, ::google::protobuf::int32 value) {
+  processeventfd_.Set(index, value);
+  // @@protoc_insertion_point(field_set:fim.FimdHandle.processEventfd)
 }
-inline void FimdHandle::add_processeventfds(::google::protobuf::int32 value) {
-  processeventfds_.Add(value);
-  // @@protoc_insertion_point(field_add:fim.FimdHandle.processEventfds)
+inline void FimdHandle::add_processeventfd(::google::protobuf::int32 value) {
+  processeventfd_.Add(value);
+  // @@protoc_insertion_point(field_add:fim.FimdHandle.processEventfd)
 }
 inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-FimdHandle::processeventfds() const {
-  // @@protoc_insertion_point(field_list:fim.FimdHandle.processEventfds)
-  return processeventfds_;
+FimdHandle::processeventfd() const {
+  // @@protoc_insertion_point(field_list:fim.FimdHandle.processEventfd)
+  return processeventfd_;
 }
 inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-FimdHandle::mutable_processeventfds() {
-  // @@protoc_insertion_point(field_mutable_list:fim.FimdHandle.processEventfds)
-  return &processeventfds_;
+FimdHandle::mutable_processeventfd() {
+  // @@protoc_insertion_point(field_mutable_list:fim.FimdHandle.processEventfd)
+  return &processeventfd_;
 }
 
 #ifdef __GNUC__
