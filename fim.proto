@@ -8,8 +8,9 @@ service Fimd {
 }
 
 message FimdConfig {
-  string containerId = 1;
-  repeated FimWatcherSubject subject = 2;
+  string hostUid = 1;
+  string containerId = 2;
+  repeated FimWatcherSubject subject = 3;
 }
 
 message FimWatcherSubject {

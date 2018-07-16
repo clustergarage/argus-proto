@@ -151,10 +151,10 @@ class FimdConfig : public ::google::protobuf::Message /* @@protoc_insertion_poin
 
   // accessors -------------------------------------------------------
 
-  // repeated .fim.FimWatcherSubject subject = 2;
+  // repeated .fim.FimWatcherSubject subject = 3;
   int subject_size() const;
   void clear_subject();
-  static const int kSubjectFieldNumber = 2;
+  static const int kSubjectFieldNumber = 3;
   const ::fim::FimWatcherSubject& subject(int index) const;
   ::fim::FimWatcherSubject* mutable_subject(int index);
   ::fim::FimWatcherSubject* add_subject();
@@ -163,9 +163,23 @@ class FimdConfig : public ::google::protobuf::Message /* @@protoc_insertion_poin
   const ::google::protobuf::RepeatedPtrField< ::fim::FimWatcherSubject >&
       subject() const;
 
-  // string containerId = 1;
+  // string hostUid = 1;
+  void clear_hostuid();
+  static const int kHostUidFieldNumber = 1;
+  const ::std::string& hostuid() const;
+  void set_hostuid(const ::std::string& value);
+  #if LANG_CXX11
+  void set_hostuid(::std::string&& value);
+  #endif
+  void set_hostuid(const char* value);
+  void set_hostuid(const char* value, size_t size);
+  ::std::string* mutable_hostuid();
+  ::std::string* release_hostuid();
+  void set_allocated_hostuid(::std::string* hostuid);
+
+  // string containerId = 2;
   void clear_containerid();
-  static const int kContainerIdFieldNumber = 1;
+  static const int kContainerIdFieldNumber = 2;
   const ::std::string& containerid() const;
   void set_containerid(const ::std::string& value);
   #if LANG_CXX11
@@ -182,6 +196,7 @@ class FimdConfig : public ::google::protobuf::Message /* @@protoc_insertion_poin
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::fim::FimWatcherSubject > subject_;
+  ::google::protobuf::internal::ArenaStringPtr hostuid_;
   ::google::protobuf::internal::ArenaStringPtr containerid_;
   mutable int _cached_size_;
   friend struct ::protobuf_fim_2eproto::TableStruct;
@@ -471,7 +486,60 @@ class FimdHandle : public ::google::protobuf::Message /* @@protoc_insertion_poin
 #endif  // __GNUC__
 // FimdConfig
 
-// string containerId = 1;
+// string hostUid = 1;
+inline void FimdConfig::clear_hostuid() {
+  hostuid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& FimdConfig::hostuid() const {
+  // @@protoc_insertion_point(field_get:fim.FimdConfig.hostUid)
+  return hostuid_.GetNoArena();
+}
+inline void FimdConfig::set_hostuid(const ::std::string& value) {
+  
+  hostuid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fim.FimdConfig.hostUid)
+}
+#if LANG_CXX11
+inline void FimdConfig::set_hostuid(::std::string&& value) {
+  
+  hostuid_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fim.FimdConfig.hostUid)
+}
+#endif
+inline void FimdConfig::set_hostuid(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  hostuid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fim.FimdConfig.hostUid)
+}
+inline void FimdConfig::set_hostuid(const char* value, size_t size) {
+  
+  hostuid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fim.FimdConfig.hostUid)
+}
+inline ::std::string* FimdConfig::mutable_hostuid() {
+  
+  // @@protoc_insertion_point(field_mutable:fim.FimdConfig.hostUid)
+  return hostuid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* FimdConfig::release_hostuid() {
+  // @@protoc_insertion_point(field_release:fim.FimdConfig.hostUid)
+  
+  return hostuid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void FimdConfig::set_allocated_hostuid(::std::string* hostuid) {
+  if (hostuid != NULL) {
+    
+  } else {
+    
+  }
+  hostuid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), hostuid);
+  // @@protoc_insertion_point(field_set_allocated:fim.FimdConfig.hostUid)
+}
+
+// string containerId = 2;
 inline void FimdConfig::clear_containerid() {
   containerid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -524,7 +592,7 @@ inline void FimdConfig::set_allocated_containerid(::std::string* containerid) {
   // @@protoc_insertion_point(field_set_allocated:fim.FimdConfig.containerId)
 }
 
-// repeated .fim.FimWatcherSubject subject = 2;
+// repeated .fim.FimWatcherSubject subject = 3;
 inline int FimdConfig::subject_size() const {
   return subject_.size();
 }
