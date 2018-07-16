@@ -18,5 +18,7 @@ message FimWatcherSubject {
 }
 
 message FimdHandle {
-  int32 id = 1;
+  string hostUid = 1;
+  repeated int32 pids = 2;
+  repeated int32 processEventfds = 3;
 }

@@ -123,7 +123,9 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdHandle, id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdHandle, hostuid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdHandle, pids_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdHandle, processeventfds_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::fim::FimdConfig)},
@@ -162,14 +164,15 @@ void AddDescriptorsImpl() {
       "\n\tfim.proto\022\003fim\"K\n\nFimdConfig\022\023\n\013contai"
       "nerId\030\001 \001(\t\022(\n\010subjects\030\002 \003(\0132\026.fim.FimW"
       "atcherSubject\"2\n\021FimWatcherSubject\022\r\n\005pa"
-      "ths\030\001 \003(\t\022\016\n\006events\030\002 \003(\t\"\030\n\nFimdHandle\022"
-      "\n\n\002id\030\001 \001(\0052m\n\004Fimd\0221\n\013CreateWatch\022\017.fim"
-      ".FimdConfig\032\017.fim.FimdHandle\"\000\0222\n\014Destro"
-      "yWatch\022\017.fim.FimdConfig\032\017.fim.FimdHandle"
-      "\"\000b\006proto3"
+      "ths\030\001 \003(\t\022\016\n\006events\030\002 \003(\t\"D\n\nFimdHandle\022"
+      "\017\n\007hostUid\030\001 \001(\t\022\014\n\004pids\030\002 \003(\005\022\027\n\017proces"
+      "sEventfds\030\003 \003(\0052m\n\004Fimd\0221\n\013CreateWatch\022\017"
+      ".fim.FimdConfig\032\017.fim.FimdHandle\"\000\0222\n\014De"
+      "stroyWatch\022\017.fim.FimdConfig\032\017.fim.FimdHa"
+      "ndle\"\000b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 290);
+      descriptor, 334);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fim.proto", &protobuf_RegisterTypes);
 }
@@ -789,7 +792,9 @@ void FimWatcherSubject::InternalSwap(FimWatcherSubject* other) {
 void FimdHandle::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int FimdHandle::kIdFieldNumber;
+const int FimdHandle::kHostUidFieldNumber;
+const int FimdHandle::kPidsFieldNumber;
+const int FimdHandle::kProcessEventfdsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 FimdHandle::FimdHandle()
@@ -803,14 +808,19 @@ FimdHandle::FimdHandle()
 FimdHandle::FimdHandle(const FimdHandle& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
+      pids_(from.pids_),
+      processeventfds_(from.processeventfds_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  id_ = from.id_;
+  hostuid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.hostuid().size() > 0) {
+    hostuid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.hostuid_);
+  }
   // @@protoc_insertion_point(copy_constructor:fim.FimdHandle)
 }
 
 void FimdHandle::SharedCtor() {
-  id_ = 0;
+  hostuid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _cached_size_ = 0;
 }
 
@@ -820,6 +830,7 @@ FimdHandle::~FimdHandle() {
 }
 
 void FimdHandle::SharedDtor() {
+  hostuid_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void FimdHandle::SetCachedSize(int size) const {
@@ -851,7 +862,9 @@ void FimdHandle::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  id_ = 0;
+  pids_.Clear();
+  processeventfds_.Clear();
+  hostuid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _internal_metadata_.Clear();
 }
 
@@ -865,14 +878,54 @@ bool FimdHandle::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // int32 id = 1;
+      // string hostUid = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_hostuid()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->hostuid().data(), static_cast<int>(this->hostuid().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "fim.FimdHandle.hostUid"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
 
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+      // repeated int32 pids = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &id_)));
+                 input, this->mutable_pids())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 18u, input, this->mutable_pids())));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated int32 processEventfds = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_processeventfds())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 26u, input, this->mutable_processeventfds())));
         } else {
           goto handle_unusual;
         }
@@ -905,9 +958,36 @@ void FimdHandle::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 id = 1;
-  if (this->id() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
+  // string hostUid = 1;
+  if (this->hostuid().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->hostuid().data(), static_cast<int>(this->hostuid().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fim.FimdHandle.hostUid");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->hostuid(), output);
+  }
+
+  // repeated int32 pids = 2;
+  if (this->pids_size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteTag(2, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    output->WriteVarint32(static_cast< ::google::protobuf::uint32>(
+        _pids_cached_byte_size_));
+  }
+  for (int i = 0, n = this->pids_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
+      this->pids(i), output);
+  }
+
+  // repeated int32 processEventfds = 3;
+  if (this->processeventfds_size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteTag(3, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    output->WriteVarint32(static_cast< ::google::protobuf::uint32>(
+        _processeventfds_cached_byte_size_));
+  }
+  for (int i = 0, n = this->processeventfds_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
+      this->processeventfds(i), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -924,9 +1004,41 @@ void FimdHandle::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 id = 1;
-  if (this->id() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
+  // string hostUid = 1;
+  if (this->hostuid().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->hostuid().data(), static_cast<int>(this->hostuid().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fim.FimdHandle.hostUid");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->hostuid(), target);
+  }
+
+  // repeated int32 pids = 2;
+  if (this->pids_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      2,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+        static_cast< ::google::protobuf::int32>(
+            _pids_cached_byte_size_), target);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32NoTagToArray(this->pids_, target);
+  }
+
+  // repeated int32 processEventfds = 3;
+  if (this->processeventfds_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      3,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+        static_cast< ::google::protobuf::int32>(
+            _processeventfds_cached_byte_size_), target);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32NoTagToArray(this->processeventfds_, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -946,11 +1058,43 @@ size_t FimdHandle::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // int32 id = 1;
-  if (this->id() != 0) {
+  // repeated int32 pids = 2;
+  {
+    size_t data_size = ::google::protobuf::internal::WireFormatLite::
+      Int32Size(this->pids_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+            static_cast< ::google::protobuf::int32>(data_size));
+    }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
+    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+    _pids_cached_byte_size_ = cached_size;
+    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    total_size += data_size;
+  }
+
+  // repeated int32 processEventfds = 3;
+  {
+    size_t data_size = ::google::protobuf::internal::WireFormatLite::
+      Int32Size(this->processeventfds_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+            static_cast< ::google::protobuf::int32>(data_size));
+    }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
+    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+    _processeventfds_cached_byte_size_ = cached_size;
+    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    total_size += data_size;
+  }
+
+  // string hostUid = 1;
+  if (this->hostuid().size() > 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->id());
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->hostuid());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -982,8 +1126,11 @@ void FimdHandle::MergeFrom(const FimdHandle& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.id() != 0) {
-    set_id(from.id());
+  pids_.MergeFrom(from.pids_);
+  processeventfds_.MergeFrom(from.processeventfds_);
+  if (from.hostuid().size() > 0) {
+
+    hostuid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.hostuid_);
   }
 }
 
@@ -1011,7 +1158,9 @@ void FimdHandle::Swap(FimdHandle* other) {
 }
 void FimdHandle::InternalSwap(FimdHandle* other) {
   using std::swap;
-  swap(id_, other->id_);
+  pids_.InternalSwap(&other->pids_);
+  processeventfds_.InternalSwap(&other->processeventfds_);
+  hostuid_.Swap(&other->hostuid_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }

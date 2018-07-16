@@ -409,17 +409,53 @@ class FimdHandle : public ::google::protobuf::Message /* @@protoc_insertion_poin
 
   // accessors -------------------------------------------------------
 
-  // int32 id = 1;
-  void clear_id();
-  static const int kIdFieldNumber = 1;
-  ::google::protobuf::int32 id() const;
-  void set_id(::google::protobuf::int32 value);
+  // repeated int32 pids = 2;
+  int pids_size() const;
+  void clear_pids();
+  static const int kPidsFieldNumber = 2;
+  ::google::protobuf::int32 pids(int index) const;
+  void set_pids(int index, ::google::protobuf::int32 value);
+  void add_pids(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      pids() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_pids();
+
+  // repeated int32 processEventfds = 3;
+  int processeventfds_size() const;
+  void clear_processeventfds();
+  static const int kProcessEventfdsFieldNumber = 3;
+  ::google::protobuf::int32 processeventfds(int index) const;
+  void set_processeventfds(int index, ::google::protobuf::int32 value);
+  void add_processeventfds(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      processeventfds() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_processeventfds();
+
+  // string hostUid = 1;
+  void clear_hostuid();
+  static const int kHostUidFieldNumber = 1;
+  const ::std::string& hostuid() const;
+  void set_hostuid(const ::std::string& value);
+  #if LANG_CXX11
+  void set_hostuid(::std::string&& value);
+  #endif
+  void set_hostuid(const char* value);
+  void set_hostuid(const char* value, size_t size);
+  ::std::string* mutable_hostuid();
+  ::std::string* release_hostuid();
+  void set_allocated_hostuid(::std::string* hostuid);
 
   // @@protoc_insertion_point(class_scope:fim.FimdHandle)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::int32 id_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > pids_;
+  mutable int _pids_cached_byte_size_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > processeventfds_;
+  mutable int _processeventfds_cached_byte_size_;
+  ::google::protobuf::internal::ArenaStringPtr hostuid_;
   mutable int _cached_size_;
   friend struct ::protobuf_fim_2eproto::TableStruct;
   friend void ::protobuf_fim_2eproto::InitDefaultsFimdHandleImpl();
@@ -664,18 +700,117 @@ FimWatcherSubject::mutable_events() {
 
 // FimdHandle
 
-// int32 id = 1;
-inline void FimdHandle::clear_id() {
-  id_ = 0;
+// string hostUid = 1;
+inline void FimdHandle::clear_hostuid() {
+  hostuid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::google::protobuf::int32 FimdHandle::id() const {
-  // @@protoc_insertion_point(field_get:fim.FimdHandle.id)
-  return id_;
+inline const ::std::string& FimdHandle::hostuid() const {
+  // @@protoc_insertion_point(field_get:fim.FimdHandle.hostUid)
+  return hostuid_.GetNoArena();
 }
-inline void FimdHandle::set_id(::google::protobuf::int32 value) {
+inline void FimdHandle::set_hostuid(const ::std::string& value) {
   
-  id_ = value;
-  // @@protoc_insertion_point(field_set:fim.FimdHandle.id)
+  hostuid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fim.FimdHandle.hostUid)
+}
+#if LANG_CXX11
+inline void FimdHandle::set_hostuid(::std::string&& value) {
+  
+  hostuid_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fim.FimdHandle.hostUid)
+}
+#endif
+inline void FimdHandle::set_hostuid(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  hostuid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fim.FimdHandle.hostUid)
+}
+inline void FimdHandle::set_hostuid(const char* value, size_t size) {
+  
+  hostuid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fim.FimdHandle.hostUid)
+}
+inline ::std::string* FimdHandle::mutable_hostuid() {
+  
+  // @@protoc_insertion_point(field_mutable:fim.FimdHandle.hostUid)
+  return hostuid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* FimdHandle::release_hostuid() {
+  // @@protoc_insertion_point(field_release:fim.FimdHandle.hostUid)
+  
+  return hostuid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void FimdHandle::set_allocated_hostuid(::std::string* hostuid) {
+  if (hostuid != NULL) {
+    
+  } else {
+    
+  }
+  hostuid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), hostuid);
+  // @@protoc_insertion_point(field_set_allocated:fim.FimdHandle.hostUid)
+}
+
+// repeated int32 pids = 2;
+inline int FimdHandle::pids_size() const {
+  return pids_.size();
+}
+inline void FimdHandle::clear_pids() {
+  pids_.Clear();
+}
+inline ::google::protobuf::int32 FimdHandle::pids(int index) const {
+  // @@protoc_insertion_point(field_get:fim.FimdHandle.pids)
+  return pids_.Get(index);
+}
+inline void FimdHandle::set_pids(int index, ::google::protobuf::int32 value) {
+  pids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:fim.FimdHandle.pids)
+}
+inline void FimdHandle::add_pids(::google::protobuf::int32 value) {
+  pids_.Add(value);
+  // @@protoc_insertion_point(field_add:fim.FimdHandle.pids)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+FimdHandle::pids() const {
+  // @@protoc_insertion_point(field_list:fim.FimdHandle.pids)
+  return pids_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+FimdHandle::mutable_pids() {
+  // @@protoc_insertion_point(field_mutable_list:fim.FimdHandle.pids)
+  return &pids_;
+}
+
+// repeated int32 processEventfds = 3;
+inline int FimdHandle::processeventfds_size() const {
+  return processeventfds_.size();
+}
+inline void FimdHandle::clear_processeventfds() {
+  processeventfds_.Clear();
+}
+inline ::google::protobuf::int32 FimdHandle::processeventfds(int index) const {
+  // @@protoc_insertion_point(field_get:fim.FimdHandle.processEventfds)
+  return processeventfds_.Get(index);
+}
+inline void FimdHandle::set_processeventfds(int index, ::google::protobuf::int32 value) {
+  processeventfds_.Set(index, value);
+  // @@protoc_insertion_point(field_set:fim.FimdHandle.processEventfds)
+}
+inline void FimdHandle::add_processeventfds(::google::protobuf::int32 value) {
+  processeventfds_.Add(value);
+  // @@protoc_insertion_point(field_add:fim.FimdHandle.processEventfds)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+FimdHandle::processeventfds() const {
+  // @@protoc_insertion_point(field_list:fim.FimdHandle.processEventfds)
+  return processeventfds_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+FimdHandle::mutable_processeventfds() {
+  // @@protoc_insertion_point(field_mutable_list:fim.FimdHandle.processEventfds)
+  return &processeventfds_;
 }
 
 #ifdef __GNUC__
