@@ -43,16 +43,16 @@ Fimd::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::fim::FimdHandle>::Create(channel_.get(), cq, rpcmethod_CreateWatch_, context, request, false);
 }
 
-::grpc::Status Fimd::Stub::DestroyWatch(::grpc::ClientContext* context, const ::fim::FimdConfig& request, ::fim::FimdHandle* response) {
+::grpc::Status Fimd::Stub::DestroyWatch(::grpc::ClientContext* context, const ::fim::FimdConfig& request, ::fim::Empty* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_DestroyWatch_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::fim::FimdHandle>* Fimd::Stub::AsyncDestroyWatchRaw(::grpc::ClientContext* context, const ::fim::FimdConfig& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::fim::FimdHandle>::Create(channel_.get(), cq, rpcmethod_DestroyWatch_, context, request, true);
+::grpc::ClientAsyncResponseReader< ::fim::Empty>* Fimd::Stub::AsyncDestroyWatchRaw(::grpc::ClientContext* context, const ::fim::FimdConfig& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::fim::Empty>::Create(channel_.get(), cq, rpcmethod_DestroyWatch_, context, request, true);
 }
 
-::grpc::ClientAsyncResponseReader< ::fim::FimdHandle>* Fimd::Stub::PrepareAsyncDestroyWatchRaw(::grpc::ClientContext* context, const ::fim::FimdConfig& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::fim::FimdHandle>::Create(channel_.get(), cq, rpcmethod_DestroyWatch_, context, request, false);
+::grpc::ClientAsyncResponseReader< ::fim::Empty>* Fimd::Stub::PrepareAsyncDestroyWatchRaw(::grpc::ClientContext* context, const ::fim::FimdConfig& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::fim::Empty>::Create(channel_.get(), cq, rpcmethod_DestroyWatch_, context, request, false);
 }
 
 Fimd::Service::Service() {
@@ -64,7 +64,7 @@ Fimd::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Fimd_method_names[1],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Fimd::Service, ::fim::FimdConfig, ::fim::FimdHandle>(
+      new ::grpc::internal::RpcMethodHandler< Fimd::Service, ::fim::FimdConfig, ::fim::Empty>(
           std::mem_fn(&Fimd::Service::DestroyWatch), this)));
 }
 
@@ -78,7 +78,7 @@ Fimd::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Fimd::Service::DestroyWatch(::grpc::ServerContext* context, const ::fim::FimdConfig* request, ::fim::FimdHandle* response) {
+::grpc::Status Fimd::Service::DestroyWatch(::grpc::ServerContext* context, const ::fim::FimdConfig* request, ::fim::Empty* response) {
   (void) context;
   (void) request;
   (void) response;

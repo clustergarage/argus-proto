@@ -4,7 +4,7 @@ package fim;
 
 service Fimd {
   rpc CreateWatch(FimdConfig) returns (FimdHandle) {}
-  rpc DestroyWatch(FimdConfig) returns (FimdHandle) {}
+  rpc DestroyWatch(FimdConfig) returns (Empty) {}
 }
 
 message FimdConfig {
@@ -22,4 +22,7 @@ message FimdHandle {
   string hostUid = 1;
   repeated int32 pid = 2;
   repeated int32 processEventfd = 3;
+}
+
+message Empty {
 }

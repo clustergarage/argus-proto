@@ -36,7 +36,7 @@ namespace protobuf_fim_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[3];
+  static const ::google::protobuf::internal::ParseTable schema[4];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -48,13 +48,19 @@ void InitDefaultsFimWatcherSubjectImpl();
 void InitDefaultsFimWatcherSubject();
 void InitDefaultsFimdHandleImpl();
 void InitDefaultsFimdHandle();
+void InitDefaultsEmptyImpl();
+void InitDefaultsEmpty();
 inline void InitDefaults() {
   InitDefaultsFimdConfig();
   InitDefaultsFimWatcherSubject();
   InitDefaultsFimdHandle();
+  InitDefaultsEmpty();
 }
 }  // namespace protobuf_fim_2eproto
 namespace fim {
+class Empty;
+class EmptyDefaultTypeInternal;
+extern EmptyDefaultTypeInternal _Empty_default_instance_;
 class FimWatcherSubject;
 class FimWatcherSubjectDefaultTypeInternal;
 extern FimWatcherSubjectDefaultTypeInternal _FimWatcherSubject_default_instance_;
@@ -475,6 +481,98 @@ class FimdHandle : public ::google::protobuf::Message /* @@protoc_insertion_poin
   friend struct ::protobuf_fim_2eproto::TableStruct;
   friend void ::protobuf_fim_2eproto::InitDefaultsFimdHandleImpl();
 };
+// -------------------------------------------------------------------
+
+class Empty : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fim.Empty) */ {
+ public:
+  Empty();
+  virtual ~Empty();
+
+  Empty(const Empty& from);
+
+  inline Empty& operator=(const Empty& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  Empty(Empty&& from) noexcept
+    : Empty() {
+    *this = ::std::move(from);
+  }
+
+  inline Empty& operator=(Empty&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Empty& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Empty* internal_default_instance() {
+    return reinterpret_cast<const Empty*>(
+               &_Empty_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    3;
+
+  void Swap(Empty* other);
+  friend void swap(Empty& a, Empty& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Empty* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Empty* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Empty& from);
+  void MergeFrom(const Empty& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Empty* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:fim.Empty)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_fim_2eproto::TableStruct;
+  friend void ::protobuf_fim_2eproto::InitDefaultsEmptyImpl();
+};
 // ===================================================================
 
 
@@ -881,9 +979,15 @@ FimdHandle::mutable_processeventfd() {
   return &processeventfd_;
 }
 
+// -------------------------------------------------------------------
+
+// Empty
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
