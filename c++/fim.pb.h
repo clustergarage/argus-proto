@@ -476,6 +476,12 @@ class FimdHandle : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::std::string* release_hostuid();
   void set_allocated_hostuid(::std::string* hostuid);
 
+  // int32 mqFd = 4;
+  void clear_mqfd();
+  static const int kMqFdFieldNumber = 4;
+  ::google::protobuf::int32 mqfd() const;
+  void set_mqfd(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:fim.FimdHandle)
  private:
 
@@ -485,6 +491,7 @@ class FimdHandle : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > processeventfd_;
   mutable int _processeventfd_cached_byte_size_;
   ::google::protobuf::internal::ArenaStringPtr hostuid_;
+  ::google::protobuf::int32 mqfd_;
   mutable int _cached_size_;
   friend struct ::protobuf_fim_2eproto::TableStruct;
   friend void ::protobuf_fim_2eproto::InitDefaultsFimdHandleImpl();
@@ -1001,6 +1008,20 @@ inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
 FimdHandle::mutable_processeventfd() {
   // @@protoc_insertion_point(field_mutable_list:fim.FimdHandle.processEventfd)
   return &processeventfd_;
+}
+
+// int32 mqFd = 4;
+inline void FimdHandle::clear_mqfd() {
+  mqfd_ = 0;
+}
+inline ::google::protobuf::int32 FimdHandle::mqfd() const {
+  // @@protoc_insertion_point(field_get:fim.FimdHandle.mqFd)
+  return mqfd_;
+}
+inline void FimdHandle::set_mqfd(::google::protobuf::int32 value) {
+  
+  mqfd_ = value;
+  // @@protoc_insertion_point(field_set:fim.FimdHandle.mqFd)
 }
 
 // -------------------------------------------------------------------

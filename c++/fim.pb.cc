@@ -153,6 +153,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdHandle, hostuid_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdHandle, pid_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdHandle, processeventfd_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdHandle, mqfd_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::Empty, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -163,7 +164,7 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 0, -1, sizeof(::fim::FimdConfig)},
   { 8, -1, sizeof(::fim::FimWatcherSubject)},
   { 15, -1, sizeof(::fim::FimdHandle)},
-  { 23, -1, sizeof(::fim::Empty)},
+  { 24, -1, sizeof(::fim::Empty)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -199,14 +200,15 @@ void AddDescriptorsImpl() {
       "d\030\001 \001(\t\022\023\n\013containerId\030\002 \003(\t\022\'\n\007subject\030"
       "\003 \003(\0132\026.fim.FimWatcherSubject\"0\n\021FimWatc"
       "herSubject\022\014\n\004path\030\001 \003(\t\022\r\n\005event\030\002 \003(\t\""
-      "B\n\nFimdHandle\022\017\n\007hostUid\030\001 \001(\t\022\013\n\003pid\030\002 "
-      "\003(\005\022\026\n\016processEventfd\030\003 \003(\005\"\007\n\005Empty2h\n\004"
-      "Fimd\0221\n\013CreateWatch\022\017.fim.FimdConfig\032\017.f"
-      "im.FimdHandle\"\000\022-\n\014DestroyWatch\022\017.fim.Fi"
-      "mdConfig\032\n.fim.Empty\"\000b\006proto3"
+      "P\n\nFimdHandle\022\017\n\007hostUid\030\001 \001(\t\022\013\n\003pid\030\002 "
+      "\003(\005\022\026\n\016processEventfd\030\003 \003(\005\022\014\n\004mqFd\030\004 \001("
+      "\005\"\007\n\005Empty2h\n\004Fimd\0221\n\013CreateWatch\022\017.fim."
+      "FimdConfig\032\017.fim.FimdHandle\"\000\022-\n\014Destroy"
+      "Watch\022\017.fim.FimdConfig\032\n.fim.Empty\"\000b\006pr"
+      "oto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 350);
+      descriptor, 364);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fim.proto", &protobuf_RegisterTypes);
 }
@@ -879,6 +881,7 @@ void FimdHandle::InitAsDefaultInstance() {
 const int FimdHandle::kHostUidFieldNumber;
 const int FimdHandle::kPidFieldNumber;
 const int FimdHandle::kProcessEventfdFieldNumber;
+const int FimdHandle::kMqFdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 FimdHandle::FimdHandle()
@@ -900,11 +903,13 @@ FimdHandle::FimdHandle(const FimdHandle& from)
   if (from.hostuid().size() > 0) {
     hostuid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.hostuid_);
   }
+  mqfd_ = from.mqfd_;
   // @@protoc_insertion_point(copy_constructor:fim.FimdHandle)
 }
 
 void FimdHandle::SharedCtor() {
   hostuid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  mqfd_ = 0;
   _cached_size_ = 0;
 }
 
@@ -949,6 +954,7 @@ void FimdHandle::Clear() {
   pid_.Clear();
   processeventfd_.Clear();
   hostuid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  mqfd_ = 0;
   _internal_metadata_.Clear();
 }
 
@@ -1016,6 +1022,20 @@ bool FimdHandle::MergePartialFromCodedStream(
         break;
       }
 
+      // int32 mqFd = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &mqfd_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -1074,6 +1094,11 @@ void FimdHandle::SerializeWithCachedSizes(
       this->processeventfd(i), output);
   }
 
+  // int32 mqFd = 4;
+  if (this->mqfd() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->mqfd(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -1123,6 +1148,11 @@ void FimdHandle::SerializeWithCachedSizes(
             _processeventfd_cached_byte_size_), target);
     target = ::google::protobuf::internal::WireFormatLite::
       WriteInt32NoTagToArray(this->processeventfd_, target);
+  }
+
+  // int32 mqFd = 4;
+  if (this->mqfd() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->mqfd(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1181,6 +1211,13 @@ size_t FimdHandle::ByteSizeLong() const {
         this->hostuid());
   }
 
+  // int32 mqFd = 4;
+  if (this->mqfd() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->mqfd());
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -1216,6 +1253,9 @@ void FimdHandle::MergeFrom(const FimdHandle& from) {
 
     hostuid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.hostuid_);
   }
+  if (from.mqfd() != 0) {
+    set_mqfd(from.mqfd());
+  }
 }
 
 void FimdHandle::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1245,6 +1285,7 @@ void FimdHandle::InternalSwap(FimdHandle* other) {
   pid_.InternalSwap(&other->pid_);
   processeventfd_.InternalSwap(&other->processeventfd_);
   hostuid_.Swap(&other->hostuid_);
+  swap(mqfd_, other->mqfd_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }

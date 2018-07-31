@@ -22,6 +22,7 @@ message FimdHandle {
   string hostUid = 1;
   repeated int32 pid = 2;
   repeated int32 processEventfd = 3;
+  int32 mqFd = 4;
 }
 
 message Empty {
