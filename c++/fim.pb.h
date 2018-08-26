@@ -344,12 +344,19 @@ class FimWatcherSubject : public ::google::protobuf::Message /* @@protoc_inserti
   const ::google::protobuf::RepeatedPtrField< ::std::string>& event() const;
   ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_event();
 
+  // bool recursive = 3;
+  void clear_recursive();
+  static const int kRecursiveFieldNumber = 3;
+  bool recursive() const;
+  void set_recursive(bool value);
+
   // @@protoc_insertion_point(class_scope:fim.FimWatcherSubject)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::std::string> path_;
   ::google::protobuf::RepeatedPtrField< ::std::string> event_;
+  bool recursive_;
   mutable int _cached_size_;
   friend struct ::protobuf_fim_2eproto::TableStruct;
   friend void ::protobuf_fim_2eproto::InitDefaultsFimWatcherSubjectImpl();
@@ -891,6 +898,20 @@ inline ::google::protobuf::RepeatedPtrField< ::std::string>*
 FimWatcherSubject::mutable_event() {
   // @@protoc_insertion_point(field_mutable_list:fim.FimWatcherSubject.event)
   return &event_;
+}
+
+// bool recursive = 3;
+inline void FimWatcherSubject::clear_recursive() {
+  recursive_ = false;
+}
+inline bool FimWatcherSubject::recursive() const {
+  // @@protoc_insertion_point(field_get:fim.FimWatcherSubject.recursive)
+  return recursive_;
+}
+inline void FimWatcherSubject::set_recursive(bool value) {
+  
+  recursive_ = value;
+  // @@protoc_insertion_point(field_set:fim.FimWatcherSubject.recursive)
 }
 
 // -------------------------------------------------------------------

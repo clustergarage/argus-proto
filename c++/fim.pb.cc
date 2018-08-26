@@ -145,6 +145,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimWatcherSubject, path_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimWatcherSubject, event_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimWatcherSubject, recursive_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdHandle, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -163,8 +164,8 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::fim::FimdConfig)},
   { 8, -1, sizeof(::fim::FimWatcherSubject)},
-  { 15, -1, sizeof(::fim::FimdHandle)},
-  { 24, -1, sizeof(::fim::Empty)},
+  { 16, -1, sizeof(::fim::FimdHandle)},
+  { 25, -1, sizeof(::fim::Empty)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -198,17 +199,17 @@ void AddDescriptorsImpl() {
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\tfim.proto\022\003fim\"[\n\nFimdConfig\022\017\n\007hostUi"
       "d\030\001 \001(\t\022\023\n\013containerId\030\002 \003(\t\022\'\n\007subject\030"
-      "\003 \003(\0132\026.fim.FimWatcherSubject\"0\n\021FimWatc"
-      "herSubject\022\014\n\004path\030\001 \003(\t\022\r\n\005event\030\002 \003(\t\""
-      "P\n\nFimdHandle\022\017\n\007hostUid\030\001 \001(\t\022\013\n\003pid\030\002 "
-      "\003(\005\022\026\n\016processEventfd\030\003 \003(\005\022\014\n\004mqFd\030\004 \001("
-      "\005\"\007\n\005Empty2h\n\004Fimd\0221\n\013CreateWatch\022\017.fim."
-      "FimdConfig\032\017.fim.FimdHandle\"\000\022-\n\014Destroy"
-      "Watch\022\017.fim.FimdConfig\032\n.fim.Empty\"\000b\006pr"
-      "oto3"
+      "\003 \003(\0132\026.fim.FimWatcherSubject\"C\n\021FimWatc"
+      "herSubject\022\014\n\004path\030\001 \003(\t\022\r\n\005event\030\002 \003(\t\022"
+      "\021\n\trecursive\030\003 \001(\010\"P\n\nFimdHandle\022\017\n\007host"
+      "Uid\030\001 \001(\t\022\013\n\003pid\030\002 \003(\005\022\026\n\016processEventfd"
+      "\030\003 \003(\005\022\014\n\004mqFd\030\004 \001(\005\"\007\n\005Empty2h\n\004Fimd\0221\n"
+      "\013CreateWatch\022\017.fim.FimdConfig\032\017.fim.Fimd"
+      "Handle\"\000\022-\n\014DestroyWatch\022\017.fim.FimdConfi"
+      "g\032\n.fim.Empty\"\000b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 364);
+      descriptor, 383);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fim.proto", &protobuf_RegisterTypes);
 }
@@ -581,6 +582,7 @@ void FimWatcherSubject::InitAsDefaultInstance() {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int FimWatcherSubject::kPathFieldNumber;
 const int FimWatcherSubject::kEventFieldNumber;
+const int FimWatcherSubject::kRecursiveFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 FimWatcherSubject::FimWatcherSubject()
@@ -598,10 +600,12 @@ FimWatcherSubject::FimWatcherSubject(const FimWatcherSubject& from)
       event_(from.event_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  recursive_ = from.recursive_;
   // @@protoc_insertion_point(copy_constructor:fim.FimWatcherSubject)
 }
 
 void FimWatcherSubject::SharedCtor() {
+  recursive_ = false;
   _cached_size_ = 0;
 }
 
@@ -644,6 +648,7 @@ void FimWatcherSubject::Clear() {
 
   path_.Clear();
   event_.Clear();
+  recursive_ = false;
   _internal_metadata_.Clear();
 }
 
@@ -685,6 +690,20 @@ bool FimWatcherSubject::MergePartialFromCodedStream(
             static_cast<int>(this->event(this->event_size() - 1).length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
             "fim.FimWatcherSubject.event"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bool recursive = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &recursive_)));
         } else {
           goto handle_unusual;
         }
@@ -737,6 +756,11 @@ void FimWatcherSubject::SerializeWithCachedSizes(
       2, this->event(i), output);
   }
 
+  // bool recursive = 3;
+  if (this->recursive() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->recursive(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -769,6 +793,11 @@ void FimWatcherSubject::SerializeWithCachedSizes(
       "fim.FimWatcherSubject.event");
     target = ::google::protobuf::internal::WireFormatLite::
       WriteStringToArray(2, this->event(i), target);
+  }
+
+  // bool recursive = 3;
+  if (this->recursive() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->recursive(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -804,6 +833,11 @@ size_t FimWatcherSubject::ByteSizeLong() const {
       this->event(i));
   }
 
+  // bool recursive = 3;
+  if (this->recursive() != 0) {
+    total_size += 1 + 1;
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -835,6 +869,9 @@ void FimWatcherSubject::MergeFrom(const FimWatcherSubject& from) {
 
   path_.MergeFrom(from.path_);
   event_.MergeFrom(from.event_);
+  if (from.recursive() != 0) {
+    set_recursive(from.recursive());
+  }
 }
 
 void FimWatcherSubject::CopyFrom(const ::google::protobuf::Message& from) {
@@ -863,6 +900,7 @@ void FimWatcherSubject::InternalSwap(FimWatcherSubject* other) {
   using std::swap;
   path_.InternalSwap(&other->path_);
   event_.InternalSwap(&other->event_);
+  swap(recursive_, other->recursive_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }

@@ -16,6 +16,7 @@ message FimdConfig {
 message FimWatcherSubject {
   repeated string path = 1;
   repeated string event = 2;
+  bool recursive = 3;
 }
 
 message FimdHandle {
