@@ -8,9 +8,11 @@ service Fimd {
 }
 
 message FimdConfig {
-  string hostUid = 1;
-  repeated string containerId = 2;
-  repeated FimWatcherSubject subject = 3;
+  string nodeName = 1;
+  string podName = 2;
+  repeated string containerId = 3;
+  repeated FimWatcherSubject subject = 4;
+  string logFormat = 5;
 }
 
 message FimWatcherSubject {
@@ -20,10 +22,11 @@ message FimWatcherSubject {
 }
 
 message FimdHandle {
-  string hostUid = 1;
-  repeated int32 pid = 2;
-  repeated int32 processEventfd = 3;
-  int32 mqFd = 4;
+  string nodeName = 1;
+  string podName = 2;
+  repeated int32 pid = 3;
+  repeated int32 processEventfd = 4;
+  int32 mqFd = 5;
 }
 
 message Empty {

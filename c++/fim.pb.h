@@ -157,10 +157,10 @@ class FimdConfig : public ::google::protobuf::Message /* @@protoc_insertion_poin
 
   // accessors -------------------------------------------------------
 
-  // repeated string containerId = 2;
+  // repeated string containerId = 3;
   int containerid_size() const;
   void clear_containerid();
-  static const int kContainerIdFieldNumber = 2;
+  static const int kContainerIdFieldNumber = 3;
   const ::std::string& containerid(int index) const;
   ::std::string* mutable_containerid(int index);
   void set_containerid(int index, const ::std::string& value);
@@ -179,10 +179,10 @@ class FimdConfig : public ::google::protobuf::Message /* @@protoc_insertion_poin
   const ::google::protobuf::RepeatedPtrField< ::std::string>& containerid() const;
   ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_containerid();
 
-  // repeated .fim.FimWatcherSubject subject = 3;
+  // repeated .fim.FimWatcherSubject subject = 4;
   int subject_size() const;
   void clear_subject();
-  static const int kSubjectFieldNumber = 3;
+  static const int kSubjectFieldNumber = 4;
   const ::fim::FimWatcherSubject& subject(int index) const;
   ::fim::FimWatcherSubject* mutable_subject(int index);
   ::fim::FimWatcherSubject* add_subject();
@@ -191,19 +191,47 @@ class FimdConfig : public ::google::protobuf::Message /* @@protoc_insertion_poin
   const ::google::protobuf::RepeatedPtrField< ::fim::FimWatcherSubject >&
       subject() const;
 
-  // string hostUid = 1;
-  void clear_hostuid();
-  static const int kHostUidFieldNumber = 1;
-  const ::std::string& hostuid() const;
-  void set_hostuid(const ::std::string& value);
+  // string nodeName = 1;
+  void clear_nodename();
+  static const int kNodeNameFieldNumber = 1;
+  const ::std::string& nodename() const;
+  void set_nodename(const ::std::string& value);
   #if LANG_CXX11
-  void set_hostuid(::std::string&& value);
+  void set_nodename(::std::string&& value);
   #endif
-  void set_hostuid(const char* value);
-  void set_hostuid(const char* value, size_t size);
-  ::std::string* mutable_hostuid();
-  ::std::string* release_hostuid();
-  void set_allocated_hostuid(::std::string* hostuid);
+  void set_nodename(const char* value);
+  void set_nodename(const char* value, size_t size);
+  ::std::string* mutable_nodename();
+  ::std::string* release_nodename();
+  void set_allocated_nodename(::std::string* nodename);
+
+  // string podName = 2;
+  void clear_podname();
+  static const int kPodNameFieldNumber = 2;
+  const ::std::string& podname() const;
+  void set_podname(const ::std::string& value);
+  #if LANG_CXX11
+  void set_podname(::std::string&& value);
+  #endif
+  void set_podname(const char* value);
+  void set_podname(const char* value, size_t size);
+  ::std::string* mutable_podname();
+  ::std::string* release_podname();
+  void set_allocated_podname(::std::string* podname);
+
+  // string logFormat = 5;
+  void clear_logformat();
+  static const int kLogFormatFieldNumber = 5;
+  const ::std::string& logformat() const;
+  void set_logformat(const ::std::string& value);
+  #if LANG_CXX11
+  void set_logformat(::std::string&& value);
+  #endif
+  void set_logformat(const char* value);
+  void set_logformat(const char* value, size_t size);
+  ::std::string* mutable_logformat();
+  ::std::string* release_logformat();
+  void set_allocated_logformat(::std::string* logformat);
 
   // @@protoc_insertion_point(class_scope:fim.FimdConfig)
  private:
@@ -211,7 +239,9 @@ class FimdConfig : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::std::string> containerid_;
   ::google::protobuf::RepeatedPtrField< ::fim::FimWatcherSubject > subject_;
-  ::google::protobuf::internal::ArenaStringPtr hostuid_;
+  ::google::protobuf::internal::ArenaStringPtr nodename_;
+  ::google::protobuf::internal::ArenaStringPtr podname_;
+  ::google::protobuf::internal::ArenaStringPtr logformat_;
   mutable int _cached_size_;
   friend struct ::protobuf_fim_2eproto::TableStruct;
   friend void ::protobuf_fim_2eproto::InitDefaultsFimdConfigImpl();
@@ -445,10 +475,10 @@ class FimdHandle : public ::google::protobuf::Message /* @@protoc_insertion_poin
 
   // accessors -------------------------------------------------------
 
-  // repeated int32 pid = 2;
+  // repeated int32 pid = 3;
   int pid_size() const;
   void clear_pid();
-  static const int kPidFieldNumber = 2;
+  static const int kPidFieldNumber = 3;
   ::google::protobuf::int32 pid(int index) const;
   void set_pid(int index, ::google::protobuf::int32 value);
   void add_pid(::google::protobuf::int32 value);
@@ -457,10 +487,10 @@ class FimdHandle : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_pid();
 
-  // repeated int32 processEventfd = 3;
+  // repeated int32 processEventfd = 4;
   int processeventfd_size() const;
   void clear_processeventfd();
-  static const int kProcessEventfdFieldNumber = 3;
+  static const int kProcessEventfdFieldNumber = 4;
   ::google::protobuf::int32 processeventfd(int index) const;
   void set_processeventfd(int index, ::google::protobuf::int32 value);
   void add_processeventfd(::google::protobuf::int32 value);
@@ -469,23 +499,37 @@ class FimdHandle : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_processeventfd();
 
-  // string hostUid = 1;
-  void clear_hostuid();
-  static const int kHostUidFieldNumber = 1;
-  const ::std::string& hostuid() const;
-  void set_hostuid(const ::std::string& value);
+  // string nodeName = 1;
+  void clear_nodename();
+  static const int kNodeNameFieldNumber = 1;
+  const ::std::string& nodename() const;
+  void set_nodename(const ::std::string& value);
   #if LANG_CXX11
-  void set_hostuid(::std::string&& value);
+  void set_nodename(::std::string&& value);
   #endif
-  void set_hostuid(const char* value);
-  void set_hostuid(const char* value, size_t size);
-  ::std::string* mutable_hostuid();
-  ::std::string* release_hostuid();
-  void set_allocated_hostuid(::std::string* hostuid);
+  void set_nodename(const char* value);
+  void set_nodename(const char* value, size_t size);
+  ::std::string* mutable_nodename();
+  ::std::string* release_nodename();
+  void set_allocated_nodename(::std::string* nodename);
 
-  // int32 mqFd = 4;
+  // string podName = 2;
+  void clear_podname();
+  static const int kPodNameFieldNumber = 2;
+  const ::std::string& podname() const;
+  void set_podname(const ::std::string& value);
+  #if LANG_CXX11
+  void set_podname(::std::string&& value);
+  #endif
+  void set_podname(const char* value);
+  void set_podname(const char* value, size_t size);
+  ::std::string* mutable_podname();
+  ::std::string* release_podname();
+  void set_allocated_podname(::std::string* podname);
+
+  // int32 mqFd = 5;
   void clear_mqfd();
-  static const int kMqFdFieldNumber = 4;
+  static const int kMqFdFieldNumber = 5;
   ::google::protobuf::int32 mqfd() const;
   void set_mqfd(::google::protobuf::int32 value);
 
@@ -497,7 +541,8 @@ class FimdHandle : public ::google::protobuf::Message /* @@protoc_insertion_poin
   mutable int _pid_cached_byte_size_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > processeventfd_;
   mutable int _processeventfd_cached_byte_size_;
-  ::google::protobuf::internal::ArenaStringPtr hostuid_;
+  ::google::protobuf::internal::ArenaStringPtr nodename_;
+  ::google::protobuf::internal::ArenaStringPtr podname_;
   ::google::protobuf::int32 mqfd_;
   mutable int _cached_size_;
   friend struct ::protobuf_fim_2eproto::TableStruct;
@@ -606,60 +651,113 @@ class Empty : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
 #endif  // __GNUC__
 // FimdConfig
 
-// string hostUid = 1;
-inline void FimdConfig::clear_hostuid() {
-  hostuid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// string nodeName = 1;
+inline void FimdConfig::clear_nodename() {
+  nodename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& FimdConfig::hostuid() const {
-  // @@protoc_insertion_point(field_get:fim.FimdConfig.hostUid)
-  return hostuid_.GetNoArena();
+inline const ::std::string& FimdConfig::nodename() const {
+  // @@protoc_insertion_point(field_get:fim.FimdConfig.nodeName)
+  return nodename_.GetNoArena();
 }
-inline void FimdConfig::set_hostuid(const ::std::string& value) {
+inline void FimdConfig::set_nodename(const ::std::string& value) {
   
-  hostuid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:fim.FimdConfig.hostUid)
+  nodename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fim.FimdConfig.nodeName)
 }
 #if LANG_CXX11
-inline void FimdConfig::set_hostuid(::std::string&& value) {
+inline void FimdConfig::set_nodename(::std::string&& value) {
   
-  hostuid_.SetNoArena(
+  nodename_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:fim.FimdConfig.hostUid)
+  // @@protoc_insertion_point(field_set_rvalue:fim.FimdConfig.nodeName)
 }
 #endif
-inline void FimdConfig::set_hostuid(const char* value) {
+inline void FimdConfig::set_nodename(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   
-  hostuid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:fim.FimdConfig.hostUid)
+  nodename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fim.FimdConfig.nodeName)
 }
-inline void FimdConfig::set_hostuid(const char* value, size_t size) {
+inline void FimdConfig::set_nodename(const char* value, size_t size) {
   
-  hostuid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  nodename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:fim.FimdConfig.hostUid)
+  // @@protoc_insertion_point(field_set_pointer:fim.FimdConfig.nodeName)
 }
-inline ::std::string* FimdConfig::mutable_hostuid() {
+inline ::std::string* FimdConfig::mutable_nodename() {
   
-  // @@protoc_insertion_point(field_mutable:fim.FimdConfig.hostUid)
-  return hostuid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:fim.FimdConfig.nodeName)
+  return nodename_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* FimdConfig::release_hostuid() {
-  // @@protoc_insertion_point(field_release:fim.FimdConfig.hostUid)
+inline ::std::string* FimdConfig::release_nodename() {
+  // @@protoc_insertion_point(field_release:fim.FimdConfig.nodeName)
   
-  return hostuid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return nodename_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void FimdConfig::set_allocated_hostuid(::std::string* hostuid) {
-  if (hostuid != NULL) {
+inline void FimdConfig::set_allocated_nodename(::std::string* nodename) {
+  if (nodename != NULL) {
     
   } else {
     
   }
-  hostuid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), hostuid);
-  // @@protoc_insertion_point(field_set_allocated:fim.FimdConfig.hostUid)
+  nodename_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), nodename);
+  // @@protoc_insertion_point(field_set_allocated:fim.FimdConfig.nodeName)
 }
 
-// repeated string containerId = 2;
+// string podName = 2;
+inline void FimdConfig::clear_podname() {
+  podname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& FimdConfig::podname() const {
+  // @@protoc_insertion_point(field_get:fim.FimdConfig.podName)
+  return podname_.GetNoArena();
+}
+inline void FimdConfig::set_podname(const ::std::string& value) {
+  
+  podname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fim.FimdConfig.podName)
+}
+#if LANG_CXX11
+inline void FimdConfig::set_podname(::std::string&& value) {
+  
+  podname_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fim.FimdConfig.podName)
+}
+#endif
+inline void FimdConfig::set_podname(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  podname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fim.FimdConfig.podName)
+}
+inline void FimdConfig::set_podname(const char* value, size_t size) {
+  
+  podname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fim.FimdConfig.podName)
+}
+inline ::std::string* FimdConfig::mutable_podname() {
+  
+  // @@protoc_insertion_point(field_mutable:fim.FimdConfig.podName)
+  return podname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* FimdConfig::release_podname() {
+  // @@protoc_insertion_point(field_release:fim.FimdConfig.podName)
+  
+  return podname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void FimdConfig::set_allocated_podname(::std::string* podname) {
+  if (podname != NULL) {
+    
+  } else {
+    
+  }
+  podname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), podname);
+  // @@protoc_insertion_point(field_set_allocated:fim.FimdConfig.podName)
+}
+
+// repeated string containerId = 3;
 inline int FimdConfig::containerid_size() const {
   return containerid_.size();
 }
@@ -728,7 +826,7 @@ FimdConfig::mutable_containerid() {
   return &containerid_;
 }
 
-// repeated .fim.FimWatcherSubject subject = 3;
+// repeated .fim.FimWatcherSubject subject = 4;
 inline int FimdConfig::subject_size() const {
   return subject_.size();
 }
@@ -756,6 +854,59 @@ inline const ::google::protobuf::RepeatedPtrField< ::fim::FimWatcherSubject >&
 FimdConfig::subject() const {
   // @@protoc_insertion_point(field_list:fim.FimdConfig.subject)
   return subject_;
+}
+
+// string logFormat = 5;
+inline void FimdConfig::clear_logformat() {
+  logformat_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& FimdConfig::logformat() const {
+  // @@protoc_insertion_point(field_get:fim.FimdConfig.logFormat)
+  return logformat_.GetNoArena();
+}
+inline void FimdConfig::set_logformat(const ::std::string& value) {
+  
+  logformat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fim.FimdConfig.logFormat)
+}
+#if LANG_CXX11
+inline void FimdConfig::set_logformat(::std::string&& value) {
+  
+  logformat_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fim.FimdConfig.logFormat)
+}
+#endif
+inline void FimdConfig::set_logformat(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  logformat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fim.FimdConfig.logFormat)
+}
+inline void FimdConfig::set_logformat(const char* value, size_t size) {
+  
+  logformat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fim.FimdConfig.logFormat)
+}
+inline ::std::string* FimdConfig::mutable_logformat() {
+  
+  // @@protoc_insertion_point(field_mutable:fim.FimdConfig.logFormat)
+  return logformat_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* FimdConfig::release_logformat() {
+  // @@protoc_insertion_point(field_release:fim.FimdConfig.logFormat)
+  
+  return logformat_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void FimdConfig::set_allocated_logformat(::std::string* logformat) {
+  if (logformat != NULL) {
+    
+  } else {
+    
+  }
+  logformat_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), logformat);
+  // @@protoc_insertion_point(field_set_allocated:fim.FimdConfig.logFormat)
 }
 
 // -------------------------------------------------------------------
@@ -918,60 +1069,113 @@ inline void FimWatcherSubject::set_recursive(bool value) {
 
 // FimdHandle
 
-// string hostUid = 1;
-inline void FimdHandle::clear_hostuid() {
-  hostuid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// string nodeName = 1;
+inline void FimdHandle::clear_nodename() {
+  nodename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& FimdHandle::hostuid() const {
-  // @@protoc_insertion_point(field_get:fim.FimdHandle.hostUid)
-  return hostuid_.GetNoArena();
+inline const ::std::string& FimdHandle::nodename() const {
+  // @@protoc_insertion_point(field_get:fim.FimdHandle.nodeName)
+  return nodename_.GetNoArena();
 }
-inline void FimdHandle::set_hostuid(const ::std::string& value) {
+inline void FimdHandle::set_nodename(const ::std::string& value) {
   
-  hostuid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:fim.FimdHandle.hostUid)
+  nodename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fim.FimdHandle.nodeName)
 }
 #if LANG_CXX11
-inline void FimdHandle::set_hostuid(::std::string&& value) {
+inline void FimdHandle::set_nodename(::std::string&& value) {
   
-  hostuid_.SetNoArena(
+  nodename_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:fim.FimdHandle.hostUid)
+  // @@protoc_insertion_point(field_set_rvalue:fim.FimdHandle.nodeName)
 }
 #endif
-inline void FimdHandle::set_hostuid(const char* value) {
+inline void FimdHandle::set_nodename(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   
-  hostuid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:fim.FimdHandle.hostUid)
+  nodename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fim.FimdHandle.nodeName)
 }
-inline void FimdHandle::set_hostuid(const char* value, size_t size) {
+inline void FimdHandle::set_nodename(const char* value, size_t size) {
   
-  hostuid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  nodename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:fim.FimdHandle.hostUid)
+  // @@protoc_insertion_point(field_set_pointer:fim.FimdHandle.nodeName)
 }
-inline ::std::string* FimdHandle::mutable_hostuid() {
+inline ::std::string* FimdHandle::mutable_nodename() {
   
-  // @@protoc_insertion_point(field_mutable:fim.FimdHandle.hostUid)
-  return hostuid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:fim.FimdHandle.nodeName)
+  return nodename_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* FimdHandle::release_hostuid() {
-  // @@protoc_insertion_point(field_release:fim.FimdHandle.hostUid)
+inline ::std::string* FimdHandle::release_nodename() {
+  // @@protoc_insertion_point(field_release:fim.FimdHandle.nodeName)
   
-  return hostuid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return nodename_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void FimdHandle::set_allocated_hostuid(::std::string* hostuid) {
-  if (hostuid != NULL) {
+inline void FimdHandle::set_allocated_nodename(::std::string* nodename) {
+  if (nodename != NULL) {
     
   } else {
     
   }
-  hostuid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), hostuid);
-  // @@protoc_insertion_point(field_set_allocated:fim.FimdHandle.hostUid)
+  nodename_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), nodename);
+  // @@protoc_insertion_point(field_set_allocated:fim.FimdHandle.nodeName)
 }
 
-// repeated int32 pid = 2;
+// string podName = 2;
+inline void FimdHandle::clear_podname() {
+  podname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& FimdHandle::podname() const {
+  // @@protoc_insertion_point(field_get:fim.FimdHandle.podName)
+  return podname_.GetNoArena();
+}
+inline void FimdHandle::set_podname(const ::std::string& value) {
+  
+  podname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fim.FimdHandle.podName)
+}
+#if LANG_CXX11
+inline void FimdHandle::set_podname(::std::string&& value) {
+  
+  podname_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fim.FimdHandle.podName)
+}
+#endif
+inline void FimdHandle::set_podname(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  podname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fim.FimdHandle.podName)
+}
+inline void FimdHandle::set_podname(const char* value, size_t size) {
+  
+  podname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fim.FimdHandle.podName)
+}
+inline ::std::string* FimdHandle::mutable_podname() {
+  
+  // @@protoc_insertion_point(field_mutable:fim.FimdHandle.podName)
+  return podname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* FimdHandle::release_podname() {
+  // @@protoc_insertion_point(field_release:fim.FimdHandle.podName)
+  
+  return podname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void FimdHandle::set_allocated_podname(::std::string* podname) {
+  if (podname != NULL) {
+    
+  } else {
+    
+  }
+  podname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), podname);
+  // @@protoc_insertion_point(field_set_allocated:fim.FimdHandle.podName)
+}
+
+// repeated int32 pid = 3;
 inline int FimdHandle::pid_size() const {
   return pid_.size();
 }
@@ -1001,7 +1205,7 @@ FimdHandle::mutable_pid() {
   return &pid_;
 }
 
-// repeated int32 processEventfd = 3;
+// repeated int32 processEventfd = 4;
 inline int FimdHandle::processeventfd_size() const {
   return processeventfd_.size();
 }
@@ -1031,7 +1235,7 @@ FimdHandle::mutable_processeventfd() {
   return &processeventfd_;
 }
 
-// int32 mqFd = 4;
+// int32 mqFd = 5;
 inline void FimdHandle::clear_mqfd() {
   mqfd_ = 0;
 }
