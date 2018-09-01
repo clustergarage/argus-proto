@@ -22,8 +22,8 @@ message FimWatcherSubject {
 }
 
 message FimdHandle {
-  string nodeName = 1;
-  string podName = 2;
+  bytes nodeName = 1;
+  bytes podName = 2;
   repeated int32 pid = 3;
   repeated int32 processEventfd = 4;
   int32 mqFd = 5;

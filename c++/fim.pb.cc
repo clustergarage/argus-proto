@@ -206,7 +206,7 @@ void AddDescriptorsImpl() {
       "rSubject\022\021\n\tlogFormat\030\005 \001(\t\"C\n\021FimWatche"
       "rSubject\022\014\n\004path\030\001 \003(\t\022\r\n\005event\030\002 \003(\t\022\021\n"
       "\trecursive\030\003 \001(\010\"b\n\nFimdHandle\022\020\n\010nodeNa"
-      "me\030\001 \001(\t\022\017\n\007podName\030\002 \001(\t\022\013\n\003pid\030\003 \003(\005\022\026"
+      "me\030\001 \001(\014\022\017\n\007podName\030\002 \001(\014\022\013\n\003pid\030\003 \003(\005\022\026"
       "\n\016processEventfd\030\004 \003(\005\022\014\n\004mqFd\030\005 \001(\005\"\007\n\005"
       "Empty2h\n\004Fimd\0221\n\013CreateWatch\022\017.fim.FimdC"
       "onfig\032\017.fim.FimdHandle\"\000\022-\n\014DestroyWatch"
@@ -1132,32 +1132,24 @@ bool FimdHandle::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // string nodeName = 1;
+      // bytes nodeName = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
                 input, this->mutable_nodename()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->nodename().data(), static_cast<int>(this->nodename().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "fim.FimdHandle.nodeName"));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // string podName = 2;
+      // bytes podName = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
                 input, this->mutable_podname()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->podname().data(), static_cast<int>(this->podname().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "fim.FimdHandle.podName"));
         } else {
           goto handle_unusual;
         }
@@ -1242,23 +1234,15 @@ void FimdHandle::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string nodeName = 1;
+  // bytes nodeName = 1;
   if (this->nodename().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->nodename().data(), static_cast<int>(this->nodename().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "fim.FimdHandle.nodeName");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
       1, this->nodename(), output);
   }
 
-  // string podName = 2;
+  // bytes podName = 2;
   if (this->podname().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->podname().data(), static_cast<int>(this->podname().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "fim.FimdHandle.podName");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
       2, this->podname(), output);
   }
 
@@ -1303,25 +1287,17 @@ void FimdHandle::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string nodeName = 1;
+  // bytes nodeName = 1;
   if (this->nodename().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->nodename().data(), static_cast<int>(this->nodename().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "fim.FimdHandle.nodeName");
     target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
         1, this->nodename(), target);
   }
 
-  // string podName = 2;
+  // bytes podName = 2;
   if (this->podname().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->podname().data(), static_cast<int>(this->podname().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "fim.FimdHandle.podName");
     target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
         2, this->podname(), target);
   }
 
@@ -1405,17 +1381,17 @@ size_t FimdHandle::ByteSizeLong() const {
     total_size += data_size;
   }
 
-  // string nodeName = 1;
+  // bytes nodeName = 1;
   if (this->nodename().size() > 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
         this->nodename());
   }
 
-  // string podName = 2;
+  // bytes podName = 2;
   if (this->podname().size() > 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
         this->podname());
   }
 
