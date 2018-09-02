@@ -7,7 +7,6 @@
 
 #include <google/protobuf/stubs/common.h>
 #include <google/protobuf/stubs/port.h>
-#include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/wire_format_lite_inl.h>
 #include <google/protobuf/descriptor.h>
@@ -19,6 +18,10 @@
 #include "third_party/protobuf/version.h"
 #endif
 // @@protoc_insertion_point(includes)
+
+namespace protobuf_fim_2eproto {
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_fim_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_FimWatcherSubject;
+}  // namespace protobuf_fim_2eproto
 namespace fim {
 class FimdConfigDefaultTypeInternal {
  public:
@@ -42,15 +45,9 @@ class EmptyDefaultTypeInternal {
 } _Empty_default_instance_;
 }  // namespace fim
 namespace protobuf_fim_2eproto {
-void InitDefaultsFimdConfigImpl() {
+static void InitDefaultsFimdConfig() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
-#else
-  ::google::protobuf::internal::InitProtobufDefaults();
-#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  protobuf_fim_2eproto::InitDefaultsFimWatcherSubject();
   {
     void* ptr = &::fim::_FimdConfig_default_instance_;
     new (ptr) ::fim::FimdConfig();
@@ -59,19 +56,13 @@ void InitDefaultsFimdConfigImpl() {
   ::fim::FimdConfig::InitAsDefaultInstance();
 }
 
-void InitDefaultsFimdConfig() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsFimdConfigImpl);
-}
+::google::protobuf::internal::SCCInfo<1> scc_info_FimdConfig =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsFimdConfig}, {
+      &protobuf_fim_2eproto::scc_info_FimWatcherSubject.base,}};
 
-void InitDefaultsFimWatcherSubjectImpl() {
+static void InitDefaultsFimWatcherSubject() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
-#else
-  ::google::protobuf::internal::InitProtobufDefaults();
-#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
   {
     void* ptr = &::fim::_FimWatcherSubject_default_instance_;
     new (ptr) ::fim::FimWatcherSubject();
@@ -80,19 +71,12 @@ void InitDefaultsFimWatcherSubjectImpl() {
   ::fim::FimWatcherSubject::InitAsDefaultInstance();
 }
 
-void InitDefaultsFimWatcherSubject() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsFimWatcherSubjectImpl);
-}
+::google::protobuf::internal::SCCInfo<0> scc_info_FimWatcherSubject =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsFimWatcherSubject}, {}};
 
-void InitDefaultsFimdHandleImpl() {
+static void InitDefaultsFimdHandle() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
-#else
-  ::google::protobuf::internal::InitProtobufDefaults();
-#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
   {
     void* ptr = &::fim::_FimdHandle_default_instance_;
     new (ptr) ::fim::FimdHandle();
@@ -101,19 +85,12 @@ void InitDefaultsFimdHandleImpl() {
   ::fim::FimdHandle::InitAsDefaultInstance();
 }
 
-void InitDefaultsFimdHandle() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsFimdHandleImpl);
-}
+::google::protobuf::internal::SCCInfo<0> scc_info_FimdHandle =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsFimdHandle}, {}};
 
-void InitDefaultsEmptyImpl() {
+static void InitDefaultsEmpty() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
-#else
-  ::google::protobuf::internal::InitProtobufDefaults();
-#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
   {
     void* ptr = &::fim::_Empty_default_instance_;
     new (ptr) ::fim::Empty();
@@ -122,9 +99,14 @@ void InitDefaultsEmptyImpl() {
   ::fim::Empty::InitAsDefaultInstance();
 }
 
-void InitDefaultsEmpty() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsEmptyImpl);
+::google::protobuf::internal::SCCInfo<0> scc_info_Empty =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsEmpty}, {}};
+
+void InitDefaults() {
+  ::google::protobuf::internal::InitSCC(&scc_info_FimdConfig.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_FimWatcherSubject.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_FimdHandle.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_Empty.base);
 }
 
 ::google::protobuf::Metadata file_level_metadata[4];
@@ -180,15 +162,14 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 
 void protobuf_AssignDescriptors() {
   AddDescriptors();
-  ::google::protobuf::MessageFactory* factory = NULL;
   AssignDescriptors(
-      "fim.proto", schemas, file_default_instances, TableStruct::offsets, factory,
+      "fim.proto", schemas, file_default_instances, TableStruct::offsets,
       file_level_metadata, NULL, NULL);
 }
 
 void protobuf_AssignDescriptorsOnce() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &protobuf_AssignDescriptors);
+  static ::google::protobuf::internal::once_flag once;
+  ::google::protobuf::internal::call_once(once, protobuf_AssignDescriptors);
 }
 
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
@@ -219,8 +200,8 @@ void AddDescriptorsImpl() {
 }
 
 void AddDescriptors() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &AddDescriptorsImpl);
+  static ::google::protobuf::internal::once_flag once;
+  ::google::protobuf::internal::call_once(once, AddDescriptorsImpl);
 }
 // Force AddDescriptors() to be called at dynamic initialization time.
 struct StaticDescriptorInitializer {
@@ -245,9 +226,8 @@ const int FimdConfig::kLogFormatFieldNumber;
 
 FimdConfig::FimdConfig()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_fim_2eproto::InitDefaultsFimdConfig();
-  }
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_fim_2eproto::scc_info_FimdConfig.base);
   SharedCtor();
   // @@protoc_insertion_point(constructor:fim.FimdConfig)
 }
@@ -255,8 +235,7 @@ FimdConfig::FimdConfig(const FimdConfig& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       containerid_(from.containerid_),
-      subject_(from.subject_),
-      _cached_size_(0) {
+      subject_(from.subject_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   nodename_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.nodename().size() > 0) {
@@ -277,7 +256,6 @@ void FimdConfig::SharedCtor() {
   nodename_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   podname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   logformat_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  _cached_size_ = 0;
 }
 
 FimdConfig::~FimdConfig() {
@@ -292,9 +270,7 @@ void FimdConfig::SharedDtor() {
 }
 
 void FimdConfig::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  _cached_size_.Set(size);
 }
 const ::google::protobuf::Descriptor* FimdConfig::descriptor() {
   ::protobuf_fim_2eproto::protobuf_AssignDescriptorsOnce();
@@ -302,17 +278,10 @@ const ::google::protobuf::Descriptor* FimdConfig::descriptor() {
 }
 
 const FimdConfig& FimdConfig::default_instance() {
-  ::protobuf_fim_2eproto::InitDefaultsFimdConfig();
+  ::google::protobuf::internal::InitSCC(&protobuf_fim_2eproto::scc_info_FimdConfig.base);
   return *internal_default_instance();
 }
 
-FimdConfig* FimdConfig::New(::google::protobuf::Arena* arena) const {
-  FimdConfig* n = new FimdConfig;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
-}
 
 void FimdConfig::Clear() {
 // @@protoc_insertion_point(message_clear_start:fim.FimdConfig)
@@ -334,7 +303,7 @@ bool FimdConfig::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:fim.FimdConfig)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
@@ -391,7 +360,8 @@ bool FimdConfig::MergePartialFromCodedStream(
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(input, add_subject()));
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+                input, add_subject()));
         } else {
           goto handle_unusual;
         }
@@ -474,7 +444,9 @@ void FimdConfig::SerializeWithCachedSizes(
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->subject_size()); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, this->subject(static_cast<int>(i)), output);
+      4,
+      this->subject(static_cast<int>(i)),
+      output);
   }
 
   // string logFormat = 5;
@@ -610,9 +582,7 @@ size_t FimdConfig::ByteSizeLong() const {
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  SetCachedSize(cached_size);
   return total_size;
 }
 
@@ -678,13 +648,15 @@ void FimdConfig::Swap(FimdConfig* other) {
 }
 void FimdConfig::InternalSwap(FimdConfig* other) {
   using std::swap;
-  containerid_.InternalSwap(&other->containerid_);
-  subject_.InternalSwap(&other->subject_);
-  nodename_.Swap(&other->nodename_);
-  podname_.Swap(&other->podname_);
-  logformat_.Swap(&other->logformat_);
+  containerid_.InternalSwap(CastToBase(&other->containerid_));
+  CastToBase(&subject_)->InternalSwap(CastToBase(&other->subject_));
+  nodename_.Swap(&other->nodename_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  podname_.Swap(&other->podname_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  logformat_.Swap(&other->logformat_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata FimdConfig::GetMetadata() const {
@@ -705,9 +677,8 @@ const int FimWatcherSubject::kRecursiveFieldNumber;
 
 FimWatcherSubject::FimWatcherSubject()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_fim_2eproto::InitDefaultsFimWatcherSubject();
-  }
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_fim_2eproto::scc_info_FimWatcherSubject.base);
   SharedCtor();
   // @@protoc_insertion_point(constructor:fim.FimWatcherSubject)
 }
@@ -715,8 +686,7 @@ FimWatcherSubject::FimWatcherSubject(const FimWatcherSubject& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       path_(from.path_),
-      event_(from.event_),
-      _cached_size_(0) {
+      event_(from.event_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   recursive_ = from.recursive_;
   // @@protoc_insertion_point(copy_constructor:fim.FimWatcherSubject)
@@ -724,7 +694,6 @@ FimWatcherSubject::FimWatcherSubject(const FimWatcherSubject& from)
 
 void FimWatcherSubject::SharedCtor() {
   recursive_ = false;
-  _cached_size_ = 0;
 }
 
 FimWatcherSubject::~FimWatcherSubject() {
@@ -736,9 +705,7 @@ void FimWatcherSubject::SharedDtor() {
 }
 
 void FimWatcherSubject::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  _cached_size_.Set(size);
 }
 const ::google::protobuf::Descriptor* FimWatcherSubject::descriptor() {
   ::protobuf_fim_2eproto::protobuf_AssignDescriptorsOnce();
@@ -746,17 +713,10 @@ const ::google::protobuf::Descriptor* FimWatcherSubject::descriptor() {
 }
 
 const FimWatcherSubject& FimWatcherSubject::default_instance() {
-  ::protobuf_fim_2eproto::InitDefaultsFimWatcherSubject();
+  ::google::protobuf::internal::InitSCC(&protobuf_fim_2eproto::scc_info_FimWatcherSubject.base);
   return *internal_default_instance();
 }
 
-FimWatcherSubject* FimWatcherSubject::New(::google::protobuf::Arena* arena) const {
-  FimWatcherSubject* n = new FimWatcherSubject;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
-}
 
 void FimWatcherSubject::Clear() {
 // @@protoc_insertion_point(message_clear_start:fim.FimWatcherSubject)
@@ -776,7 +736,7 @@ bool FimWatcherSubject::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:fim.FimWatcherSubject)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
@@ -957,9 +917,7 @@ size_t FimWatcherSubject::ByteSizeLong() const {
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  SetCachedSize(cached_size);
   return total_size;
 }
 
@@ -1016,11 +974,10 @@ void FimWatcherSubject::Swap(FimWatcherSubject* other) {
 }
 void FimWatcherSubject::InternalSwap(FimWatcherSubject* other) {
   using std::swap;
-  path_.InternalSwap(&other->path_);
-  event_.InternalSwap(&other->event_);
+  path_.InternalSwap(CastToBase(&other->path_));
+  event_.InternalSwap(CastToBase(&other->event_));
   swap(recursive_, other->recursive_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata FimWatcherSubject::GetMetadata() const {
@@ -1043,9 +1000,8 @@ const int FimdHandle::kMqFdFieldNumber;
 
 FimdHandle::FimdHandle()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_fim_2eproto::InitDefaultsFimdHandle();
-  }
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_fim_2eproto::scc_info_FimdHandle.base);
   SharedCtor();
   // @@protoc_insertion_point(constructor:fim.FimdHandle)
 }
@@ -1053,8 +1009,7 @@ FimdHandle::FimdHandle(const FimdHandle& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       pid_(from.pid_),
-      processeventfd_(from.processeventfd_),
-      _cached_size_(0) {
+      processeventfd_(from.processeventfd_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   nodename_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.nodename().size() > 0) {
@@ -1072,7 +1027,6 @@ void FimdHandle::SharedCtor() {
   nodename_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   podname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   mqfd_ = 0;
-  _cached_size_ = 0;
 }
 
 FimdHandle::~FimdHandle() {
@@ -1086,9 +1040,7 @@ void FimdHandle::SharedDtor() {
 }
 
 void FimdHandle::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  _cached_size_.Set(size);
 }
 const ::google::protobuf::Descriptor* FimdHandle::descriptor() {
   ::protobuf_fim_2eproto::protobuf_AssignDescriptorsOnce();
@@ -1096,17 +1048,10 @@ const ::google::protobuf::Descriptor* FimdHandle::descriptor() {
 }
 
 const FimdHandle& FimdHandle::default_instance() {
-  ::protobuf_fim_2eproto::InitDefaultsFimdHandle();
+  ::google::protobuf::internal::InitSCC(&protobuf_fim_2eproto::scc_info_FimdHandle.base);
   return *internal_default_instance();
 }
 
-FimdHandle* FimdHandle::New(::google::protobuf::Arena* arena) const {
-  FimdHandle* n = new FimdHandle;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
-}
 
 void FimdHandle::Clear() {
 // @@protoc_insertion_point(message_clear_start:fim.FimdHandle)
@@ -1128,7 +1073,7 @@ bool FimdHandle::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:fim.FimdHandle)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
@@ -1403,9 +1348,7 @@ size_t FimdHandle::ByteSizeLong() const {
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  SetCachedSize(cached_size);
   return total_size;
 }
 
@@ -1472,11 +1415,12 @@ void FimdHandle::InternalSwap(FimdHandle* other) {
   using std::swap;
   pid_.InternalSwap(&other->pid_);
   processeventfd_.InternalSwap(&other->processeventfd_);
-  nodename_.Swap(&other->nodename_);
-  podname_.Swap(&other->podname_);
+  nodename_.Swap(&other->nodename_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  podname_.Swap(&other->podname_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
   swap(mqfd_, other->mqfd_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata FimdHandle::GetMetadata() const {
@@ -1494,22 +1438,19 @@ void Empty::InitAsDefaultInstance() {
 
 Empty::Empty()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_fim_2eproto::InitDefaultsEmpty();
-  }
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_fim_2eproto::scc_info_Empty.base);
   SharedCtor();
   // @@protoc_insertion_point(constructor:fim.Empty)
 }
 Empty::Empty(const Empty& from)
   : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      _cached_size_(0) {
+      _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:fim.Empty)
 }
 
 void Empty::SharedCtor() {
-  _cached_size_ = 0;
 }
 
 Empty::~Empty() {
@@ -1521,9 +1462,7 @@ void Empty::SharedDtor() {
 }
 
 void Empty::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  _cached_size_.Set(size);
 }
 const ::google::protobuf::Descriptor* Empty::descriptor() {
   ::protobuf_fim_2eproto::protobuf_AssignDescriptorsOnce();
@@ -1531,17 +1470,10 @@ const ::google::protobuf::Descriptor* Empty::descriptor() {
 }
 
 const Empty& Empty::default_instance() {
-  ::protobuf_fim_2eproto::InitDefaultsEmpty();
+  ::google::protobuf::internal::InitSCC(&protobuf_fim_2eproto::scc_info_Empty.base);
   return *internal_default_instance();
 }
 
-Empty* Empty::New(::google::protobuf::Arena* arena) const {
-  Empty* n = new Empty;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
-}
 
 void Empty::Clear() {
 // @@protoc_insertion_point(message_clear_start:fim.Empty)
@@ -1558,7 +1490,7 @@ bool Empty::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:fim.Empty)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
   handle_unusual:
@@ -1615,9 +1547,7 @@ size_t Empty::ByteSizeLong() const {
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  SetCachedSize(cached_size);
   return total_size;
 }
 
@@ -1670,7 +1600,6 @@ void Empty::Swap(Empty* other) {
 void Empty::InternalSwap(Empty* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata Empty::GetMetadata() const {
@@ -1681,5 +1610,21 @@ void Empty::InternalSwap(Empty* other) {
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace fim
+namespace google {
+namespace protobuf {
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::fim::FimdConfig* Arena::CreateMaybeMessage< ::fim::FimdConfig >(Arena* arena) {
+  return Arena::CreateInternal< ::fim::FimdConfig >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::fim::FimWatcherSubject* Arena::CreateMaybeMessage< ::fim::FimWatcherSubject >(Arena* arena) {
+  return Arena::CreateInternal< ::fim::FimWatcherSubject >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::fim::FimdHandle* Arena::CreateMaybeMessage< ::fim::FimdHandle >(Arena* arena) {
+  return Arena::CreateInternal< ::fim::FimdHandle >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::fim::Empty* Arena::CreateMaybeMessage< ::fim::Empty >(Arena* arena) {
+  return Arena::CreateInternal< ::fim::Empty >(arena);
+}
+}  // namespace protobuf
+}  // namespace google
 
 // @@protoc_insertion_point(global_scope)
