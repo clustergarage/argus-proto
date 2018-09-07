@@ -18,12 +18,13 @@ message FimdConfig {
 message FimWatcherSubject {
   repeated string path = 1;
   repeated string event = 2;
-  bool recursive = 3;
+  bool onlyDir = 3;
+  bool recursive = 4;
 }
 
 message FimdHandle {
-  bytes nodeName = 1;
-  bytes podName = 2;
+  string nodeName = 1;
+  string podName = 2;
   repeated int32 pid = 3;
   repeated int32 processEventfd = 4;
   int32 mqFd = 5;

@@ -379,9 +379,15 @@ class FimWatcherSubject : public ::google::protobuf::Message /* @@protoc_inserti
   const ::google::protobuf::RepeatedPtrField< ::std::string>& event() const;
   ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_event();
 
-  // bool recursive = 3;
+  // bool onlyDir = 3;
+  void clear_onlydir();
+  static const int kOnlyDirFieldNumber = 3;
+  bool onlydir() const;
+  void set_onlydir(bool value);
+
+  // bool recursive = 4;
   void clear_recursive();
-  static const int kRecursiveFieldNumber = 3;
+  static const int kRecursiveFieldNumber = 4;
   bool recursive() const;
   void set_recursive(bool value);
 
@@ -391,6 +397,7 @@ class FimWatcherSubject : public ::google::protobuf::Message /* @@protoc_inserti
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::std::string> path_;
   ::google::protobuf::RepeatedPtrField< ::std::string> event_;
+  bool onlydir_;
   bool recursive_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_fim_2eproto::TableStruct;
@@ -508,7 +515,7 @@ class FimdHandle : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_processeventfd();
 
-  // bytes nodeName = 1;
+  // string nodeName = 1;
   void clear_nodename();
   static const int kNodeNameFieldNumber = 1;
   const ::std::string& nodename() const;
@@ -517,12 +524,12 @@ class FimdHandle : public ::google::protobuf::Message /* @@protoc_insertion_poin
   void set_nodename(::std::string&& value);
   #endif
   void set_nodename(const char* value);
-  void set_nodename(const void* value, size_t size);
+  void set_nodename(const char* value, size_t size);
   ::std::string* mutable_nodename();
   ::std::string* release_nodename();
   void set_allocated_nodename(::std::string* nodename);
 
-  // bytes podName = 2;
+  // string podName = 2;
   void clear_podname();
   static const int kPodNameFieldNumber = 2;
   const ::std::string& podname() const;
@@ -531,7 +538,7 @@ class FimdHandle : public ::google::protobuf::Message /* @@protoc_insertion_poin
   void set_podname(::std::string&& value);
   #endif
   void set_podname(const char* value);
-  void set_podname(const void* value, size_t size);
+  void set_podname(const char* value, size_t size);
   ::std::string* mutable_podname();
   ::std::string* release_podname();
   void set_allocated_podname(::std::string* podname);
@@ -1063,7 +1070,21 @@ FimWatcherSubject::mutable_event() {
   return &event_;
 }
 
-// bool recursive = 3;
+// bool onlyDir = 3;
+inline void FimWatcherSubject::clear_onlydir() {
+  onlydir_ = false;
+}
+inline bool FimWatcherSubject::onlydir() const {
+  // @@protoc_insertion_point(field_get:fim.FimWatcherSubject.onlyDir)
+  return onlydir_;
+}
+inline void FimWatcherSubject::set_onlydir(bool value) {
+  
+  onlydir_ = value;
+  // @@protoc_insertion_point(field_set:fim.FimWatcherSubject.onlyDir)
+}
+
+// bool recursive = 4;
 inline void FimWatcherSubject::clear_recursive() {
   recursive_ = false;
 }
@@ -1081,7 +1102,7 @@ inline void FimWatcherSubject::set_recursive(bool value) {
 
 // FimdHandle
 
-// bytes nodeName = 1;
+// string nodeName = 1;
 inline void FimdHandle::clear_nodename() {
   nodename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1108,7 +1129,7 @@ inline void FimdHandle::set_nodename(const char* value) {
   nodename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:fim.FimdHandle.nodeName)
 }
-inline void FimdHandle::set_nodename(const void* value, size_t size) {
+inline void FimdHandle::set_nodename(const char* value, size_t size) {
   
   nodename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
@@ -1134,7 +1155,7 @@ inline void FimdHandle::set_allocated_nodename(::std::string* nodename) {
   // @@protoc_insertion_point(field_set_allocated:fim.FimdHandle.nodeName)
 }
 
-// bytes podName = 2;
+// string podName = 2;
 inline void FimdHandle::clear_podname() {
   podname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1161,7 +1182,7 @@ inline void FimdHandle::set_podname(const char* value) {
   podname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:fim.FimdHandle.podName)
 }
-inline void FimdHandle::set_podname(const void* value, size_t size) {
+inline void FimdHandle::set_podname(const char* value, size_t size) {
   
   podname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
