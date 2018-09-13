@@ -12,14 +12,16 @@ message FimdConfig {
   string podName = 2;
   repeated string containerId = 3;
   repeated FimWatcherSubject subject = 4;
-  string logFormat = 5;
+  string logFormat = 6;
 }
 
 message FimWatcherSubject {
   repeated string path = 1;
   repeated string event = 2;
-  bool onlyDir = 3;
-  bool recursive = 4;
+  repeated string ignore = 3;
+  bool onlyDir = 4;
+  bool recursive = 5;
+  int32 maxDepth = 6;
 }
 
 message FimdHandle {

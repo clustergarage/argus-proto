@@ -129,8 +129,10 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimWatcherSubject, path_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimWatcherSubject, event_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimWatcherSubject, ignore_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimWatcherSubject, onlydir_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimWatcherSubject, recursive_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimWatcherSubject, maxdepth_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdHandle, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -150,8 +152,8 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::fim::FimdConfig)},
   { 10, -1, sizeof(::fim::FimWatcherSubject)},
-  { 19, -1, sizeof(::fim::FimdHandle)},
-  { 29, -1, sizeof(::fim::Empty)},
+  { 21, -1, sizeof(::fim::FimdHandle)},
+  { 31, -1, sizeof(::fim::Empty)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -185,18 +187,19 @@ void AddDescriptorsImpl() {
       "\n\tfim.proto\022\003fim\"\200\001\n\nFimdConfig\022\020\n\010nodeN"
       "ame\030\001 \001(\t\022\017\n\007podName\030\002 \001(\t\022\023\n\013containerI"
       "d\030\003 \003(\t\022\'\n\007subject\030\004 \003(\0132\026.fim.FimWatche"
-      "rSubject\022\021\n\tlogFormat\030\005 \001(\t\"T\n\021FimWatche"
-      "rSubject\022\014\n\004path\030\001 \003(\t\022\r\n\005event\030\002 \003(\t\022\017\n"
-      "\007onlyDir\030\003 \001(\010\022\021\n\trecursive\030\004 \001(\010\"b\n\nFim"
-      "dHandle\022\020\n\010nodeName\030\001 \001(\t\022\017\n\007podName\030\002 \001"
-      "(\t\022\013\n\003pid\030\003 \003(\005\022\026\n\016processEventfd\030\004 \003(\005\022"
-      "\014\n\004mqFd\030\005 \001(\005\"\007\n\005Empty2h\n\004Fimd\0221\n\013Create"
-      "Watch\022\017.fim.FimdConfig\032\017.fim.FimdHandle\""
-      "\000\022-\n\014DestroyWatch\022\017.fim.FimdConfig\032\n.fim"
-      ".Empty\"\000b\006proto3"
+      "rSubject\022\021\n\tlogFormat\030\006 \001(\t\"v\n\021FimWatche"
+      "rSubject\022\014\n\004path\030\001 \003(\t\022\r\n\005event\030\002 \003(\t\022\016\n"
+      "\006ignore\030\003 \003(\t\022\017\n\007onlyDir\030\004 \001(\010\022\021\n\trecurs"
+      "ive\030\005 \001(\010\022\020\n\010maxDepth\030\006 \001(\005\"b\n\nFimdHandl"
+      "e\022\020\n\010nodeName\030\001 \001(\t\022\017\n\007podName\030\002 \001(\t\022\013\n\003"
+      "pid\030\003 \003(\005\022\026\n\016processEventfd\030\004 \003(\005\022\014\n\004mqF"
+      "d\030\005 \001(\005\"\007\n\005Empty2h\n\004Fimd\0221\n\013CreateWatch\022"
+      "\017.fim.FimdConfig\032\017.fim.FimdHandle\"\000\022-\n\014D"
+      "estroyWatch\022\017.fim.FimdConfig\032\n.fim.Empty"
+      "\"\000b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 456);
+      descriptor, 490);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fim.proto", &protobuf_RegisterTypes);
 }
@@ -370,10 +373,10 @@ bool FimdConfig::MergePartialFromCodedStream(
         break;
       }
 
-      // string logFormat = 5;
-      case 5: {
+      // string logFormat = 6;
+      case 6: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_logformat()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -451,14 +454,14 @@ void FimdConfig::SerializeWithCachedSizes(
       output);
   }
 
-  // string logFormat = 5;
+  // string logFormat = 6;
   if (this->logformat().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->logformat().data(), static_cast<int>(this->logformat().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "fim.FimdConfig.logFormat");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      5, this->logformat(), output);
+      6, this->logformat(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -515,7 +518,7 @@ void FimdConfig::SerializeWithCachedSizes(
         4, this->subject(static_cast<int>(i)), deterministic, target);
   }
 
-  // string logFormat = 5;
+  // string logFormat = 6;
   if (this->logformat().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->logformat().data(), static_cast<int>(this->logformat().length()),
@@ -523,7 +526,7 @@ void FimdConfig::SerializeWithCachedSizes(
       "fim.FimdConfig.logFormat");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        5, this->logformat(), target);
+        6, this->logformat(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -576,7 +579,7 @@ size_t FimdConfig::ByteSizeLong() const {
         this->podname());
   }
 
-  // string logFormat = 5;
+  // string logFormat = 6;
   if (this->logformat().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -674,8 +677,10 @@ void FimWatcherSubject::InitAsDefaultInstance() {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int FimWatcherSubject::kPathFieldNumber;
 const int FimWatcherSubject::kEventFieldNumber;
+const int FimWatcherSubject::kIgnoreFieldNumber;
 const int FimWatcherSubject::kOnlyDirFieldNumber;
 const int FimWatcherSubject::kRecursiveFieldNumber;
+const int FimWatcherSubject::kMaxDepthFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 FimWatcherSubject::FimWatcherSubject()
@@ -689,18 +694,19 @@ FimWatcherSubject::FimWatcherSubject(const FimWatcherSubject& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       path_(from.path_),
-      event_(from.event_) {
+      event_(from.event_),
+      ignore_(from.ignore_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&onlydir_, &from.onlydir_,
-    static_cast<size_t>(reinterpret_cast<char*>(&recursive_) -
-    reinterpret_cast<char*>(&onlydir_)) + sizeof(recursive_));
+    static_cast<size_t>(reinterpret_cast<char*>(&maxdepth_) -
+    reinterpret_cast<char*>(&onlydir_)) + sizeof(maxdepth_));
   // @@protoc_insertion_point(copy_constructor:fim.FimWatcherSubject)
 }
 
 void FimWatcherSubject::SharedCtor() {
   ::memset(&onlydir_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&recursive_) -
-      reinterpret_cast<char*>(&onlydir_)) + sizeof(recursive_));
+      reinterpret_cast<char*>(&maxdepth_) -
+      reinterpret_cast<char*>(&onlydir_)) + sizeof(maxdepth_));
 }
 
 FimWatcherSubject::~FimWatcherSubject() {
@@ -733,9 +739,10 @@ void FimWatcherSubject::Clear() {
 
   path_.Clear();
   event_.Clear();
+  ignore_.Clear();
   ::memset(&onlydir_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&recursive_) -
-      reinterpret_cast<char*>(&onlydir_)) + sizeof(recursive_));
+      reinterpret_cast<char*>(&maxdepth_) -
+      reinterpret_cast<char*>(&onlydir_)) + sizeof(maxdepth_));
   _internal_metadata_.Clear();
 }
 
@@ -783,10 +790,27 @@ bool FimWatcherSubject::MergePartialFromCodedStream(
         break;
       }
 
-      // bool onlyDir = 3;
+      // repeated string ignore = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_ignore()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->ignore(this->ignore_size() - 1).data(),
+            static_cast<int>(this->ignore(this->ignore_size() - 1).length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "fim.FimWatcherSubject.ignore"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bool onlyDir = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -797,14 +821,28 @@ bool FimWatcherSubject::MergePartialFromCodedStream(
         break;
       }
 
-      // bool recursive = 4;
-      case 4: {
+      // bool recursive = 5;
+      case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &recursive_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int32 maxDepth = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(48u /* 48 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &maxdepth_)));
         } else {
           goto handle_unusual;
         }
@@ -857,14 +895,29 @@ void FimWatcherSubject::SerializeWithCachedSizes(
       2, this->event(i), output);
   }
 
-  // bool onlyDir = 3;
-  if (this->onlydir() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->onlydir(), output);
+  // repeated string ignore = 3;
+  for (int i = 0, n = this->ignore_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->ignore(i).data(), static_cast<int>(this->ignore(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fim.FimWatcherSubject.ignore");
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      3, this->ignore(i), output);
   }
 
-  // bool recursive = 4;
+  // bool onlyDir = 4;
+  if (this->onlydir() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(4, this->onlydir(), output);
+  }
+
+  // bool recursive = 5;
   if (this->recursive() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(4, this->recursive(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteBool(5, this->recursive(), output);
+  }
+
+  // int32 maxDepth = 6;
+  if (this->maxdepth() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->maxdepth(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -901,14 +954,29 @@ void FimWatcherSubject::SerializeWithCachedSizes(
       WriteStringToArray(2, this->event(i), target);
   }
 
-  // bool onlyDir = 3;
-  if (this->onlydir() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->onlydir(), target);
+  // repeated string ignore = 3;
+  for (int i = 0, n = this->ignore_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->ignore(i).data(), static_cast<int>(this->ignore(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fim.FimWatcherSubject.ignore");
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(3, this->ignore(i), target);
   }
 
-  // bool recursive = 4;
+  // bool onlyDir = 4;
+  if (this->onlydir() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(4, this->onlydir(), target);
+  }
+
+  // bool recursive = 5;
   if (this->recursive() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(4, this->recursive(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(5, this->recursive(), target);
+  }
+
+  // int32 maxDepth = 6;
+  if (this->maxdepth() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->maxdepth(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -944,14 +1012,29 @@ size_t FimWatcherSubject::ByteSizeLong() const {
       this->event(i));
   }
 
-  // bool onlyDir = 3;
+  // repeated string ignore = 3;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->ignore_size());
+  for (int i = 0, n = this->ignore_size(); i < n; i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->ignore(i));
+  }
+
+  // bool onlyDir = 4;
   if (this->onlydir() != 0) {
     total_size += 1 + 1;
   }
 
-  // bool recursive = 4;
+  // bool recursive = 5;
   if (this->recursive() != 0) {
     total_size += 1 + 1;
+  }
+
+  // int32 maxDepth = 6;
+  if (this->maxdepth() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->maxdepth());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -983,11 +1066,15 @@ void FimWatcherSubject::MergeFrom(const FimWatcherSubject& from) {
 
   path_.MergeFrom(from.path_);
   event_.MergeFrom(from.event_);
+  ignore_.MergeFrom(from.ignore_);
   if (from.onlydir() != 0) {
     set_onlydir(from.onlydir());
   }
   if (from.recursive() != 0) {
     set_recursive(from.recursive());
+  }
+  if (from.maxdepth() != 0) {
+    set_maxdepth(from.maxdepth());
   }
 }
 
@@ -1017,8 +1104,10 @@ void FimWatcherSubject::InternalSwap(FimWatcherSubject* other) {
   using std::swap;
   path_.InternalSwap(CastToBase(&other->path_));
   event_.InternalSwap(CastToBase(&other->event_));
+  ignore_.InternalSwap(CastToBase(&other->ignore_));
   swap(onlydir_, other->onlydir_);
   swap(recursive_, other->recursive_);
+  swap(maxdepth_, other->maxdepth_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 

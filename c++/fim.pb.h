@@ -220,9 +220,9 @@ class FimdConfig : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::std::string* release_podname();
   void set_allocated_podname(::std::string* podname);
 
-  // string logFormat = 5;
+  // string logFormat = 6;
   void clear_logformat();
-  static const int kLogFormatFieldNumber = 5;
+  static const int kLogFormatFieldNumber = 6;
   const ::std::string& logformat() const;
   void set_logformat(const ::std::string& value);
   #if LANG_CXX11
@@ -379,17 +379,45 @@ class FimWatcherSubject : public ::google::protobuf::Message /* @@protoc_inserti
   const ::google::protobuf::RepeatedPtrField< ::std::string>& event() const;
   ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_event();
 
-  // bool onlyDir = 3;
+  // repeated string ignore = 3;
+  int ignore_size() const;
+  void clear_ignore();
+  static const int kIgnoreFieldNumber = 3;
+  const ::std::string& ignore(int index) const;
+  ::std::string* mutable_ignore(int index);
+  void set_ignore(int index, const ::std::string& value);
+  #if LANG_CXX11
+  void set_ignore(int index, ::std::string&& value);
+  #endif
+  void set_ignore(int index, const char* value);
+  void set_ignore(int index, const char* value, size_t size);
+  ::std::string* add_ignore();
+  void add_ignore(const ::std::string& value);
+  #if LANG_CXX11
+  void add_ignore(::std::string&& value);
+  #endif
+  void add_ignore(const char* value);
+  void add_ignore(const char* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField< ::std::string>& ignore() const;
+  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_ignore();
+
+  // bool onlyDir = 4;
   void clear_onlydir();
-  static const int kOnlyDirFieldNumber = 3;
+  static const int kOnlyDirFieldNumber = 4;
   bool onlydir() const;
   void set_onlydir(bool value);
 
-  // bool recursive = 4;
+  // bool recursive = 5;
   void clear_recursive();
-  static const int kRecursiveFieldNumber = 4;
+  static const int kRecursiveFieldNumber = 5;
   bool recursive() const;
   void set_recursive(bool value);
+
+  // int32 maxDepth = 6;
+  void clear_maxdepth();
+  static const int kMaxDepthFieldNumber = 6;
+  ::google::protobuf::int32 maxdepth() const;
+  void set_maxdepth(::google::protobuf::int32 value);
 
   // @@protoc_insertion_point(class_scope:fim.FimWatcherSubject)
  private:
@@ -397,8 +425,10 @@ class FimWatcherSubject : public ::google::protobuf::Message /* @@protoc_inserti
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::std::string> path_;
   ::google::protobuf::RepeatedPtrField< ::std::string> event_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> ignore_;
   bool onlydir_;
   bool recursive_;
+  ::google::protobuf::int32 maxdepth_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_fim_2eproto::TableStruct;
 };
@@ -875,7 +905,7 @@ FimdConfig::subject() const {
   return subject_;
 }
 
-// string logFormat = 5;
+// string logFormat = 6;
 inline void FimdConfig::clear_logformat() {
   logformat_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1070,7 +1100,76 @@ FimWatcherSubject::mutable_event() {
   return &event_;
 }
 
-// bool onlyDir = 3;
+// repeated string ignore = 3;
+inline int FimWatcherSubject::ignore_size() const {
+  return ignore_.size();
+}
+inline void FimWatcherSubject::clear_ignore() {
+  ignore_.Clear();
+}
+inline const ::std::string& FimWatcherSubject::ignore(int index) const {
+  // @@protoc_insertion_point(field_get:fim.FimWatcherSubject.ignore)
+  return ignore_.Get(index);
+}
+inline ::std::string* FimWatcherSubject::mutable_ignore(int index) {
+  // @@protoc_insertion_point(field_mutable:fim.FimWatcherSubject.ignore)
+  return ignore_.Mutable(index);
+}
+inline void FimWatcherSubject::set_ignore(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:fim.FimWatcherSubject.ignore)
+  ignore_.Mutable(index)->assign(value);
+}
+#if LANG_CXX11
+inline void FimWatcherSubject::set_ignore(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:fim.FimWatcherSubject.ignore)
+  ignore_.Mutable(index)->assign(std::move(value));
+}
+#endif
+inline void FimWatcherSubject::set_ignore(int index, const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  ignore_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:fim.FimWatcherSubject.ignore)
+}
+inline void FimWatcherSubject::set_ignore(int index, const char* value, size_t size) {
+  ignore_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:fim.FimWatcherSubject.ignore)
+}
+inline ::std::string* FimWatcherSubject::add_ignore() {
+  // @@protoc_insertion_point(field_add_mutable:fim.FimWatcherSubject.ignore)
+  return ignore_.Add();
+}
+inline void FimWatcherSubject::add_ignore(const ::std::string& value) {
+  ignore_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:fim.FimWatcherSubject.ignore)
+}
+#if LANG_CXX11
+inline void FimWatcherSubject::add_ignore(::std::string&& value) {
+  ignore_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:fim.FimWatcherSubject.ignore)
+}
+#endif
+inline void FimWatcherSubject::add_ignore(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  ignore_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:fim.FimWatcherSubject.ignore)
+}
+inline void FimWatcherSubject::add_ignore(const char* value, size_t size) {
+  ignore_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:fim.FimWatcherSubject.ignore)
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+FimWatcherSubject::ignore() const {
+  // @@protoc_insertion_point(field_list:fim.FimWatcherSubject.ignore)
+  return ignore_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+FimWatcherSubject::mutable_ignore() {
+  // @@protoc_insertion_point(field_mutable_list:fim.FimWatcherSubject.ignore)
+  return &ignore_;
+}
+
+// bool onlyDir = 4;
 inline void FimWatcherSubject::clear_onlydir() {
   onlydir_ = false;
 }
@@ -1084,7 +1183,7 @@ inline void FimWatcherSubject::set_onlydir(bool value) {
   // @@protoc_insertion_point(field_set:fim.FimWatcherSubject.onlyDir)
 }
 
-// bool recursive = 4;
+// bool recursive = 5;
 inline void FimWatcherSubject::clear_recursive() {
   recursive_ = false;
 }
@@ -1096,6 +1195,20 @@ inline void FimWatcherSubject::set_recursive(bool value) {
   
   recursive_ = value;
   // @@protoc_insertion_point(field_set:fim.FimWatcherSubject.recursive)
+}
+
+// int32 maxDepth = 6;
+inline void FimWatcherSubject::clear_maxdepth() {
+  maxdepth_ = 0;
+}
+inline ::google::protobuf::int32 FimWatcherSubject::maxdepth() const {
+  // @@protoc_insertion_point(field_get:fim.FimWatcherSubject.maxDepth)
+  return maxdepth_;
+}
+inline void FimWatcherSubject::set_maxdepth(::google::protobuf::int32 value) {
+  
+  maxdepth_ = value;
+  // @@protoc_insertion_point(field_set:fim.FimWatcherSubject.maxDepth)
 }
 
 // -------------------------------------------------------------------
