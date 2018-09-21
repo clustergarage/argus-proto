@@ -5,6 +5,7 @@ package fim;
 service Fimd {
   rpc CreateWatch(FimdConfig) returns (FimdHandle) {}
   rpc DestroyWatch(FimdConfig) returns (Empty) {}
+  rpc GetWatchState(Empty) returns (stream FimdHandle) {}
 }
 
 message FimdConfig {

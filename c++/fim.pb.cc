@@ -193,13 +193,14 @@ void AddDescriptorsImpl() {
       "ive\030\005 \001(\010\022\020\n\010maxDepth\030\006 \001(\005\"b\n\nFimdHandl"
       "e\022\020\n\010nodeName\030\001 \001(\t\022\017\n\007podName\030\002 \001(\t\022\013\n\003"
       "pid\030\003 \003(\005\022\026\n\016processEventfd\030\004 \003(\005\022\014\n\004mqF"
-      "d\030\005 \001(\005\"\007\n\005Empty2h\n\004Fimd\0221\n\013CreateWatch\022"
-      "\017.fim.FimdConfig\032\017.fim.FimdHandle\"\000\022-\n\014D"
-      "estroyWatch\022\017.fim.FimdConfig\032\n.fim.Empty"
-      "\"\000b\006proto3"
+      "d\030\005 \001(\005\"\007\n\005Empty2\232\001\n\004Fimd\0221\n\013CreateWatch"
+      "\022\017.fim.FimdConfig\032\017.fim.FimdHandle\"\000\022-\n\014"
+      "DestroyWatch\022\017.fim.FimdConfig\032\n.fim.Empt"
+      "y\"\000\0220\n\rGetWatchState\022\n.fim.Empty\032\017.fim.F"
+      "imdHandle\"\0000\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 490);
+      descriptor, 541);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fim.proto", &protobuf_RegisterTypes);
 }
