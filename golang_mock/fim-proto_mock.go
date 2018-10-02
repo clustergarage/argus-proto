@@ -3,7 +3,7 @@ package fim_mock
 
 import (
 	context "context"
-	golang "github.com/clustergarage/fim-proto/golang"
+	pb "github.com/clustergarage/fim-proto/golang"
 	gomock "github.com/golang/mock/gomock"
 	grpc "google.golang.org/grpc"
 	metadata "google.golang.org/grpc/metadata"
@@ -34,13 +34,13 @@ func (m *MockFimdClient) EXPECT() *MockFimdClientMockRecorder {
 }
 
 // CreateWatch mocks base method
-func (m *MockFimdClient) CreateWatch(arg0 context.Context, arg1 *golang.FimdConfig, arg2 ...grpc.CallOption) (*golang.FimdHandle, error) {
+func (m *MockFimdClient) CreateWatch(arg0 context.Context, arg1 *pb.FimdConfig, arg2 ...grpc.CallOption) (*pb.FimdHandle, error) {
 	varargs := []interface{}{arg0, arg1}
 	for _, a := range arg2 {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "CreateWatch", varargs...)
-	ret0, _ := ret[0].(*golang.FimdHandle)
+	ret0, _ := ret[0].(*pb.FimdHandle)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
@@ -52,13 +52,13 @@ func (mr *MockFimdClientMockRecorder) CreateWatch(arg0, arg1 interface{}, arg2 .
 }
 
 // DestroyWatch mocks base method
-func (m *MockFimdClient) DestroyWatch(arg0 context.Context, arg1 *golang.FimdConfig, arg2 ...grpc.CallOption) (*golang.Empty, error) {
+func (m *MockFimdClient) DestroyWatch(arg0 context.Context, arg1 *pb.FimdConfig, arg2 ...grpc.CallOption) (*pb.Empty, error) {
 	varargs := []interface{}{arg0, arg1}
 	for _, a := range arg2 {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "DestroyWatch", varargs...)
-	ret0, _ := ret[0].(*golang.Empty)
+	ret0, _ := ret[0].(*pb.Empty)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
@@ -70,13 +70,13 @@ func (mr *MockFimdClientMockRecorder) DestroyWatch(arg0, arg1 interface{}, arg2 
 }
 
 // GetWatchState mocks base method
-func (m *MockFimdClient) GetWatchState(arg0 context.Context, arg1 *golang.Empty, arg2 ...grpc.CallOption) (golang.Fimd_GetWatchStateClient, error) {
+func (m *MockFimdClient) GetWatchState(arg0 context.Context, arg1 *pb.Empty, arg2 ...grpc.CallOption) (pb.Fimd_GetWatchStateClient, error) {
 	varargs := []interface{}{arg0, arg1}
 	for _, a := range arg2 {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "GetWatchState", varargs...)
-	ret0, _ := ret[0].(golang.Fimd_GetWatchStateClient)
+	ret0, _ := ret[0].(pb.Fimd_GetWatchStateClient)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
@@ -148,9 +148,9 @@ func (mr *MockFimd_GetWatchStateClientMockRecorder) Header() *gomock.Call {
 }
 
 // Recv mocks base method
-func (m *MockFimd_GetWatchStateClient) Recv() (*golang.FimdHandle, error) {
+func (m *MockFimd_GetWatchStateClient) Recv() (*pb.FimdHandle, error) {
 	ret := m.ctrl.Call(m, "Recv")
-	ret0, _ := ret[0].(*golang.FimdHandle)
+	ret0, _ := ret[0].(*pb.FimdHandle)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
