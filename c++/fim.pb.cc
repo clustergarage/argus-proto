@@ -119,7 +119,8 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdConfig, nodename_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdConfig, podname_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdConfig, containerid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdConfig, pid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdConfig, cid_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdConfig, subject_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdConfig, logformat_),
   ~0u,  // no _has_bits_
@@ -151,9 +152,9 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::fim::FimdConfig)},
-  { 10, -1, sizeof(::fim::FimWatcherSubject)},
-  { 21, -1, sizeof(::fim::FimdHandle)},
-  { 31, -1, sizeof(::fim::Empty)},
+  { 11, -1, sizeof(::fim::FimWatcherSubject)},
+  { 22, -1, sizeof(::fim::FimdHandle)},
+  { 32, -1, sizeof(::fim::Empty)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -184,23 +185,23 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\tfim.proto\022\003fim\"\200\001\n\nFimdConfig\022\020\n\010nodeN"
-      "ame\030\001 \001(\t\022\017\n\007podName\030\002 \001(\t\022\023\n\013containerI"
-      "d\030\003 \003(\t\022\'\n\007subject\030\004 \003(\0132\026.fim.FimWatche"
-      "rSubject\022\021\n\tlogFormat\030\006 \001(\t\"v\n\021FimWatche"
-      "rSubject\022\014\n\004path\030\001 \003(\t\022\r\n\005event\030\002 \003(\t\022\016\n"
-      "\006ignore\030\003 \003(\t\022\017\n\007onlyDir\030\004 \001(\010\022\021\n\trecurs"
-      "ive\030\005 \001(\010\022\020\n\010maxDepth\030\006 \001(\005\"b\n\nFimdHandl"
-      "e\022\020\n\010nodeName\030\001 \001(\t\022\017\n\007podName\030\002 \001(\t\022\013\n\003"
-      "pid\030\003 \003(\005\022\026\n\016processEventfd\030\004 \003(\005\022\014\n\004mqF"
-      "d\030\005 \001(\005\"\007\n\005Empty2\232\001\n\004Fimd\0221\n\013CreateWatch"
-      "\022\017.fim.FimdConfig\032\017.fim.FimdHandle\"\000\022-\n\014"
-      "DestroyWatch\022\017.fim.FimdConfig\032\n.fim.Empt"
-      "y\"\000\0220\n\rGetWatchState\022\n.fim.Empty\032\017.fim.F"
-      "imdHandle\"\0000\001b\006proto3"
+      "\n\tfim.proto\022\003fim\"\205\001\n\nFimdConfig\022\020\n\010nodeN"
+      "ame\030\001 \001(\t\022\017\n\007podName\030\002 \001(\t\022\013\n\003pid\030\003 \003(\005\022"
+      "\013\n\003cid\030\004 \003(\t\022\'\n\007subject\030\005 \003(\0132\026.fim.FimW"
+      "atcherSubject\022\021\n\tlogFormat\030\006 \001(\t\"v\n\021FimW"
+      "atcherSubject\022\014\n\004path\030\001 \003(\t\022\r\n\005event\030\002 \003"
+      "(\t\022\016\n\006ignore\030\003 \003(\t\022\017\n\007onlyDir\030\004 \001(\010\022\021\n\tr"
+      "ecursive\030\005 \001(\010\022\020\n\010maxDepth\030\006 \001(\005\"b\n\nFimd"
+      "Handle\022\020\n\010nodeName\030\001 \001(\t\022\017\n\007podName\030\002 \001("
+      "\t\022\013\n\003pid\030\003 \003(\005\022\026\n\016processEventfd\030\004 \003(\005\022\014"
+      "\n\004mqFd\030\005 \001(\005\"\007\n\005Empty2\232\001\n\004Fimd\0221\n\013Create"
+      "Watch\022\017.fim.FimdConfig\032\017.fim.FimdHandle\""
+      "\000\022-\n\014DestroyWatch\022\017.fim.FimdConfig\032\n.fim"
+      ".Empty\"\000\0220\n\rGetWatchState\022\n.fim.Empty\032\017."
+      "fim.FimdHandle\"\0000\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 541);
+      descriptor, 546);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fim.proto", &protobuf_RegisterTypes);
 }
@@ -225,7 +226,8 @@ void FimdConfig::InitAsDefaultInstance() {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int FimdConfig::kNodeNameFieldNumber;
 const int FimdConfig::kPodNameFieldNumber;
-const int FimdConfig::kContainerIdFieldNumber;
+const int FimdConfig::kPidFieldNumber;
+const int FimdConfig::kCidFieldNumber;
 const int FimdConfig::kSubjectFieldNumber;
 const int FimdConfig::kLogFormatFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -240,7 +242,8 @@ FimdConfig::FimdConfig()
 FimdConfig::FimdConfig(const FimdConfig& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
-      containerid_(from.containerid_),
+      pid_(from.pid_),
+      cid_(from.cid_),
       subject_(from.subject_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   nodename_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -295,7 +298,8 @@ void FimdConfig::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  containerid_.Clear();
+  pid_.Clear();
+  cid_.Clear();
   subject_.Clear();
   nodename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   podname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -345,27 +349,46 @@ bool FimdConfig::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated string containerId = 3;
+      // repeated int32 pid = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->add_containerid()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->containerid(this->containerid_size() - 1).data(),
-            static_cast<int>(this->containerid(this->containerid_size() - 1).length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "fim.FimdConfig.containerId"));
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_pid())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 26u, input, this->mutable_pid())));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // repeated .fim.FimWatcherSubject subject = 4;
+      // repeated string cid = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_cid()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->cid(this->cid_size() - 1).data(),
+            static_cast<int>(this->cid(this->cid_size() - 1).length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "fim.FimdConfig.cid"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .fim.FimWatcherSubject subject = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                 input, add_subject()));
         } else {
@@ -436,21 +459,32 @@ void FimdConfig::SerializeWithCachedSizes(
       2, this->podname(), output);
   }
 
-  // repeated string containerId = 3;
-  for (int i = 0, n = this->containerid_size(); i < n; i++) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->containerid(i).data(), static_cast<int>(this->containerid(i).length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "fim.FimdConfig.containerId");
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      3, this->containerid(i), output);
+  // repeated int32 pid = 3;
+  if (this->pid_size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteTag(3, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    output->WriteVarint32(static_cast< ::google::protobuf::uint32>(
+        _pid_cached_byte_size_));
+  }
+  for (int i = 0, n = this->pid_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
+      this->pid(i), output);
   }
 
-  // repeated .fim.FimWatcherSubject subject = 4;
+  // repeated string cid = 4;
+  for (int i = 0, n = this->cid_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->cid(i).data(), static_cast<int>(this->cid(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fim.FimdConfig.cid");
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      4, this->cid(i), output);
+  }
+
+  // repeated .fim.FimWatcherSubject subject = 5;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->subject_size()); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4,
+      5,
       this->subject(static_cast<int>(i)),
       output);
   }
@@ -501,22 +535,35 @@ void FimdConfig::SerializeWithCachedSizes(
         2, this->podname(), target);
   }
 
-  // repeated string containerId = 3;
-  for (int i = 0, n = this->containerid_size(); i < n; i++) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->containerid(i).data(), static_cast<int>(this->containerid(i).length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "fim.FimdConfig.containerId");
+  // repeated int32 pid = 3;
+  if (this->pid_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      3,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+        static_cast< ::google::protobuf::int32>(
+            _pid_cached_byte_size_), target);
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteStringToArray(3, this->containerid(i), target);
+      WriteInt32NoTagToArray(this->pid_, target);
   }
 
-  // repeated .fim.FimWatcherSubject subject = 4;
+  // repeated string cid = 4;
+  for (int i = 0, n = this->cid_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->cid(i).data(), static_cast<int>(this->cid(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fim.FimdConfig.cid");
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(4, this->cid(i), target);
+  }
+
+  // repeated .fim.FimWatcherSubject subject = 5;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->subject_size()); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        4, this->subject(static_cast<int>(i)), deterministic, target);
+        5, this->subject(static_cast<int>(i)), deterministic, target);
   }
 
   // string logFormat = 6;
@@ -547,15 +594,31 @@ size_t FimdConfig::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // repeated string containerId = 3;
-  total_size += 1 *
-      ::google::protobuf::internal::FromIntSize(this->containerid_size());
-  for (int i = 0, n = this->containerid_size(); i < n; i++) {
-    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
-      this->containerid(i));
+  // repeated int32 pid = 3;
+  {
+    size_t data_size = ::google::protobuf::internal::WireFormatLite::
+      Int32Size(this->pid_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+            static_cast< ::google::protobuf::int32>(data_size));
+    }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
+    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+    _pid_cached_byte_size_ = cached_size;
+    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    total_size += data_size;
   }
 
-  // repeated .fim.FimWatcherSubject subject = 4;
+  // repeated string cid = 4;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->cid_size());
+  for (int i = 0, n = this->cid_size(); i < n; i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->cid(i));
+  }
+
+  // repeated .fim.FimWatcherSubject subject = 5;
   {
     unsigned int count = static_cast<unsigned int>(this->subject_size());
     total_size += 1UL * count;
@@ -614,7 +677,8 @@ void FimdConfig::MergeFrom(const FimdConfig& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  containerid_.MergeFrom(from.containerid_);
+  pid_.MergeFrom(from.pid_);
+  cid_.MergeFrom(from.cid_);
   subject_.MergeFrom(from.subject_);
   if (from.nodename().size() > 0) {
 
@@ -654,7 +718,8 @@ void FimdConfig::Swap(FimdConfig* other) {
 }
 void FimdConfig::InternalSwap(FimdConfig* other) {
   using std::swap;
-  containerid_.InternalSwap(CastToBase(&other->containerid_));
+  pid_.InternalSwap(&other->pid_);
+  cid_.InternalSwap(CastToBase(&other->cid_));
   CastToBase(&subject_)->InternalSwap(CastToBase(&other->subject_));
   nodename_.Swap(&other->nodename_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());

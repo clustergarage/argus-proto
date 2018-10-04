@@ -11,8 +11,9 @@ service Fimd {
 message FimdConfig {
   string nodeName = 1;
   string podName = 2;
-  repeated string containerId = 3;
-  repeated FimWatcherSubject subject = 4;
+  repeated int32 pid = 3;
+  repeated string cid = 4;
+  repeated FimWatcherSubject subject = 5;
   string logFormat = 6;
 }
 

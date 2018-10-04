@@ -158,32 +158,44 @@ class FimdConfig : public ::google::protobuf::Message /* @@protoc_insertion_poin
 
   // accessors -------------------------------------------------------
 
-  // repeated string containerId = 3;
-  int containerid_size() const;
-  void clear_containerid();
-  static const int kContainerIdFieldNumber = 3;
-  const ::std::string& containerid(int index) const;
-  ::std::string* mutable_containerid(int index);
-  void set_containerid(int index, const ::std::string& value);
-  #if LANG_CXX11
-  void set_containerid(int index, ::std::string&& value);
-  #endif
-  void set_containerid(int index, const char* value);
-  void set_containerid(int index, const char* value, size_t size);
-  ::std::string* add_containerid();
-  void add_containerid(const ::std::string& value);
-  #if LANG_CXX11
-  void add_containerid(::std::string&& value);
-  #endif
-  void add_containerid(const char* value);
-  void add_containerid(const char* value, size_t size);
-  const ::google::protobuf::RepeatedPtrField< ::std::string>& containerid() const;
-  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_containerid();
+  // repeated int32 pid = 3;
+  int pid_size() const;
+  void clear_pid();
+  static const int kPidFieldNumber = 3;
+  ::google::protobuf::int32 pid(int index) const;
+  void set_pid(int index, ::google::protobuf::int32 value);
+  void add_pid(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      pid() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_pid();
 
-  // repeated .fim.FimWatcherSubject subject = 4;
+  // repeated string cid = 4;
+  int cid_size() const;
+  void clear_cid();
+  static const int kCidFieldNumber = 4;
+  const ::std::string& cid(int index) const;
+  ::std::string* mutable_cid(int index);
+  void set_cid(int index, const ::std::string& value);
+  #if LANG_CXX11
+  void set_cid(int index, ::std::string&& value);
+  #endif
+  void set_cid(int index, const char* value);
+  void set_cid(int index, const char* value, size_t size);
+  ::std::string* add_cid();
+  void add_cid(const ::std::string& value);
+  #if LANG_CXX11
+  void add_cid(::std::string&& value);
+  #endif
+  void add_cid(const char* value);
+  void add_cid(const char* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField< ::std::string>& cid() const;
+  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_cid();
+
+  // repeated .fim.FimWatcherSubject subject = 5;
   int subject_size() const;
   void clear_subject();
-  static const int kSubjectFieldNumber = 4;
+  static const int kSubjectFieldNumber = 5;
   ::fim::FimWatcherSubject* mutable_subject(int index);
   ::google::protobuf::RepeatedPtrField< ::fim::FimWatcherSubject >*
       mutable_subject();
@@ -238,7 +250,9 @@ class FimdConfig : public ::google::protobuf::Message /* @@protoc_insertion_poin
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> containerid_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > pid_;
+  mutable int _pid_cached_byte_size_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> cid_;
   ::google::protobuf::RepeatedPtrField< ::fim::FimWatcherSubject > subject_;
   ::google::protobuf::internal::ArenaStringPtr nodename_;
   ::google::protobuf::internal::ArenaStringPtr podname_;
@@ -806,76 +820,106 @@ inline void FimdConfig::set_allocated_podname(::std::string* podname) {
   // @@protoc_insertion_point(field_set_allocated:fim.FimdConfig.podName)
 }
 
-// repeated string containerId = 3;
-inline int FimdConfig::containerid_size() const {
-  return containerid_.size();
+// repeated int32 pid = 3;
+inline int FimdConfig::pid_size() const {
+  return pid_.size();
 }
-inline void FimdConfig::clear_containerid() {
-  containerid_.Clear();
+inline void FimdConfig::clear_pid() {
+  pid_.Clear();
 }
-inline const ::std::string& FimdConfig::containerid(int index) const {
-  // @@protoc_insertion_point(field_get:fim.FimdConfig.containerId)
-  return containerid_.Get(index);
+inline ::google::protobuf::int32 FimdConfig::pid(int index) const {
+  // @@protoc_insertion_point(field_get:fim.FimdConfig.pid)
+  return pid_.Get(index);
 }
-inline ::std::string* FimdConfig::mutable_containerid(int index) {
-  // @@protoc_insertion_point(field_mutable:fim.FimdConfig.containerId)
-  return containerid_.Mutable(index);
+inline void FimdConfig::set_pid(int index, ::google::protobuf::int32 value) {
+  pid_.Set(index, value);
+  // @@protoc_insertion_point(field_set:fim.FimdConfig.pid)
 }
-inline void FimdConfig::set_containerid(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:fim.FimdConfig.containerId)
-  containerid_.Mutable(index)->assign(value);
+inline void FimdConfig::add_pid(::google::protobuf::int32 value) {
+  pid_.Add(value);
+  // @@protoc_insertion_point(field_add:fim.FimdConfig.pid)
 }
-#if LANG_CXX11
-inline void FimdConfig::set_containerid(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:fim.FimdConfig.containerId)
-  containerid_.Mutable(index)->assign(std::move(value));
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+FimdConfig::pid() const {
+  // @@protoc_insertion_point(field_list:fim.FimdConfig.pid)
+  return pid_;
 }
-#endif
-inline void FimdConfig::set_containerid(int index, const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  containerid_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:fim.FimdConfig.containerId)
-}
-inline void FimdConfig::set_containerid(int index, const char* value, size_t size) {
-  containerid_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:fim.FimdConfig.containerId)
-}
-inline ::std::string* FimdConfig::add_containerid() {
-  // @@protoc_insertion_point(field_add_mutable:fim.FimdConfig.containerId)
-  return containerid_.Add();
-}
-inline void FimdConfig::add_containerid(const ::std::string& value) {
-  containerid_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:fim.FimdConfig.containerId)
-}
-#if LANG_CXX11
-inline void FimdConfig::add_containerid(::std::string&& value) {
-  containerid_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:fim.FimdConfig.containerId)
-}
-#endif
-inline void FimdConfig::add_containerid(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  containerid_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:fim.FimdConfig.containerId)
-}
-inline void FimdConfig::add_containerid(const char* value, size_t size) {
-  containerid_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:fim.FimdConfig.containerId)
-}
-inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-FimdConfig::containerid() const {
-  // @@protoc_insertion_point(field_list:fim.FimdConfig.containerId)
-  return containerid_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-FimdConfig::mutable_containerid() {
-  // @@protoc_insertion_point(field_mutable_list:fim.FimdConfig.containerId)
-  return &containerid_;
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+FimdConfig::mutable_pid() {
+  // @@protoc_insertion_point(field_mutable_list:fim.FimdConfig.pid)
+  return &pid_;
 }
 
-// repeated .fim.FimWatcherSubject subject = 4;
+// repeated string cid = 4;
+inline int FimdConfig::cid_size() const {
+  return cid_.size();
+}
+inline void FimdConfig::clear_cid() {
+  cid_.Clear();
+}
+inline const ::std::string& FimdConfig::cid(int index) const {
+  // @@protoc_insertion_point(field_get:fim.FimdConfig.cid)
+  return cid_.Get(index);
+}
+inline ::std::string* FimdConfig::mutable_cid(int index) {
+  // @@protoc_insertion_point(field_mutable:fim.FimdConfig.cid)
+  return cid_.Mutable(index);
+}
+inline void FimdConfig::set_cid(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:fim.FimdConfig.cid)
+  cid_.Mutable(index)->assign(value);
+}
+#if LANG_CXX11
+inline void FimdConfig::set_cid(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:fim.FimdConfig.cid)
+  cid_.Mutable(index)->assign(std::move(value));
+}
+#endif
+inline void FimdConfig::set_cid(int index, const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  cid_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:fim.FimdConfig.cid)
+}
+inline void FimdConfig::set_cid(int index, const char* value, size_t size) {
+  cid_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:fim.FimdConfig.cid)
+}
+inline ::std::string* FimdConfig::add_cid() {
+  // @@protoc_insertion_point(field_add_mutable:fim.FimdConfig.cid)
+  return cid_.Add();
+}
+inline void FimdConfig::add_cid(const ::std::string& value) {
+  cid_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:fim.FimdConfig.cid)
+}
+#if LANG_CXX11
+inline void FimdConfig::add_cid(::std::string&& value) {
+  cid_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:fim.FimdConfig.cid)
+}
+#endif
+inline void FimdConfig::add_cid(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  cid_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:fim.FimdConfig.cid)
+}
+inline void FimdConfig::add_cid(const char* value, size_t size) {
+  cid_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:fim.FimdConfig.cid)
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+FimdConfig::cid() const {
+  // @@protoc_insertion_point(field_list:fim.FimdConfig.cid)
+  return cid_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+FimdConfig::mutable_cid() {
+  // @@protoc_insertion_point(field_mutable_list:fim.FimdConfig.cid)
+  return &cid_;
+}
+
+// repeated .fim.FimWatcherSubject subject = 5;
 inline int FimdConfig::subject_size() const {
   return subject_.size();
 }
