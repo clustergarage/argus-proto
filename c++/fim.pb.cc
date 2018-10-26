@@ -20,7 +20,8 @@
 // @@protoc_insertion_point(includes)
 
 namespace protobuf_fim_2eproto {
-extern PROTOBUF_INTERNAL_EXPORT_protobuf_fim_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_FimWatcherSubject;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_fim_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_FimWatcherSubject_TagsEntry_DoNotUse;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_fim_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_FimWatcherSubject;
 }  // namespace protobuf_fim_2eproto
 namespace fim {
 class FimdConfigDefaultTypeInternal {
@@ -28,6 +29,11 @@ class FimdConfigDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<FimdConfig>
       _instance;
 } _FimdConfig_default_instance_;
+class FimWatcherSubject_TagsEntry_DoNotUseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<FimWatcherSubject_TagsEntry_DoNotUse>
+      _instance;
+} _FimWatcherSubject_TagsEntry_DoNotUse_default_instance_;
 class FimWatcherSubjectDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<FimWatcherSubject>
@@ -60,6 +66,19 @@ static void InitDefaultsFimdConfig() {
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsFimdConfig}, {
       &protobuf_fim_2eproto::scc_info_FimWatcherSubject.base,}};
 
+static void InitDefaultsFimWatcherSubject_TagsEntry_DoNotUse() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::fim::_FimWatcherSubject_TagsEntry_DoNotUse_default_instance_;
+    new (ptr) ::fim::FimWatcherSubject_TagsEntry_DoNotUse();
+  }
+  ::fim::FimWatcherSubject_TagsEntry_DoNotUse::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_FimWatcherSubject_TagsEntry_DoNotUse =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsFimWatcherSubject_TagsEntry_DoNotUse}, {}};
+
 static void InitDefaultsFimWatcherSubject() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -71,8 +90,9 @@ static void InitDefaultsFimWatcherSubject() {
   ::fim::FimWatcherSubject::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_FimWatcherSubject =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsFimWatcherSubject}, {}};
+::google::protobuf::internal::SCCInfo<1> scc_info_FimWatcherSubject =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsFimWatcherSubject}, {
+      &protobuf_fim_2eproto::scc_info_FimWatcherSubject_TagsEntry_DoNotUse.base,}};
 
 static void InitDefaultsFimdHandle() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -104,12 +124,13 @@ static void InitDefaultsEmpty() {
 
 void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_FimdConfig.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_FimWatcherSubject_TagsEntry_DoNotUse.base);
   ::google::protobuf::internal::InitSCC(&scc_info_FimWatcherSubject.base);
   ::google::protobuf::internal::InitSCC(&scc_info_FimdHandle.base);
   ::google::protobuf::internal::InitSCC(&scc_info_Empty.base);
 }
 
-::google::protobuf::Metadata file_level_metadata[4];
+::google::protobuf::Metadata file_level_metadata[5];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
@@ -123,6 +144,15 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdConfig, cid_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdConfig, subject_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdConfig, logformat_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimWatcherSubject_TagsEntry_DoNotUse, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimWatcherSubject_TagsEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimWatcherSubject_TagsEntry_DoNotUse, key_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimWatcherSubject_TagsEntry_DoNotUse, value_),
+  0,
+  1,
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimWatcherSubject, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -134,6 +164,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimWatcherSubject, onlydir_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimWatcherSubject, recursive_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimWatcherSubject, maxdepth_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimWatcherSubject, tags_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::fim::FimdHandle, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -152,13 +183,15 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::fim::FimdConfig)},
-  { 11, -1, sizeof(::fim::FimWatcherSubject)},
-  { 22, -1, sizeof(::fim::FimdHandle)},
-  { 32, -1, sizeof(::fim::Empty)},
+  { 11, 18, sizeof(::fim::FimWatcherSubject_TagsEntry_DoNotUse)},
+  { 20, -1, sizeof(::fim::FimWatcherSubject)},
+  { 32, -1, sizeof(::fim::FimdHandle)},
+  { 42, -1, sizeof(::fim::Empty)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::fim::_FimdConfig_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::fim::_FimWatcherSubject_TagsEntry_DoNotUse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::fim::_FimWatcherSubject_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::fim::_FimdHandle_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::fim::_Empty_default_instance_),
@@ -179,7 +212,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 4);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 5);
 }
 
 void AddDescriptorsImpl() {
@@ -188,20 +221,22 @@ void AddDescriptorsImpl() {
       "\n\tfim.proto\022\003fim\"\205\001\n\nFimdConfig\022\020\n\010nodeN"
       "ame\030\001 \001(\t\022\017\n\007podName\030\002 \001(\t\022\013\n\003pid\030\003 \003(\005\022"
       "\013\n\003cid\030\004 \003(\t\022\'\n\007subject\030\005 \003(\0132\026.fim.FimW"
-      "atcherSubject\022\021\n\tlogFormat\030\006 \001(\t\"v\n\021FimW"
-      "atcherSubject\022\014\n\004path\030\001 \003(\t\022\r\n\005event\030\002 \003"
-      "(\t\022\016\n\006ignore\030\003 \003(\t\022\017\n\007onlyDir\030\004 \001(\010\022\021\n\tr"
-      "ecursive\030\005 \001(\010\022\020\n\010maxDepth\030\006 \001(\005\"b\n\nFimd"
-      "Handle\022\020\n\010nodeName\030\001 \001(\t\022\017\n\007podName\030\002 \001("
-      "\t\022\013\n\003pid\030\003 \003(\005\022\026\n\016processEventfd\030\004 \003(\005\022\014"
-      "\n\004mqFd\030\005 \001(\005\"\007\n\005Empty2\232\001\n\004Fimd\0221\n\013Create"
-      "Watch\022\017.fim.FimdConfig\032\017.fim.FimdHandle\""
-      "\000\022-\n\014DestroyWatch\022\017.fim.FimdConfig\032\n.fim"
-      ".Empty\"\000\0220\n\rGetWatchState\022\n.fim.Empty\032\017."
-      "fim.FimdHandle\"\0000\001b\006proto3"
+      "atcherSubject\022\021\n\tlogFormat\030\006 \001(\t\"\323\001\n\021Fim"
+      "WatcherSubject\022\014\n\004path\030\001 \003(\t\022\r\n\005event\030\002 "
+      "\003(\t\022\016\n\006ignore\030\003 \003(\t\022\017\n\007onlyDir\030\004 \001(\010\022\021\n\t"
+      "recursive\030\005 \001(\010\022\020\n\010maxDepth\030\006 \001(\005\022.\n\004tag"
+      "s\030\007 \003(\0132 .fim.FimWatcherSubject.TagsEntr"
+      "y\032+\n\tTagsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001"
+      "(\t:\0028\001\"b\n\nFimdHandle\022\020\n\010nodeName\030\001 \001(\t\022\017"
+      "\n\007podName\030\002 \001(\t\022\013\n\003pid\030\003 \003(\005\022\026\n\016processE"
+      "ventfd\030\004 \003(\005\022\014\n\004mqFd\030\005 \001(\005\"\007\n\005Empty2\232\001\n\004"
+      "Fimd\0221\n\013CreateWatch\022\017.fim.FimdConfig\032\017.f"
+      "im.FimdHandle\"\000\022-\n\014DestroyWatch\022\017.fim.Fi"
+      "mdConfig\032\n.fim.Empty\"\000\0220\n\rGetWatchState\022"
+      "\n.fim.Empty\032\017.fim.FimdHandle\"\0000\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 546);
+      descriptor, 640);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fim.proto", &protobuf_RegisterTypes);
 }
@@ -738,6 +773,23 @@ void FimdConfig::InternalSwap(FimdConfig* other) {
 
 // ===================================================================
 
+FimWatcherSubject_TagsEntry_DoNotUse::FimWatcherSubject_TagsEntry_DoNotUse() {}
+FimWatcherSubject_TagsEntry_DoNotUse::FimWatcherSubject_TagsEntry_DoNotUse(::google::protobuf::Arena* arena) : SuperType(arena) {}
+void FimWatcherSubject_TagsEntry_DoNotUse::MergeFrom(const FimWatcherSubject_TagsEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::google::protobuf::Metadata FimWatcherSubject_TagsEntry_DoNotUse::GetMetadata() const {
+  ::protobuf_fim_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_fim_2eproto::file_level_metadata[1];
+}
+void FimWatcherSubject_TagsEntry_DoNotUse::MergeFrom(
+    const ::google::protobuf::Message& other) {
+  ::google::protobuf::Message::MergeFrom(other);
+}
+
+
+// ===================================================================
+
 void FimWatcherSubject::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -747,6 +799,7 @@ const int FimWatcherSubject::kIgnoreFieldNumber;
 const int FimWatcherSubject::kOnlyDirFieldNumber;
 const int FimWatcherSubject::kRecursiveFieldNumber;
 const int FimWatcherSubject::kMaxDepthFieldNumber;
+const int FimWatcherSubject::kTagsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 FimWatcherSubject::FimWatcherSubject()
@@ -763,6 +816,7 @@ FimWatcherSubject::FimWatcherSubject(const FimWatcherSubject& from)
       event_(from.event_),
       ignore_(from.ignore_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  tags_.MergeFrom(from.tags_);
   ::memcpy(&onlydir_, &from.onlydir_,
     static_cast<size_t>(reinterpret_cast<char*>(&maxdepth_) -
     reinterpret_cast<char*>(&onlydir_)) + sizeof(maxdepth_));
@@ -806,6 +860,7 @@ void FimWatcherSubject::Clear() {
   path_.Clear();
   event_.Clear();
   ignore_.Clear();
+  tags_.Clear();
   ::memset(&onlydir_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&maxdepth_) -
       reinterpret_cast<char*>(&onlydir_)) + sizeof(maxdepth_));
@@ -915,6 +970,33 @@ bool FimWatcherSubject::MergePartialFromCodedStream(
         break;
       }
 
+      // map<string, string> tags = 7;
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(58u /* 58 & 0xFF */)) {
+          FimWatcherSubject_TagsEntry_DoNotUse::Parser< ::google::protobuf::internal::MapField<
+              FimWatcherSubject_TagsEntry_DoNotUse,
+              ::std::string, ::std::string,
+              ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+              ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+              0 >,
+            ::google::protobuf::Map< ::std::string, ::std::string > > parser(&tags_);
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+              input, &parser));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            parser.key().data(), static_cast<int>(parser.key().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "fim.FimWatcherSubject.TagsEntry.key"));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            parser.value().data(), static_cast<int>(parser.value().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "fim.FimWatcherSubject.TagsEntry.value"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -986,6 +1068,59 @@ void FimWatcherSubject::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->maxdepth(), output);
   }
 
+  // map<string, string> tags = 7;
+  if (!this->tags().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::std::string >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "fim.FimWatcherSubject.TagsEntry.key");
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->second.data(), static_cast<int>(p->second.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "fim.FimWatcherSubject.TagsEntry.value");
+      }
+    };
+
+    if (output->IsSerializationDeterministic() &&
+        this->tags().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->tags().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::std::string >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
+          it = this->tags().begin();
+          it != this->tags().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::std::unique_ptr<FimWatcherSubject_TagsEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(tags_.NewEntryWrapper(
+            items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+            7, *entry, output);
+        Utf8Check::Check(items[static_cast<ptrdiff_t>(i)]);
+      }
+    } else {
+      ::std::unique_ptr<FimWatcherSubject_TagsEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
+          it = this->tags().begin();
+          it != this->tags().end(); ++it) {
+        entry.reset(tags_.NewEntryWrapper(
+            it->first, it->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+            7, *entry, output);
+        Utf8Check::Check(&*it);
+      }
+    }
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -1045,6 +1180,63 @@ void FimWatcherSubject::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->maxdepth(), target);
   }
 
+  // map<string, string> tags = 7;
+  if (!this->tags().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::std::string >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "fim.FimWatcherSubject.TagsEntry.key");
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->second.data(), static_cast<int>(p->second.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "fim.FimWatcherSubject.TagsEntry.value");
+      }
+    };
+
+    if (deterministic &&
+        this->tags().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->tags().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::std::string >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
+          it = this->tags().begin();
+          it != this->tags().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::std::unique_ptr<FimWatcherSubject_TagsEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(tags_.NewEntryWrapper(
+            items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
+        target = ::google::protobuf::internal::WireFormatLite::
+                   InternalWriteMessageNoVirtualToArray(
+                       7, *entry, deterministic, target);
+;
+        Utf8Check::Check(items[static_cast<ptrdiff_t>(i)]);
+      }
+    } else {
+      ::std::unique_ptr<FimWatcherSubject_TagsEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
+          it = this->tags().begin();
+          it != this->tags().end(); ++it) {
+        entry.reset(tags_.NewEntryWrapper(
+            it->first, it->second));
+        target = ::google::protobuf::internal::WireFormatLite::
+                   InternalWriteMessageNoVirtualToArray(
+                       7, *entry, deterministic, target);
+;
+        Utf8Check::Check(&*it);
+      }
+    }
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
@@ -1084,6 +1276,20 @@ size_t FimWatcherSubject::ByteSizeLong() const {
   for (int i = 0, n = this->ignore_size(); i < n; i++) {
     total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
       this->ignore(i));
+  }
+
+  // map<string, string> tags = 7;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->tags_size());
+  {
+    ::std::unique_ptr<FimWatcherSubject_TagsEntry_DoNotUse> entry;
+    for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
+        it = this->tags().begin();
+        it != this->tags().end(); ++it) {
+      entry.reset(tags_.NewEntryWrapper(it->first, it->second));
+      total_size += ::google::protobuf::internal::WireFormatLite::
+          MessageSizeNoVirtual(*entry);
+    }
   }
 
   // bool onlyDir = 4;
@@ -1133,6 +1339,7 @@ void FimWatcherSubject::MergeFrom(const FimWatcherSubject& from) {
   path_.MergeFrom(from.path_);
   event_.MergeFrom(from.event_);
   ignore_.MergeFrom(from.ignore_);
+  tags_.MergeFrom(from.tags_);
   if (from.onlydir() != 0) {
     set_onlydir(from.onlydir());
   }
@@ -1171,6 +1378,7 @@ void FimWatcherSubject::InternalSwap(FimWatcherSubject* other) {
   path_.InternalSwap(CastToBase(&other->path_));
   event_.InternalSwap(CastToBase(&other->event_));
   ignore_.InternalSwap(CastToBase(&other->ignore_));
+  tags_.Swap(&other->tags_);
   swap(onlydir_, other->onlydir_);
   swap(recursive_, other->recursive_);
   swap(maxdepth_, other->maxdepth_);
@@ -1835,6 +2043,9 @@ namespace google {
 namespace protobuf {
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::fim::FimdConfig* Arena::CreateMaybeMessage< ::fim::FimdConfig >(Arena* arena) {
   return Arena::CreateInternal< ::fim::FimdConfig >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::fim::FimWatcherSubject_TagsEntry_DoNotUse* Arena::CreateMaybeMessage< ::fim::FimWatcherSubject_TagsEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateInternal< ::fim::FimWatcherSubject_TagsEntry_DoNotUse >(arena);
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::fim::FimWatcherSubject* Arena::CreateMaybeMessage< ::fim::FimWatcherSubject >(Arena* arena) {
   return Arena::CreateInternal< ::fim::FimWatcherSubject >(arena);

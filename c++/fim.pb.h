@@ -29,6 +29,9 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/map.h>  // IWYU pragma: export
+#include <google/protobuf/map_entry.h>
+#include <google/protobuf/map_field_inl.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 #define PROTOBUF_INTERNAL_EXPORT_protobuf_fim_2eproto 
@@ -38,7 +41,7 @@ namespace protobuf_fim_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[4];
+  static const ::google::protobuf::internal::ParseTable schema[5];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -52,6 +55,9 @@ extern EmptyDefaultTypeInternal _Empty_default_instance_;
 class FimWatcherSubject;
 class FimWatcherSubjectDefaultTypeInternal;
 extern FimWatcherSubjectDefaultTypeInternal _FimWatcherSubject_default_instance_;
+class FimWatcherSubject_TagsEntry_DoNotUse;
+class FimWatcherSubject_TagsEntry_DoNotUseDefaultTypeInternal;
+extern FimWatcherSubject_TagsEntry_DoNotUseDefaultTypeInternal _FimWatcherSubject_TagsEntry_DoNotUse_default_instance_;
 class FimdConfig;
 class FimdConfigDefaultTypeInternal;
 extern FimdConfigDefaultTypeInternal _FimdConfig_default_instance_;
@@ -63,6 +69,7 @@ namespace google {
 namespace protobuf {
 template<> ::fim::Empty* Arena::CreateMaybeMessage<::fim::Empty>(Arena*);
 template<> ::fim::FimWatcherSubject* Arena::CreateMaybeMessage<::fim::FimWatcherSubject>(Arena*);
+template<> ::fim::FimWatcherSubject_TagsEntry_DoNotUse* Arena::CreateMaybeMessage<::fim::FimWatcherSubject_TagsEntry_DoNotUse>(Arena*);
 template<> ::fim::FimdConfig* Arena::CreateMaybeMessage<::fim::FimdConfig>(Arena*);
 template<> ::fim::FimdHandle* Arena::CreateMaybeMessage<::fim::FimdHandle>(Arena*);
 }  // namespace protobuf
@@ -262,6 +269,27 @@ class FimdConfig : public ::google::protobuf::Message /* @@protoc_insertion_poin
 };
 // -------------------------------------------------------------------
 
+class FimWatcherSubject_TagsEntry_DoNotUse : public ::google::protobuf::internal::MapEntry<FimWatcherSubject_TagsEntry_DoNotUse, 
+    ::std::string, ::std::string,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+    0 > {
+public:
+  typedef ::google::protobuf::internal::MapEntry<FimWatcherSubject_TagsEntry_DoNotUse, 
+    ::std::string, ::std::string,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+    0 > SuperType;
+  FimWatcherSubject_TagsEntry_DoNotUse();
+  FimWatcherSubject_TagsEntry_DoNotUse(::google::protobuf::Arena* arena);
+  void MergeFrom(const FimWatcherSubject_TagsEntry_DoNotUse& other);
+  static const FimWatcherSubject_TagsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const FimWatcherSubject_TagsEntry_DoNotUse*>(&_FimWatcherSubject_TagsEntry_DoNotUse_default_instance_); }
+  void MergeFrom(const ::google::protobuf::Message& other) final;
+  ::google::protobuf::Metadata GetMetadata() const;
+};
+
+// -------------------------------------------------------------------
+
 class FimWatcherSubject : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fim.FimWatcherSubject) */ {
  public:
   FimWatcherSubject();
@@ -297,7 +325,7 @@ class FimWatcherSubject : public ::google::protobuf::Message /* @@protoc_inserti
                &_FimWatcherSubject_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   void Swap(FimWatcherSubject* other);
   friend void swap(FimWatcherSubject& a, FimWatcherSubject& b) {
@@ -346,6 +374,7 @@ class FimWatcherSubject : public ::google::protobuf::Message /* @@protoc_inserti
   ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
+
 
   // accessors -------------------------------------------------------
 
@@ -415,6 +444,15 @@ class FimWatcherSubject : public ::google::protobuf::Message /* @@protoc_inserti
   const ::google::protobuf::RepeatedPtrField< ::std::string>& ignore() const;
   ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_ignore();
 
+  // map<string, string> tags = 7;
+  int tags_size() const;
+  void clear_tags();
+  static const int kTagsFieldNumber = 7;
+  const ::google::protobuf::Map< ::std::string, ::std::string >&
+      tags() const;
+  ::google::protobuf::Map< ::std::string, ::std::string >*
+      mutable_tags();
+
   // bool onlyDir = 4;
   void clear_onlydir();
   static const int kOnlyDirFieldNumber = 4;
@@ -440,6 +478,12 @@ class FimWatcherSubject : public ::google::protobuf::Message /* @@protoc_inserti
   ::google::protobuf::RepeatedPtrField< ::std::string> path_;
   ::google::protobuf::RepeatedPtrField< ::std::string> event_;
   ::google::protobuf::RepeatedPtrField< ::std::string> ignore_;
+  ::google::protobuf::internal::MapField<
+      FimWatcherSubject_TagsEntry_DoNotUse,
+      ::std::string, ::std::string,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+      0 > tags_;
   bool onlydir_;
   bool recursive_;
   ::google::protobuf::int32 maxdepth_;
@@ -483,7 +527,7 @@ class FimdHandle : public ::google::protobuf::Message /* @@protoc_insertion_poin
                &_FimdHandle_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   void Swap(FimdHandle* other);
   friend void swap(FimdHandle& a, FimdHandle& b) {
@@ -644,7 +688,7 @@ class Empty : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
                &_Empty_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   void Swap(Empty* other);
   friend void swap(Empty& a, Empty& b) {
@@ -1004,6 +1048,8 @@ inline void FimdConfig::set_allocated_logformat(::std::string* logformat) {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 // FimWatcherSubject
 
 // repeated string path = 1;
@@ -1255,6 +1301,24 @@ inline void FimWatcherSubject::set_maxdepth(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:fim.FimWatcherSubject.maxDepth)
 }
 
+// map<string, string> tags = 7;
+inline int FimWatcherSubject::tags_size() const {
+  return tags_.size();
+}
+inline void FimWatcherSubject::clear_tags() {
+  tags_.Clear();
+}
+inline const ::google::protobuf::Map< ::std::string, ::std::string >&
+FimWatcherSubject::tags() const {
+  // @@protoc_insertion_point(field_map:fim.FimWatcherSubject.tags)
+  return tags_.GetMap();
+}
+inline ::google::protobuf::Map< ::std::string, ::std::string >*
+FimWatcherSubject::mutable_tags() {
+  // @@protoc_insertion_point(field_mutable_map:fim.FimWatcherSubject.tags)
+  return tags_.MutableMap();
+}
+
 // -------------------------------------------------------------------
 
 // FimdHandle
@@ -1446,6 +1510,8 @@ inline void FimdHandle::set_mqfd(::google::protobuf::int32 value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

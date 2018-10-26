@@ -24,6 +24,7 @@ message FimWatcherSubject {
   bool onlyDir = 4;
   bool recursive = 5;
   int32 maxDepth = 6;
+  map<string, string> tags = 7;
 }
 
 message FimdHandle {
@@ -34,5 +35,4 @@ message FimdHandle {
   int32 mqFd = 5;
 }
 
-message Empty {
-}
+message Empty {}
