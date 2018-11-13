@@ -19,6 +19,7 @@ static const char* Fimd_method_names[] = {
   "/fim.Fimd/CreateWatch",
   "/fim.Fimd/DestroyWatch",
   "/fim.Fimd/GetWatchState",
+  "/fim.Fimd/RecordMetrics",
 };
 
 std::unique_ptr< Fimd::Stub> Fimd::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -31,6 +32,7 @@ Fimd::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   : channel_(channel), rpcmethod_CreateWatch_(Fimd_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_DestroyWatch_(Fimd_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetWatchState_(Fimd_method_names[2], ::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
+  , rpcmethod_RecordMetrics_(Fimd_method_names[3], ::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
   {}
 
 ::grpc::Status Fimd::Stub::CreateWatch(::grpc::ClientContext* context, const ::fim::FimdConfig& request, ::fim::FimdHandle* response) {
@@ -69,6 +71,18 @@ Fimd::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   return ::grpc::internal::ClientAsyncReaderFactory< ::fim::FimdHandle>::Create(channel_.get(), cq, rpcmethod_GetWatchState_, context, request, false, nullptr);
 }
 
+::grpc::ClientReader< ::fim::FimdMetricsHandle>* Fimd::Stub::RecordMetricsRaw(::grpc::ClientContext* context, const ::fim::Empty& request) {
+  return ::grpc::internal::ClientReaderFactory< ::fim::FimdMetricsHandle>::Create(channel_.get(), rpcmethod_RecordMetrics_, context, request);
+}
+
+::grpc::ClientAsyncReader< ::fim::FimdMetricsHandle>* Fimd::Stub::AsyncRecordMetricsRaw(::grpc::ClientContext* context, const ::fim::Empty& request, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncReaderFactory< ::fim::FimdMetricsHandle>::Create(channel_.get(), cq, rpcmethod_RecordMetrics_, context, request, true, tag);
+}
+
+::grpc::ClientAsyncReader< ::fim::FimdMetricsHandle>* Fimd::Stub::PrepareAsyncRecordMetricsRaw(::grpc::ClientContext* context, const ::fim::Empty& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncReaderFactory< ::fim::FimdMetricsHandle>::Create(channel_.get(), cq, rpcmethod_RecordMetrics_, context, request, false, nullptr);
+}
+
 Fimd::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Fimd_method_names[0],
@@ -85,6 +99,11 @@ Fimd::Service::Service() {
       ::grpc::internal::RpcMethod::SERVER_STREAMING,
       new ::grpc::internal::ServerStreamingHandler< Fimd::Service, ::fim::Empty, ::fim::FimdHandle>(
           std::mem_fn(&Fimd::Service::GetWatchState), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Fimd_method_names[3],
+      ::grpc::internal::RpcMethod::SERVER_STREAMING,
+      new ::grpc::internal::ServerStreamingHandler< Fimd::Service, ::fim::Empty, ::fim::FimdMetricsHandle>(
+          std::mem_fn(&Fimd::Service::RecordMetrics), this)));
 }
 
 Fimd::Service::~Service() {
@@ -105,6 +124,13 @@ Fimd::Service::~Service() {
 }
 
 ::grpc::Status Fimd::Service::GetWatchState(::grpc::ServerContext* context, const ::fim::Empty* request, ::grpc::ServerWriter< ::fim::FimdHandle>* writer) {
+  (void) context;
+  (void) request;
+  (void) writer;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Fimd::Service::RecordMetrics(::grpc::ServerContext* context, const ::fim::Empty* request, ::grpc::ServerWriter< ::fim::FimdMetricsHandle>* writer) {
   (void) context;
   (void) request;
   (void) writer;

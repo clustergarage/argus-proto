@@ -6,15 +6,17 @@ service Fimd {
   rpc CreateWatch(FimdConfig) returns (FimdHandle) {}
   rpc DestroyWatch(FimdConfig) returns (Empty) {}
   rpc GetWatchState(Empty) returns (stream FimdHandle) {}
+  rpc RecordMetrics(Empty) returns (stream FimdMetricsHandle) {}
 }
 
 message FimdConfig {
-  string nodeName = 1;
-  string podName = 2;
-  repeated int32 pid = 3;
-  repeated string cid = 4;
-  repeated FimWatcherSubject subject = 5;
-  string logFormat = 6;
+  string name = 1;
+  string nodeName = 2;
+  string podName = 3;
+  repeated int32 pid = 4;
+  repeated string cid = 5;
+  repeated FimWatcherSubject subject = 6;
+  string logFormat = 7;
 }
 
 message FimWatcherSubject {
@@ -33,6 +35,12 @@ message FimdHandle {
   repeated int32 pid = 3;
   repeated int32 processEventfd = 4;
   int32 mqFd = 5;
+}
+
+message FimdMetricsHandle {
+  string fimWatcher = 1;
+  string event = 2;
+  string nodeName = 3;
 }
 
 message Empty {}

@@ -41,7 +41,7 @@ namespace protobuf_fim_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[5];
+  static const ::google::protobuf::internal::ParseTable schema[6];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -64,6 +64,9 @@ extern FimdConfigDefaultTypeInternal _FimdConfig_default_instance_;
 class FimdHandle;
 class FimdHandleDefaultTypeInternal;
 extern FimdHandleDefaultTypeInternal _FimdHandle_default_instance_;
+class FimdMetricsHandle;
+class FimdMetricsHandleDefaultTypeInternal;
+extern FimdMetricsHandleDefaultTypeInternal _FimdMetricsHandle_default_instance_;
 }  // namespace fim
 namespace google {
 namespace protobuf {
@@ -72,6 +75,7 @@ template<> ::fim::FimWatcherSubject* Arena::CreateMaybeMessage<::fim::FimWatcher
 template<> ::fim::FimWatcherSubject_TagsEntry_DoNotUse* Arena::CreateMaybeMessage<::fim::FimWatcherSubject_TagsEntry_DoNotUse>(Arena*);
 template<> ::fim::FimdConfig* Arena::CreateMaybeMessage<::fim::FimdConfig>(Arena*);
 template<> ::fim::FimdHandle* Arena::CreateMaybeMessage<::fim::FimdHandle>(Arena*);
+template<> ::fim::FimdMetricsHandle* Arena::CreateMaybeMessage<::fim::FimdMetricsHandle>(Arena*);
 }  // namespace protobuf
 }  // namespace google
 namespace fim {
@@ -165,10 +169,10 @@ class FimdConfig : public ::google::protobuf::Message /* @@protoc_insertion_poin
 
   // accessors -------------------------------------------------------
 
-  // repeated int32 pid = 3;
+  // repeated int32 pid = 4;
   int pid_size() const;
   void clear_pid();
-  static const int kPidFieldNumber = 3;
+  static const int kPidFieldNumber = 4;
   ::google::protobuf::int32 pid(int index) const;
   void set_pid(int index, ::google::protobuf::int32 value);
   void add_pid(::google::protobuf::int32 value);
@@ -177,10 +181,10 @@ class FimdConfig : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_pid();
 
-  // repeated string cid = 4;
+  // repeated string cid = 5;
   int cid_size() const;
   void clear_cid();
-  static const int kCidFieldNumber = 4;
+  static const int kCidFieldNumber = 5;
   const ::std::string& cid(int index) const;
   ::std::string* mutable_cid(int index);
   void set_cid(int index, const ::std::string& value);
@@ -199,10 +203,10 @@ class FimdConfig : public ::google::protobuf::Message /* @@protoc_insertion_poin
   const ::google::protobuf::RepeatedPtrField< ::std::string>& cid() const;
   ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_cid();
 
-  // repeated .fim.FimWatcherSubject subject = 5;
+  // repeated .fim.FimWatcherSubject subject = 6;
   int subject_size() const;
   void clear_subject();
-  static const int kSubjectFieldNumber = 5;
+  static const int kSubjectFieldNumber = 6;
   ::fim::FimWatcherSubject* mutable_subject(int index);
   ::google::protobuf::RepeatedPtrField< ::fim::FimWatcherSubject >*
       mutable_subject();
@@ -211,9 +215,23 @@ class FimdConfig : public ::google::protobuf::Message /* @@protoc_insertion_poin
   const ::google::protobuf::RepeatedPtrField< ::fim::FimWatcherSubject >&
       subject() const;
 
-  // string nodeName = 1;
+  // string name = 1;
+  void clear_name();
+  static const int kNameFieldNumber = 1;
+  const ::std::string& name() const;
+  void set_name(const ::std::string& value);
+  #if LANG_CXX11
+  void set_name(::std::string&& value);
+  #endif
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  ::std::string* mutable_name();
+  ::std::string* release_name();
+  void set_allocated_name(::std::string* name);
+
+  // string nodeName = 2;
   void clear_nodename();
-  static const int kNodeNameFieldNumber = 1;
+  static const int kNodeNameFieldNumber = 2;
   const ::std::string& nodename() const;
   void set_nodename(const ::std::string& value);
   #if LANG_CXX11
@@ -225,9 +243,9 @@ class FimdConfig : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::std::string* release_nodename();
   void set_allocated_nodename(::std::string* nodename);
 
-  // string podName = 2;
+  // string podName = 3;
   void clear_podname();
-  static const int kPodNameFieldNumber = 2;
+  static const int kPodNameFieldNumber = 3;
   const ::std::string& podname() const;
   void set_podname(const ::std::string& value);
   #if LANG_CXX11
@@ -239,9 +257,9 @@ class FimdConfig : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::std::string* release_podname();
   void set_allocated_podname(::std::string* podname);
 
-  // string logFormat = 6;
+  // string logFormat = 7;
   void clear_logformat();
-  static const int kLogFormatFieldNumber = 6;
+  static const int kLogFormatFieldNumber = 7;
   const ::std::string& logformat() const;
   void set_logformat(const ::std::string& value);
   #if LANG_CXX11
@@ -261,6 +279,7 @@ class FimdConfig : public ::google::protobuf::Message /* @@protoc_insertion_poin
   mutable int _pid_cached_byte_size_;
   ::google::protobuf::RepeatedPtrField< ::std::string> cid_;
   ::google::protobuf::RepeatedPtrField< ::fim::FimWatcherSubject > subject_;
+  ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::internal::ArenaStringPtr nodename_;
   ::google::protobuf::internal::ArenaStringPtr podname_;
   ::google::protobuf::internal::ArenaStringPtr logformat_;
@@ -653,6 +672,147 @@ class FimdHandle : public ::google::protobuf::Message /* @@protoc_insertion_poin
 };
 // -------------------------------------------------------------------
 
+class FimdMetricsHandle : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fim.FimdMetricsHandle) */ {
+ public:
+  FimdMetricsHandle();
+  virtual ~FimdMetricsHandle();
+
+  FimdMetricsHandle(const FimdMetricsHandle& from);
+
+  inline FimdMetricsHandle& operator=(const FimdMetricsHandle& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  FimdMetricsHandle(FimdMetricsHandle&& from) noexcept
+    : FimdMetricsHandle() {
+    *this = ::std::move(from);
+  }
+
+  inline FimdMetricsHandle& operator=(FimdMetricsHandle&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FimdMetricsHandle& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const FimdMetricsHandle* internal_default_instance() {
+    return reinterpret_cast<const FimdMetricsHandle*>(
+               &_FimdMetricsHandle_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  void Swap(FimdMetricsHandle* other);
+  friend void swap(FimdMetricsHandle& a, FimdMetricsHandle& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline FimdMetricsHandle* New() const final {
+    return CreateMaybeMessage<FimdMetricsHandle>(NULL);
+  }
+
+  FimdMetricsHandle* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<FimdMetricsHandle>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const FimdMetricsHandle& from);
+  void MergeFrom(const FimdMetricsHandle& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(FimdMetricsHandle* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string fimWatcher = 1;
+  void clear_fimwatcher();
+  static const int kFimWatcherFieldNumber = 1;
+  const ::std::string& fimwatcher() const;
+  void set_fimwatcher(const ::std::string& value);
+  #if LANG_CXX11
+  void set_fimwatcher(::std::string&& value);
+  #endif
+  void set_fimwatcher(const char* value);
+  void set_fimwatcher(const char* value, size_t size);
+  ::std::string* mutable_fimwatcher();
+  ::std::string* release_fimwatcher();
+  void set_allocated_fimwatcher(::std::string* fimwatcher);
+
+  // string event = 2;
+  void clear_event();
+  static const int kEventFieldNumber = 2;
+  const ::std::string& event() const;
+  void set_event(const ::std::string& value);
+  #if LANG_CXX11
+  void set_event(::std::string&& value);
+  #endif
+  void set_event(const char* value);
+  void set_event(const char* value, size_t size);
+  ::std::string* mutable_event();
+  ::std::string* release_event();
+  void set_allocated_event(::std::string* event);
+
+  // string nodeName = 3;
+  void clear_nodename();
+  static const int kNodeNameFieldNumber = 3;
+  const ::std::string& nodename() const;
+  void set_nodename(const ::std::string& value);
+  #if LANG_CXX11
+  void set_nodename(::std::string&& value);
+  #endif
+  void set_nodename(const char* value);
+  void set_nodename(const char* value, size_t size);
+  ::std::string* mutable_nodename();
+  ::std::string* release_nodename();
+  void set_allocated_nodename(::std::string* nodename);
+
+  // @@protoc_insertion_point(class_scope:fim.FimdMetricsHandle)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr fimwatcher_;
+  ::google::protobuf::internal::ArenaStringPtr event_;
+  ::google::protobuf::internal::ArenaStringPtr nodename_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_fim_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
 class Empty : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fim.Empty) */ {
  public:
   Empty();
@@ -688,7 +848,7 @@ class Empty : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
                &_Empty_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   void Swap(Empty* other);
   friend void swap(Empty& a, Empty& b) {
@@ -758,7 +918,60 @@ class Empty : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
 #endif  // __GNUC__
 // FimdConfig
 
-// string nodeName = 1;
+// string name = 1;
+inline void FimdConfig::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& FimdConfig::name() const {
+  // @@protoc_insertion_point(field_get:fim.FimdConfig.name)
+  return name_.GetNoArena();
+}
+inline void FimdConfig::set_name(const ::std::string& value) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fim.FimdConfig.name)
+}
+#if LANG_CXX11
+inline void FimdConfig::set_name(::std::string&& value) {
+  
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fim.FimdConfig.name)
+}
+#endif
+inline void FimdConfig::set_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fim.FimdConfig.name)
+}
+inline void FimdConfig::set_name(const char* value, size_t size) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fim.FimdConfig.name)
+}
+inline ::std::string* FimdConfig::mutable_name() {
+  
+  // @@protoc_insertion_point(field_mutable:fim.FimdConfig.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* FimdConfig::release_name() {
+  // @@protoc_insertion_point(field_release:fim.FimdConfig.name)
+  
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void FimdConfig::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    
+  } else {
+    
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:fim.FimdConfig.name)
+}
+
+// string nodeName = 2;
 inline void FimdConfig::clear_nodename() {
   nodename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -811,7 +1024,7 @@ inline void FimdConfig::set_allocated_nodename(::std::string* nodename) {
   // @@protoc_insertion_point(field_set_allocated:fim.FimdConfig.nodeName)
 }
 
-// string podName = 2;
+// string podName = 3;
 inline void FimdConfig::clear_podname() {
   podname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -864,7 +1077,7 @@ inline void FimdConfig::set_allocated_podname(::std::string* podname) {
   // @@protoc_insertion_point(field_set_allocated:fim.FimdConfig.podName)
 }
 
-// repeated int32 pid = 3;
+// repeated int32 pid = 4;
 inline int FimdConfig::pid_size() const {
   return pid_.size();
 }
@@ -894,7 +1107,7 @@ FimdConfig::mutable_pid() {
   return &pid_;
 }
 
-// repeated string cid = 4;
+// repeated string cid = 5;
 inline int FimdConfig::cid_size() const {
   return cid_.size();
 }
@@ -963,7 +1176,7 @@ FimdConfig::mutable_cid() {
   return &cid_;
 }
 
-// repeated .fim.FimWatcherSubject subject = 5;
+// repeated .fim.FimWatcherSubject subject = 6;
 inline int FimdConfig::subject_size() const {
   return subject_.size();
 }
@@ -993,7 +1206,7 @@ FimdConfig::subject() const {
   return subject_;
 }
 
-// string logFormat = 6;
+// string logFormat = 7;
 inline void FimdConfig::clear_logformat() {
   logformat_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1505,11 +1718,176 @@ inline void FimdHandle::set_mqfd(::google::protobuf::int32 value) {
 
 // -------------------------------------------------------------------
 
+// FimdMetricsHandle
+
+// string fimWatcher = 1;
+inline void FimdMetricsHandle::clear_fimwatcher() {
+  fimwatcher_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& FimdMetricsHandle::fimwatcher() const {
+  // @@protoc_insertion_point(field_get:fim.FimdMetricsHandle.fimWatcher)
+  return fimwatcher_.GetNoArena();
+}
+inline void FimdMetricsHandle::set_fimwatcher(const ::std::string& value) {
+  
+  fimwatcher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fim.FimdMetricsHandle.fimWatcher)
+}
+#if LANG_CXX11
+inline void FimdMetricsHandle::set_fimwatcher(::std::string&& value) {
+  
+  fimwatcher_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fim.FimdMetricsHandle.fimWatcher)
+}
+#endif
+inline void FimdMetricsHandle::set_fimwatcher(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  fimwatcher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fim.FimdMetricsHandle.fimWatcher)
+}
+inline void FimdMetricsHandle::set_fimwatcher(const char* value, size_t size) {
+  
+  fimwatcher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fim.FimdMetricsHandle.fimWatcher)
+}
+inline ::std::string* FimdMetricsHandle::mutable_fimwatcher() {
+  
+  // @@protoc_insertion_point(field_mutable:fim.FimdMetricsHandle.fimWatcher)
+  return fimwatcher_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* FimdMetricsHandle::release_fimwatcher() {
+  // @@protoc_insertion_point(field_release:fim.FimdMetricsHandle.fimWatcher)
+  
+  return fimwatcher_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void FimdMetricsHandle::set_allocated_fimwatcher(::std::string* fimwatcher) {
+  if (fimwatcher != NULL) {
+    
+  } else {
+    
+  }
+  fimwatcher_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), fimwatcher);
+  // @@protoc_insertion_point(field_set_allocated:fim.FimdMetricsHandle.fimWatcher)
+}
+
+// string event = 2;
+inline void FimdMetricsHandle::clear_event() {
+  event_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& FimdMetricsHandle::event() const {
+  // @@protoc_insertion_point(field_get:fim.FimdMetricsHandle.event)
+  return event_.GetNoArena();
+}
+inline void FimdMetricsHandle::set_event(const ::std::string& value) {
+  
+  event_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fim.FimdMetricsHandle.event)
+}
+#if LANG_CXX11
+inline void FimdMetricsHandle::set_event(::std::string&& value) {
+  
+  event_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fim.FimdMetricsHandle.event)
+}
+#endif
+inline void FimdMetricsHandle::set_event(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  event_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fim.FimdMetricsHandle.event)
+}
+inline void FimdMetricsHandle::set_event(const char* value, size_t size) {
+  
+  event_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fim.FimdMetricsHandle.event)
+}
+inline ::std::string* FimdMetricsHandle::mutable_event() {
+  
+  // @@protoc_insertion_point(field_mutable:fim.FimdMetricsHandle.event)
+  return event_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* FimdMetricsHandle::release_event() {
+  // @@protoc_insertion_point(field_release:fim.FimdMetricsHandle.event)
+  
+  return event_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void FimdMetricsHandle::set_allocated_event(::std::string* event) {
+  if (event != NULL) {
+    
+  } else {
+    
+  }
+  event_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), event);
+  // @@protoc_insertion_point(field_set_allocated:fim.FimdMetricsHandle.event)
+}
+
+// string nodeName = 3;
+inline void FimdMetricsHandle::clear_nodename() {
+  nodename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& FimdMetricsHandle::nodename() const {
+  // @@protoc_insertion_point(field_get:fim.FimdMetricsHandle.nodeName)
+  return nodename_.GetNoArena();
+}
+inline void FimdMetricsHandle::set_nodename(const ::std::string& value) {
+  
+  nodename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fim.FimdMetricsHandle.nodeName)
+}
+#if LANG_CXX11
+inline void FimdMetricsHandle::set_nodename(::std::string&& value) {
+  
+  nodename_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fim.FimdMetricsHandle.nodeName)
+}
+#endif
+inline void FimdMetricsHandle::set_nodename(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  nodename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fim.FimdMetricsHandle.nodeName)
+}
+inline void FimdMetricsHandle::set_nodename(const char* value, size_t size) {
+  
+  nodename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fim.FimdMetricsHandle.nodeName)
+}
+inline ::std::string* FimdMetricsHandle::mutable_nodename() {
+  
+  // @@protoc_insertion_point(field_mutable:fim.FimdMetricsHandle.nodeName)
+  return nodename_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* FimdMetricsHandle::release_nodename() {
+  // @@protoc_insertion_point(field_release:fim.FimdMetricsHandle.nodeName)
+  
+  return nodename_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void FimdMetricsHandle::set_allocated_nodename(::std::string* nodename) {
+  if (nodename != NULL) {
+    
+  } else {
+    
+  }
+  nodename_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), nodename);
+  // @@protoc_insertion_point(field_set_allocated:fim.FimdMetricsHandle.nodeName)
+}
+
+// -------------------------------------------------------------------
+
 // Empty
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

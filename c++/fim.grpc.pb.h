@@ -56,6 +56,15 @@ class Fimd final {
     std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::fim::FimdHandle>> PrepareAsyncGetWatchState(::grpc::ClientContext* context, const ::fim::Empty& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::fim::FimdHandle>>(PrepareAsyncGetWatchStateRaw(context, request, cq));
     }
+    std::unique_ptr< ::grpc::ClientReaderInterface< ::fim::FimdMetricsHandle>> RecordMetrics(::grpc::ClientContext* context, const ::fim::Empty& request) {
+      return std::unique_ptr< ::grpc::ClientReaderInterface< ::fim::FimdMetricsHandle>>(RecordMetricsRaw(context, request));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::fim::FimdMetricsHandle>> AsyncRecordMetrics(::grpc::ClientContext* context, const ::fim::Empty& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::fim::FimdMetricsHandle>>(AsyncRecordMetricsRaw(context, request, cq, tag));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::fim::FimdMetricsHandle>> PrepareAsyncRecordMetrics(::grpc::ClientContext* context, const ::fim::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::fim::FimdMetricsHandle>>(PrepareAsyncRecordMetricsRaw(context, request, cq));
+    }
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::fim::FimdHandle>* AsyncCreateWatchRaw(::grpc::ClientContext* context, const ::fim::FimdConfig& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::fim::FimdHandle>* PrepareAsyncCreateWatchRaw(::grpc::ClientContext* context, const ::fim::FimdConfig& request, ::grpc::CompletionQueue* cq) = 0;
@@ -64,6 +73,9 @@ class Fimd final {
     virtual ::grpc::ClientReaderInterface< ::fim::FimdHandle>* GetWatchStateRaw(::grpc::ClientContext* context, const ::fim::Empty& request) = 0;
     virtual ::grpc::ClientAsyncReaderInterface< ::fim::FimdHandle>* AsyncGetWatchStateRaw(::grpc::ClientContext* context, const ::fim::Empty& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
     virtual ::grpc::ClientAsyncReaderInterface< ::fim::FimdHandle>* PrepareAsyncGetWatchStateRaw(::grpc::ClientContext* context, const ::fim::Empty& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientReaderInterface< ::fim::FimdMetricsHandle>* RecordMetricsRaw(::grpc::ClientContext* context, const ::fim::Empty& request) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::fim::FimdMetricsHandle>* AsyncRecordMetricsRaw(::grpc::ClientContext* context, const ::fim::Empty& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::fim::FimdMetricsHandle>* PrepareAsyncRecordMetricsRaw(::grpc::ClientContext* context, const ::fim::Empty& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -91,6 +103,15 @@ class Fimd final {
     std::unique_ptr< ::grpc::ClientAsyncReader< ::fim::FimdHandle>> PrepareAsyncGetWatchState(::grpc::ClientContext* context, const ::fim::Empty& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncReader< ::fim::FimdHandle>>(PrepareAsyncGetWatchStateRaw(context, request, cq));
     }
+    std::unique_ptr< ::grpc::ClientReader< ::fim::FimdMetricsHandle>> RecordMetrics(::grpc::ClientContext* context, const ::fim::Empty& request) {
+      return std::unique_ptr< ::grpc::ClientReader< ::fim::FimdMetricsHandle>>(RecordMetricsRaw(context, request));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::fim::FimdMetricsHandle>> AsyncRecordMetrics(::grpc::ClientContext* context, const ::fim::Empty& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::fim::FimdMetricsHandle>>(AsyncRecordMetricsRaw(context, request, cq, tag));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::fim::FimdMetricsHandle>> PrepareAsyncRecordMetrics(::grpc::ClientContext* context, const ::fim::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::fim::FimdMetricsHandle>>(PrepareAsyncRecordMetricsRaw(context, request, cq));
+    }
 
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
@@ -101,9 +122,13 @@ class Fimd final {
     ::grpc::ClientReader< ::fim::FimdHandle>* GetWatchStateRaw(::grpc::ClientContext* context, const ::fim::Empty& request) override;
     ::grpc::ClientAsyncReader< ::fim::FimdHandle>* AsyncGetWatchStateRaw(::grpc::ClientContext* context, const ::fim::Empty& request, ::grpc::CompletionQueue* cq, void* tag) override;
     ::grpc::ClientAsyncReader< ::fim::FimdHandle>* PrepareAsyncGetWatchStateRaw(::grpc::ClientContext* context, const ::fim::Empty& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientReader< ::fim::FimdMetricsHandle>* RecordMetricsRaw(::grpc::ClientContext* context, const ::fim::Empty& request) override;
+    ::grpc::ClientAsyncReader< ::fim::FimdMetricsHandle>* AsyncRecordMetricsRaw(::grpc::ClientContext* context, const ::fim::Empty& request, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncReader< ::fim::FimdMetricsHandle>* PrepareAsyncRecordMetricsRaw(::grpc::ClientContext* context, const ::fim::Empty& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_CreateWatch_;
     const ::grpc::internal::RpcMethod rpcmethod_DestroyWatch_;
     const ::grpc::internal::RpcMethod rpcmethod_GetWatchState_;
+    const ::grpc::internal::RpcMethod rpcmethod_RecordMetrics_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -114,6 +139,7 @@ class Fimd final {
     virtual ::grpc::Status CreateWatch(::grpc::ServerContext* context, const ::fim::FimdConfig* request, ::fim::FimdHandle* response);
     virtual ::grpc::Status DestroyWatch(::grpc::ServerContext* context, const ::fim::FimdConfig* request, ::fim::Empty* response);
     virtual ::grpc::Status GetWatchState(::grpc::ServerContext* context, const ::fim::Empty* request, ::grpc::ServerWriter< ::fim::FimdHandle>* writer);
+    virtual ::grpc::Status RecordMetrics(::grpc::ServerContext* context, const ::fim::Empty* request, ::grpc::ServerWriter< ::fim::FimdMetricsHandle>* writer);
   };
   template <class BaseClass>
   class WithAsyncMethod_CreateWatch : public BaseClass {
@@ -175,7 +201,27 @@ class Fimd final {
       ::grpc::Service::RequestAsyncServerStreaming(2, context, request, writer, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_CreateWatch<WithAsyncMethod_DestroyWatch<WithAsyncMethod_GetWatchState<Service > > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_RecordMetrics : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_RecordMetrics() {
+      ::grpc::Service::MarkMethodAsync(3);
+    }
+    ~WithAsyncMethod_RecordMetrics() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status RecordMetrics(::grpc::ServerContext* context, const ::fim::Empty* request, ::grpc::ServerWriter< ::fim::FimdMetricsHandle>* writer) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestRecordMetrics(::grpc::ServerContext* context, ::fim::Empty* request, ::grpc::ServerAsyncWriter< ::fim::FimdMetricsHandle>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncServerStreaming(3, context, request, writer, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_CreateWatch<WithAsyncMethod_DestroyWatch<WithAsyncMethod_GetWatchState<WithAsyncMethod_RecordMetrics<Service > > > > AsyncService;
   template <class BaseClass>
   class WithGenericMethod_CreateWatch : public BaseClass {
    private:
@@ -223,6 +269,23 @@ class Fimd final {
     }
     // disable synchronous version of this method
     ::grpc::Status GetWatchState(::grpc::ServerContext* context, const ::fim::Empty* request, ::grpc::ServerWriter< ::fim::FimdHandle>* writer) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_RecordMetrics : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_RecordMetrics() {
+      ::grpc::Service::MarkMethodGeneric(3);
+    }
+    ~WithGenericMethod_RecordMetrics() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status RecordMetrics(::grpc::ServerContext* context, const ::fim::Empty* request, ::grpc::ServerWriter< ::fim::FimdMetricsHandle>* writer) final override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -288,8 +351,28 @@ class Fimd final {
     // replace default version of method with split streamed
     virtual ::grpc::Status StreamedGetWatchState(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::fim::Empty,::fim::FimdHandle>* server_split_streamer) = 0;
   };
-  typedef WithSplitStreamingMethod_GetWatchState<Service > SplitStreamedService;
-  typedef WithStreamedUnaryMethod_CreateWatch<WithStreamedUnaryMethod_DestroyWatch<WithSplitStreamingMethod_GetWatchState<Service > > > StreamedService;
+  template <class BaseClass>
+  class WithSplitStreamingMethod_RecordMetrics : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithSplitStreamingMethod_RecordMetrics() {
+      ::grpc::Service::MarkMethodStreamed(3,
+        new ::grpc::internal::SplitServerStreamingHandler< ::fim::Empty, ::fim::FimdMetricsHandle>(std::bind(&WithSplitStreamingMethod_RecordMetrics<BaseClass>::StreamedRecordMetrics, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithSplitStreamingMethod_RecordMetrics() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status RecordMetrics(::grpc::ServerContext* context, const ::fim::Empty* request, ::grpc::ServerWriter< ::fim::FimdMetricsHandle>* writer) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with split streamed
+    virtual ::grpc::Status StreamedRecordMetrics(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::fim::Empty,::fim::FimdMetricsHandle>* server_split_streamer) = 0;
+  };
+  typedef WithSplitStreamingMethod_GetWatchState<WithSplitStreamingMethod_RecordMetrics<Service > > SplitStreamedService;
+  typedef WithStreamedUnaryMethod_CreateWatch<WithStreamedUnaryMethod_DestroyWatch<WithSplitStreamingMethod_GetWatchState<WithSplitStreamingMethod_RecordMetrics<Service > > > > StreamedService;
 };
 
 }  // namespace fim
