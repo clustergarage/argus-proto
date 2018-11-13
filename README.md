@@ -21,3 +21,11 @@ protoc -I. health.proto --cpp_out=c++
 * `fim.pb.cc` - which contains the implementation of your message classes
 * `fim.grpc.pb.h` - the header which declares your generated service classes
 * `fim.grpc.pb.cc` - which contains the implementation of your service classes
+
+## Generate Mocks
+
+```
+mockgen github.com/clustergarage/fim-proto/golang \
+  FimdClient,Fimd_GetWatchStateClient,Fimd_RecordMetricsClient > \
+  golang/mock/fim_mock.pb.go
+```

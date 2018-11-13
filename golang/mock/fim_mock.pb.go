@@ -1,4 +1,4 @@
-// Source: github.com/clustergarage/fim-proto/golang (interfaces: FimdClient,Fimd_GetWatchStateClient)
+// Source: github.com/clustergarage/fim-proto/golang (interfaces: FimdClient,Fimd_GetWatchStateClient,Fimd_RecordMetricsClient)
 package fim_mock
 
 import (
@@ -85,6 +85,24 @@ func (m *MockFimdClient) GetWatchState(arg0 context.Context, arg1 *pb.Empty, arg
 func (mr *MockFimdClientMockRecorder) GetWatchState(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
 	varargs := append([]interface{}{arg0, arg1}, arg2...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetWatchState", reflect.TypeOf((*MockFimdClient)(nil).GetWatchState), varargs...)
+}
+
+// RecordMetrics mocks base method
+func (m *MockFimdClient) RecordMetrics(arg0 context.Context, arg1 *pb.Empty, arg2 ...grpc.CallOption) (pb.Fimd_RecordMetricsClient, error) {
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "RecordMetrics", varargs...)
+	ret0, _ := ret[0].(pb.Fimd_RecordMetricsClient)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// RecordMetrics indicates an expected call of RecordMetrics
+func (mr *MockFimdClientMockRecorder) RecordMetrics(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RecordMetrics", reflect.TypeOf((*MockFimdClient)(nil).RecordMetrics), varargs...)
 }
 
 // MockFimd_GetWatchStateClient is a mock of Fimd_GetWatchStateClient interface
@@ -194,4 +212,113 @@ func (m *MockFimd_GetWatchStateClient) Trailer() metadata.MD {
 // Trailer indicates an expected call of Trailer
 func (mr *MockFimd_GetWatchStateClientMockRecorder) Trailer() *gomock.Call {
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Trailer", reflect.TypeOf((*MockFimd_GetWatchStateClient)(nil).Trailer))
+}
+
+// MockFimd_RecordMetricsClient is a mock of Fimd_RecordMetricsClient interface
+type MockFimd_RecordMetricsClient struct {
+	ctrl     *gomock.Controller
+	recorder *MockFimd_RecordMetricsClientMockRecorder
+}
+
+// MockFimd_RecordMetricsClientMockRecorder is the mock recorder for MockFimd_RecordMetricsClient
+type MockFimd_RecordMetricsClientMockRecorder struct {
+	mock *MockFimd_RecordMetricsClient
+}
+
+// NewMockFimd_RecordMetricsClient creates a new mock instance
+func NewMockFimd_RecordMetricsClient(ctrl *gomock.Controller) *MockFimd_RecordMetricsClient {
+	mock := &MockFimd_RecordMetricsClient{ctrl: ctrl}
+	mock.recorder = &MockFimd_RecordMetricsClientMockRecorder{mock}
+	return mock
+}
+
+// EXPECT returns an object that allows the caller to indicate expected use
+func (m *MockFimd_RecordMetricsClient) EXPECT() *MockFimd_RecordMetricsClientMockRecorder {
+	return m.recorder
+}
+
+// CloseSend mocks base method
+func (m *MockFimd_RecordMetricsClient) CloseSend() error {
+	ret := m.ctrl.Call(m, "CloseSend")
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// CloseSend indicates an expected call of CloseSend
+func (mr *MockFimd_RecordMetricsClientMockRecorder) CloseSend() *gomock.Call {
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CloseSend", reflect.TypeOf((*MockFimd_RecordMetricsClient)(nil).CloseSend))
+}
+
+// Context mocks base method
+func (m *MockFimd_RecordMetricsClient) Context() context.Context {
+	ret := m.ctrl.Call(m, "Context")
+	ret0, _ := ret[0].(context.Context)
+	return ret0
+}
+
+// Context indicates an expected call of Context
+func (mr *MockFimd_RecordMetricsClientMockRecorder) Context() *gomock.Call {
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Context", reflect.TypeOf((*MockFimd_RecordMetricsClient)(nil).Context))
+}
+
+// Header mocks base method
+func (m *MockFimd_RecordMetricsClient) Header() (metadata.MD, error) {
+	ret := m.ctrl.Call(m, "Header")
+	ret0, _ := ret[0].(metadata.MD)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// Header indicates an expected call of Header
+func (mr *MockFimd_RecordMetricsClientMockRecorder) Header() *gomock.Call {
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Header", reflect.TypeOf((*MockFimd_RecordMetricsClient)(nil).Header))
+}
+
+// Recv mocks base method
+func (m *MockFimd_RecordMetricsClient) Recv() (*pb.FimdMetricsHandle, error) {
+	ret := m.ctrl.Call(m, "Recv")
+	ret0, _ := ret[0].(*pb.FimdMetricsHandle)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// Recv indicates an expected call of Recv
+func (mr *MockFimd_RecordMetricsClientMockRecorder) Recv() *gomock.Call {
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Recv", reflect.TypeOf((*MockFimd_RecordMetricsClient)(nil).Recv))
+}
+
+// RecvMsg mocks base method
+func (m *MockFimd_RecordMetricsClient) RecvMsg(arg0 interface{}) error {
+	ret := m.ctrl.Call(m, "RecvMsg", arg0)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// RecvMsg indicates an expected call of RecvMsg
+func (mr *MockFimd_RecordMetricsClientMockRecorder) RecvMsg(arg0 interface{}) *gomock.Call {
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RecvMsg", reflect.TypeOf((*MockFimd_RecordMetricsClient)(nil).RecvMsg), arg0)
+}
+
+// SendMsg mocks base method
+func (m *MockFimd_RecordMetricsClient) SendMsg(arg0 interface{}) error {
+	ret := m.ctrl.Call(m, "SendMsg", arg0)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// SendMsg indicates an expected call of SendMsg
+func (mr *MockFimd_RecordMetricsClientMockRecorder) SendMsg(arg0 interface{}) *gomock.Call {
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SendMsg", reflect.TypeOf((*MockFimd_RecordMetricsClient)(nil).SendMsg), arg0)
+}
+
+// Trailer mocks base method
+func (m *MockFimd_RecordMetricsClient) Trailer() metadata.MD {
+	ret := m.ctrl.Call(m, "Trailer")
+	ret0, _ := ret[0].(metadata.MD)
+	return ret0
+}
+
+// Trailer indicates an expected call of Trailer
+func (mr *MockFimd_RecordMetricsClientMockRecorder) Trailer() *gomock.Call {
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Trailer", reflect.TypeOf((*MockFimd_RecordMetricsClient)(nil).Trailer))
 }
