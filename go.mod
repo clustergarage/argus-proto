@@ -1,4 +1,4 @@
-module github.com/clustergarage/fim-proto
+module github.com/clustergarage/argus-proto
 
 require (
 	github.com/golang/protobuf v1.2.0

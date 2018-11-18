@@ -1,25 +1,25 @@
 syntax = "proto3";
 
-package fim;
+package argus;
 
-service Fimd {
-  rpc CreateWatch(FimdConfig) returns (FimdHandle) {}
-  rpc DestroyWatch(FimdConfig) returns (Empty) {}
-  rpc GetWatchState(Empty) returns (stream FimdHandle) {}
-  rpc RecordMetrics(Empty) returns (stream FimdMetricsHandle) {}
+service Argusd {
+  rpc CreateWatch(ArgusdConfig) returns (ArgusdHandle) {}
+  rpc DestroyWatch(ArgusdConfig) returns (Empty) {}
+  rpc GetWatchState(Empty) returns (stream ArgusdHandle) {}
+  rpc RecordMetrics(Empty) returns (stream ArgusdMetricsHandle) {}
 }
 
-message FimdConfig {
+message ArgusdConfig {
   string name = 1;
   string nodeName = 2;
   string podName = 3;
   repeated int32 pid = 4;
   repeated string cid = 5;
-  repeated FimWatcherSubject subject = 6;
+  repeated ArgusWatcherSubject subject = 6;
   string logFormat = 7;
 }
 
-message FimWatcherSubject {
+message ArgusWatcherSubject {
   repeated string path = 1;
   repeated string event = 2;
   repeated string ignore = 3;
@@ -29,7 +29,7 @@ message FimWatcherSubject {
   map<string, string> tags = 7;
 }
 
-message FimdHandle {
+message ArgusdHandle {
   string nodeName = 1;
   string podName = 2;
   repeated int32 pid = 3;
@@ -37,8 +37,8 @@ message FimdHandle {
   int32 mqFd = 5;
 }
 
-message FimdMetricsHandle {
-  string fimWatcher = 1;
+message ArgusdMetricsHandle {
+  string argusWatcher = 1;
   string event = 2;
   string nodeName = 3;
 }
