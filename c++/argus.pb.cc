@@ -195,7 +195,6 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::argus::ArgusdHandle, podname_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::argus::ArgusdHandle, pid_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::argus::ArgusdHandle, processeventfd_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::argus::ArgusdHandle, mqfd_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::argus::ArgusdMetricsHandle, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -215,8 +214,8 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 12, 19, sizeof(::argus::ArgusWatcherSubject_TagsEntry_DoNotUse)},
   { 21, -1, sizeof(::argus::ArgusWatcherSubject)},
   { 33, -1, sizeof(::argus::ArgusdHandle)},
-  { 43, -1, sizeof(::argus::ArgusdMetricsHandle)},
-  { 51, -1, sizeof(::argus::Empty)},
+  { 42, -1, sizeof(::argus::ArgusdMetricsHandle)},
+  { 50, -1, sizeof(::argus::Empty)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -258,21 +257,21 @@ void AddDescriptorsImpl() {
       "\003 \003(\t\022\017\n\007onlyDir\030\004 \001(\010\022\021\n\trecursive\030\005 \001("
       "\010\022\020\n\010maxDepth\030\006 \001(\005\0222\n\004tags\030\007 \003(\0132$.argu"
       "s.ArgusWatcherSubject.TagsEntry\032+\n\tTagsE"
-      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"d\n\014"
+      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"V\n\014"
       "ArgusdHandle\022\020\n\010nodeName\030\001 \001(\t\022\017\n\007podNam"
       "e\030\002 \001(\t\022\013\n\003pid\030\003 \003(\005\022\026\n\016processEventfd\030\004"
-      " \003(\005\022\014\n\004mqFd\030\005 \001(\005\"L\n\023ArgusdMetricsHandl"
-      "e\022\024\n\014argusWatcher\030\001 \001(\t\022\r\n\005event\030\002 \001(\t\022\020"
-      "\n\010nodeName\030\003 \001(\t\"\007\n\005Empty2\357\001\n\006Argusd\0229\n\013"
-      "CreateWatch\022\023.argus.ArgusdConfig\032\023.argus"
-      ".ArgusdHandle\"\000\0223\n\014DestroyWatch\022\023.argus."
-      "ArgusdConfig\032\014.argus.Empty\"\000\0226\n\rGetWatch"
-      "State\022\014.argus.Empty\032\023.argus.ArgusdHandle"
-      "\"\0000\001\022=\n\rRecordMetrics\022\014.argus.Empty\032\032.ar"
-      "gus.ArgusdMetricsHandle\"\0000\001b\006proto3"
+      " \003(\005\"L\n\023ArgusdMetricsHandle\022\024\n\014argusWatc"
+      "her\030\001 \001(\t\022\r\n\005event\030\002 \001(\t\022\020\n\010nodeName\030\003 \001"
+      "(\t\"\007\n\005Empty2\357\001\n\006Argusd\0229\n\013CreateWatch\022\023."
+      "argus.ArgusdConfig\032\023.argus.ArgusdHandle\""
+      "\000\0223\n\014DestroyWatch\022\023.argus.ArgusdConfig\032\014"
+      ".argus.Empty\"\000\0226\n\rGetWatchState\022\014.argus."
+      "Empty\032\023.argus.ArgusdHandle\"\0000\001\022=\n\rRecord"
+      "Metrics\022\014.argus.Empty\032\032.argus.ArgusdMetr"
+      "icsHandle\"\0000\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 835);
+      descriptor, 821);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "argus.proto", &protobuf_RegisterTypes);
 }
@@ -1494,7 +1493,6 @@ const int ArgusdHandle::kNodeNameFieldNumber;
 const int ArgusdHandle::kPodNameFieldNumber;
 const int ArgusdHandle::kPidFieldNumber;
 const int ArgusdHandle::kProcessEventfdFieldNumber;
-const int ArgusdHandle::kMqFdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 ArgusdHandle::ArgusdHandle()
@@ -1518,14 +1516,12 @@ ArgusdHandle::ArgusdHandle(const ArgusdHandle& from)
   if (from.podname().size() > 0) {
     podname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.podname_);
   }
-  mqfd_ = from.mqfd_;
   // @@protoc_insertion_point(copy_constructor:argus.ArgusdHandle)
 }
 
 void ArgusdHandle::SharedCtor() {
   nodename_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   podname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  mqfd_ = 0;
 }
 
 ArgusdHandle::~ArgusdHandle() {
@@ -1562,7 +1558,6 @@ void ArgusdHandle::Clear() {
   processeventfd_.Clear();
   nodename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   podname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  mqfd_ = 0;
   _internal_metadata_.Clear();
 }
 
@@ -1646,20 +1641,6 @@ bool ArgusdHandle::MergePartialFromCodedStream(
         break;
       }
 
-      // int32 mqFd = 5;
-      case 5: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &mqfd_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -1728,11 +1709,6 @@ void ArgusdHandle::SerializeWithCachedSizes(
       this->processeventfd(i), output);
   }
 
-  // int32 mqFd = 5;
-  if (this->mqfd() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->mqfd(), output);
-  }
-
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -1793,11 +1769,6 @@ void ArgusdHandle::SerializeWithCachedSizes(
             _processeventfd_cached_byte_size_), target);
     target = ::google::protobuf::internal::WireFormatLite::
       WriteInt32NoTagToArray(this->processeventfd_, target);
-  }
-
-  // int32 mqFd = 5;
-  if (this->mqfd() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->mqfd(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1863,13 +1834,6 @@ size_t ArgusdHandle::ByteSizeLong() const {
         this->podname());
   }
 
-  // int32 mqFd = 5;
-  if (this->mqfd() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->mqfd());
-  }
-
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
@@ -1907,9 +1871,6 @@ void ArgusdHandle::MergeFrom(const ArgusdHandle& from) {
 
     podname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.podname_);
   }
-  if (from.mqfd() != 0) {
-    set_mqfd(from.mqfd());
-  }
 }
 
 void ArgusdHandle::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1942,7 +1903,6 @@ void ArgusdHandle::InternalSwap(ArgusdHandle* other) {
     GetArenaNoVirtual());
   podname_.Swap(&other->podname_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
-  swap(mqfd_, other->mqfd_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 

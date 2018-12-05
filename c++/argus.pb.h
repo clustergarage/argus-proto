@@ -650,12 +650,6 @@ class ArgusdHandle : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::std::string* release_podname();
   void set_allocated_podname(::std::string* podname);
 
-  // int32 mqFd = 5;
-  void clear_mqfd();
-  static const int kMqFdFieldNumber = 5;
-  ::google::protobuf::int32 mqfd() const;
-  void set_mqfd(::google::protobuf::int32 value);
-
   // @@protoc_insertion_point(class_scope:argus.ArgusdHandle)
  private:
 
@@ -666,7 +660,6 @@ class ArgusdHandle : public ::google::protobuf::Message /* @@protoc_insertion_po
   mutable int _processeventfd_cached_byte_size_;
   ::google::protobuf::internal::ArenaStringPtr nodename_;
   ::google::protobuf::internal::ArenaStringPtr podname_;
-  ::google::protobuf::int32 mqfd_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_argus_2eproto::TableStruct;
 };
@@ -1700,20 +1693,6 @@ inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
 ArgusdHandle::mutable_processeventfd() {
   // @@protoc_insertion_point(field_mutable_list:argus.ArgusdHandle.processEventfd)
   return &processeventfd_;
-}
-
-// int32 mqFd = 5;
-inline void ArgusdHandle::clear_mqfd() {
-  mqfd_ = 0;
-}
-inline ::google::protobuf::int32 ArgusdHandle::mqfd() const {
-  // @@protoc_insertion_point(field_get:argus.ArgusdHandle.mqFd)
-  return mqfd_;
-}
-inline void ArgusdHandle::set_mqfd(::google::protobuf::int32 value) {
-  
-  mqfd_ = value;
-  // @@protoc_insertion_point(field_set:argus.ArgusdHandle.mqFd)
 }
 
 // -------------------------------------------------------------------
