@@ -463,10 +463,10 @@ class ArgusWatcherSubject : public ::google::protobuf::Message /* @@protoc_inser
   const ::google::protobuf::RepeatedPtrField< ::std::string>& ignore() const;
   ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_ignore();
 
-  // map<string, string> tags = 7;
+  // map<string, string> tags = 8;
   int tags_size() const;
   void clear_tags();
-  static const int kTagsFieldNumber = 7;
+  static const int kTagsFieldNumber = 8;
   const ::google::protobuf::Map< ::std::string, ::std::string >&
       tags() const;
   ::google::protobuf::Map< ::std::string, ::std::string >*
@@ -483,6 +483,12 @@ class ArgusWatcherSubject : public ::google::protobuf::Message /* @@protoc_inser
   static const int kRecursiveFieldNumber = 5;
   bool recursive() const;
   void set_recursive(bool value);
+
+  // bool followMove = 7;
+  void clear_followmove();
+  static const int kFollowMoveFieldNumber = 7;
+  bool followmove() const;
+  void set_followmove(bool value);
 
   // int32 maxDepth = 6;
   void clear_maxdepth();
@@ -505,6 +511,7 @@ class ArgusWatcherSubject : public ::google::protobuf::Message /* @@protoc_inser
       0 > tags_;
   bool onlydir_;
   bool recursive_;
+  bool followmove_;
   ::google::protobuf::int32 maxdepth_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_argus_2eproto::TableStruct;
@@ -1507,7 +1514,21 @@ inline void ArgusWatcherSubject::set_maxdepth(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:argus.ArgusWatcherSubject.maxDepth)
 }
 
-// map<string, string> tags = 7;
+// bool followMove = 7;
+inline void ArgusWatcherSubject::clear_followmove() {
+  followmove_ = false;
+}
+inline bool ArgusWatcherSubject::followmove() const {
+  // @@protoc_insertion_point(field_get:argus.ArgusWatcherSubject.followMove)
+  return followmove_;
+}
+inline void ArgusWatcherSubject::set_followmove(bool value) {
+  
+  followmove_ = value;
+  // @@protoc_insertion_point(field_set:argus.ArgusWatcherSubject.followMove)
+}
+
+// map<string, string> tags = 8;
 inline int ArgusWatcherSubject::tags_size() const {
   return tags_.size();
 }

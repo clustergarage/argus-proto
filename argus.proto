@@ -26,7 +26,8 @@ message ArgusWatcherSubject {
   bool onlyDir = 4;
   bool recursive = 5;
   int32 maxDepth = 6;
-  map<string, string> tags = 7;
+  bool followMove = 7;
+  map<string, string> tags = 8;
 }
 
 message ArgusdHandle {

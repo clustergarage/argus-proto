@@ -185,6 +185,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::argus::ArgusWatcherSubject, onlydir_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::argus::ArgusWatcherSubject, recursive_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::argus::ArgusWatcherSubject, maxdepth_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::argus::ArgusWatcherSubject, followmove_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::argus::ArgusWatcherSubject, tags_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::argus::ArgusdHandle, _internal_metadata_),
@@ -213,9 +214,9 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 0, -1, sizeof(::argus::ArgusdConfig)},
   { 12, 19, sizeof(::argus::ArgusWatcherSubject_TagsEntry_DoNotUse)},
   { 21, -1, sizeof(::argus::ArgusWatcherSubject)},
-  { 33, -1, sizeof(::argus::ArgusdHandle)},
-  { 42, -1, sizeof(::argus::ArgusdMetricsHandle)},
-  { 50, -1, sizeof(::argus::Empty)},
+  { 34, -1, sizeof(::argus::ArgusdHandle)},
+  { 43, -1, sizeof(::argus::ArgusdMetricsHandle)},
+  { 51, -1, sizeof(::argus::Empty)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -252,26 +253,27 @@ void AddDescriptorsImpl() {
       "\004name\030\001 \001(\t\022\020\n\010nodeName\030\002 \001(\t\022\017\n\007podName"
       "\030\003 \001(\t\022\013\n\003pid\030\004 \003(\005\022\013\n\003cid\030\005 \003(\t\022+\n\007subj"
       "ect\030\006 \003(\0132\032.argus.ArgusWatcherSubject\022\021\n"
-      "\tlogFormat\030\007 \001(\t\"\331\001\n\023ArgusWatcherSubject"
+      "\tlogFormat\030\007 \001(\t\"\355\001\n\023ArgusWatcherSubject"
       "\022\014\n\004path\030\001 \003(\t\022\r\n\005event\030\002 \003(\t\022\016\n\006ignore\030"
       "\003 \003(\t\022\017\n\007onlyDir\030\004 \001(\010\022\021\n\trecursive\030\005 \001("
-      "\010\022\020\n\010maxDepth\030\006 \001(\005\0222\n\004tags\030\007 \003(\0132$.argu"
-      "s.ArgusWatcherSubject.TagsEntry\032+\n\tTagsE"
-      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"V\n\014"
-      "ArgusdHandle\022\020\n\010nodeName\030\001 \001(\t\022\017\n\007podNam"
-      "e\030\002 \001(\t\022\013\n\003pid\030\003 \003(\005\022\026\n\016processEventfd\030\004"
-      " \003(\005\"L\n\023ArgusdMetricsHandle\022\024\n\014argusWatc"
-      "her\030\001 \001(\t\022\r\n\005event\030\002 \001(\t\022\020\n\010nodeName\030\003 \001"
-      "(\t\"\007\n\005Empty2\357\001\n\006Argusd\0229\n\013CreateWatch\022\023."
-      "argus.ArgusdConfig\032\023.argus.ArgusdHandle\""
-      "\000\0223\n\014DestroyWatch\022\023.argus.ArgusdConfig\032\014"
-      ".argus.Empty\"\000\0226\n\rGetWatchState\022\014.argus."
-      "Empty\032\023.argus.ArgusdHandle\"\0000\001\022=\n\rRecord"
-      "Metrics\022\014.argus.Empty\032\032.argus.ArgusdMetr"
-      "icsHandle\"\0000\001b\006proto3"
+      "\010\022\020\n\010maxDepth\030\006 \001(\005\022\022\n\nfollowMove\030\007 \001(\010\022"
+      "2\n\004tags\030\010 \003(\0132$.argus.ArgusWatcherSubjec"
+      "t.TagsEntry\032+\n\tTagsEntry\022\013\n\003key\030\001 \001(\t\022\r\n"
+      "\005value\030\002 \001(\t:\0028\001\"V\n\014ArgusdHandle\022\020\n\010node"
+      "Name\030\001 \001(\t\022\017\n\007podName\030\002 \001(\t\022\013\n\003pid\030\003 \003(\005"
+      "\022\026\n\016processEventfd\030\004 \003(\005\"L\n\023ArgusdMetric"
+      "sHandle\022\024\n\014argusWatcher\030\001 \001(\t\022\r\n\005event\030\002"
+      " \001(\t\022\020\n\010nodeName\030\003 \001(\t\"\007\n\005Empty2\357\001\n\006Argu"
+      "sd\0229\n\013CreateWatch\022\023.argus.ArgusdConfig\032\023"
+      ".argus.ArgusdHandle\"\000\0223\n\014DestroyWatch\022\023."
+      "argus.ArgusdConfig\032\014.argus.Empty\"\000\0226\n\rGe"
+      "tWatchState\022\014.argus.Empty\032\023.argus.Argusd"
+      "Handle\"\0000\001\022=\n\rRecordMetrics\022\014.argus.Empt"
+      "y\032\032.argus.ArgusdMetricsHandle\"\0000\001b\006proto"
+      "3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 821);
+      descriptor, 841);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "argus.proto", &protobuf_RegisterTypes);
 }
@@ -892,6 +894,7 @@ const int ArgusWatcherSubject::kIgnoreFieldNumber;
 const int ArgusWatcherSubject::kOnlyDirFieldNumber;
 const int ArgusWatcherSubject::kRecursiveFieldNumber;
 const int ArgusWatcherSubject::kMaxDepthFieldNumber;
+const int ArgusWatcherSubject::kFollowMoveFieldNumber;
 const int ArgusWatcherSubject::kTagsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -1063,10 +1066,24 @@ bool ArgusWatcherSubject::MergePartialFromCodedStream(
         break;
       }
 
-      // map<string, string> tags = 7;
+      // bool followMove = 7;
       case 7: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(58u /* 58 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(56u /* 56 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &followmove_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // map<string, string> tags = 8;
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(66u /* 66 & 0xFF */)) {
           ArgusWatcherSubject_TagsEntry_DoNotUse::Parser< ::google::protobuf::internal::MapField<
               ArgusWatcherSubject_TagsEntry_DoNotUse,
               ::std::string, ::std::string,
@@ -1161,7 +1178,12 @@ void ArgusWatcherSubject::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->maxdepth(), output);
   }
 
-  // map<string, string> tags = 7;
+  // bool followMove = 7;
+  if (this->followmove() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(7, this->followmove(), output);
+  }
+
+  // map<string, string> tags = 8;
   if (!this->tags().empty()) {
     typedef ::google::protobuf::Map< ::std::string, ::std::string >::const_pointer
         ConstPtr;
@@ -1197,7 +1219,7 @@ void ArgusWatcherSubject::SerializeWithCachedSizes(
         entry.reset(tags_.NewEntryWrapper(
             items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
         ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-            7, *entry, output);
+            8, *entry, output);
         Utf8Check::Check(items[static_cast<ptrdiff_t>(i)]);
       }
     } else {
@@ -1208,7 +1230,7 @@ void ArgusWatcherSubject::SerializeWithCachedSizes(
         entry.reset(tags_.NewEntryWrapper(
             it->first, it->second));
         ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-            7, *entry, output);
+            8, *entry, output);
         Utf8Check::Check(&*it);
       }
     }
@@ -1273,7 +1295,12 @@ void ArgusWatcherSubject::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->maxdepth(), target);
   }
 
-  // map<string, string> tags = 7;
+  // bool followMove = 7;
+  if (this->followmove() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(7, this->followmove(), target);
+  }
+
+  // map<string, string> tags = 8;
   if (!this->tags().empty()) {
     typedef ::google::protobuf::Map< ::std::string, ::std::string >::const_pointer
         ConstPtr;
@@ -1310,7 +1337,7 @@ void ArgusWatcherSubject::SerializeWithCachedSizes(
             items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
         target = ::google::protobuf::internal::WireFormatLite::
                    InternalWriteMessageNoVirtualToArray(
-                       7, *entry, deterministic, target);
+                       8, *entry, deterministic, target);
 ;
         Utf8Check::Check(items[static_cast<ptrdiff_t>(i)]);
       }
@@ -1323,7 +1350,7 @@ void ArgusWatcherSubject::SerializeWithCachedSizes(
             it->first, it->second));
         target = ::google::protobuf::internal::WireFormatLite::
                    InternalWriteMessageNoVirtualToArray(
-                       7, *entry, deterministic, target);
+                       8, *entry, deterministic, target);
 ;
         Utf8Check::Check(&*it);
       }
@@ -1371,7 +1398,7 @@ size_t ArgusWatcherSubject::ByteSizeLong() const {
       this->ignore(i));
   }
 
-  // map<string, string> tags = 7;
+  // map<string, string> tags = 8;
   total_size += 1 *
       ::google::protobuf::internal::FromIntSize(this->tags_size());
   {
@@ -1392,6 +1419,11 @@ size_t ArgusWatcherSubject::ByteSizeLong() const {
 
   // bool recursive = 5;
   if (this->recursive() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // bool followMove = 7;
+  if (this->followmove() != 0) {
     total_size += 1 + 1;
   }
 
@@ -1439,6 +1471,9 @@ void ArgusWatcherSubject::MergeFrom(const ArgusWatcherSubject& from) {
   if (from.recursive() != 0) {
     set_recursive(from.recursive());
   }
+  if (from.followmove() != 0) {
+    set_followmove(from.followmove());
+  }
   if (from.maxdepth() != 0) {
     set_maxdepth(from.maxdepth());
   }
@@ -1474,6 +1509,7 @@ void ArgusWatcherSubject::InternalSwap(ArgusWatcherSubject* other) {
   tags_.Swap(&other->tags_);
   swap(onlydir_, other->onlydir_);
   swap(recursive_, other->recursive_);
+  swap(followmove_, other->followmove_);
   swap(maxdepth_, other->maxdepth_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
