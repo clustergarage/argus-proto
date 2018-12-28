@@ -617,18 +617,6 @@ class ArgusdHandle : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_pid();
 
-  // repeated int32 processEventfd = 4;
-  int processeventfd_size() const;
-  void clear_processeventfd();
-  static const int kProcessEventfdFieldNumber = 4;
-  ::google::protobuf::int32 processeventfd(int index) const;
-  void set_processeventfd(int index, ::google::protobuf::int32 value);
-  void add_processeventfd(::google::protobuf::int32 value);
-  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      processeventfd() const;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_processeventfd();
-
   // string nodeName = 1;
   void clear_nodename();
   static const int kNodeNameFieldNumber = 1;
@@ -663,8 +651,6 @@ class ArgusdHandle : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > pid_;
   mutable int _pid_cached_byte_size_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > processeventfd_;
-  mutable int _processeventfd_cached_byte_size_;
   ::google::protobuf::internal::ArenaStringPtr nodename_;
   ::google::protobuf::internal::ArenaStringPtr podname_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
@@ -1684,36 +1670,6 @@ inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
 ArgusdHandle::mutable_pid() {
   // @@protoc_insertion_point(field_mutable_list:argus.ArgusdHandle.pid)
   return &pid_;
-}
-
-// repeated int32 processEventfd = 4;
-inline int ArgusdHandle::processeventfd_size() const {
-  return processeventfd_.size();
-}
-inline void ArgusdHandle::clear_processeventfd() {
-  processeventfd_.Clear();
-}
-inline ::google::protobuf::int32 ArgusdHandle::processeventfd(int index) const {
-  // @@protoc_insertion_point(field_get:argus.ArgusdHandle.processEventfd)
-  return processeventfd_.Get(index);
-}
-inline void ArgusdHandle::set_processeventfd(int index, ::google::protobuf::int32 value) {
-  processeventfd_.Set(index, value);
-  // @@protoc_insertion_point(field_set:argus.ArgusdHandle.processEventfd)
-}
-inline void ArgusdHandle::add_processeventfd(::google::protobuf::int32 value) {
-  processeventfd_.Add(value);
-  // @@protoc_insertion_point(field_add:argus.ArgusdHandle.processEventfd)
-}
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-ArgusdHandle::processeventfd() const {
-  // @@protoc_insertion_point(field_list:argus.ArgusdHandle.processEventfd)
-  return processeventfd_;
-}
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-ArgusdHandle::mutable_processeventfd() {
-  // @@protoc_insertion_point(field_mutable_list:argus.ArgusdHandle.processEventfd)
-  return &processeventfd_;
 }
 
 // -------------------------------------------------------------------

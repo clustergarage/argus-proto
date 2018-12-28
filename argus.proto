@@ -34,7 +34,6 @@ message ArgusdHandle {
   string nodeName = 1;
   string podName = 2;
   repeated int32 pid = 3;
-  repeated int32 processEventfd = 4;
 }
 
 message ArgusdMetricsHandle {
